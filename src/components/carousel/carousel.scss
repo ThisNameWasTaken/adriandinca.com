@@ -1,0 +1,142 @@
+$carousel-aspect-ratio: percentage(800/1330);
+$carousel-max-width: 1330px;
+$slides: 'performance', 'reliability', 'accessibility';
+$slide-animation-duration: 6s;
+$slide-change-duration: 1s;
+$slide-ease: ease;
+
+.carousel {
+  position: relative;
+  display: flex;
+  width: 100%;
+  max-width: $carousel-max-width;
+  &__inner {
+    width: 100%;
+    padding-top: $carousel-aspect-ratio;
+    margin: auto;
+    position: relative;
+  }
+  &__slide {
+    position: absolute;
+    display: block;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    &__inner {
+      width: 100%;
+      height: 100%;
+      display: block;
+      position: relative;
+    }
+    &__layer {
+      display: block;
+      position: absolute;
+      &--center {
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      &--top-left {
+        top: 0;
+        left: 0;
+      }
+      &--top-right {
+        top: 0;
+        right: 0;
+      }
+      &--bottom-left {
+        bottom: 0;
+        left: 0;
+      }
+      &--bottom-right {
+        bottom: 0;
+        right: 0;
+      }
+    }
+  }
+}
+
+$carousel-animation-duration: length($slides) * $slide-animation-duration;
+@each $slide in $slides {
+  $i: index($slides, $slide); // Index starts at 1.
+  $isFirstSlide: $i == 1;
+
+  .carousel__slide--#{$slide} {
+    transform: translateY(100vh);
+    animation: scroll-slide--#{$slide}
+        $carousel-animation-duration
+        $slide-ease
+        $slide-change-duration
+        infinite,
+      if(
+        $isFirstSlide,
+        scroll-slide--first $slide-change-duration $slide-ease,
+        null
+      );
+  }
+
+  // The percentage that animating the current slide
+  // takes form the whole animation.
+  $animation-percentage: 100 / length($slides);
+
+  // The percentage that animating the enter or exit
+  // of the current slide takes form the whole animation.
+  $change-percentage: percentage(
+    $slide-change-duration / $carousel-animation-duration
+  );
+
+  $enter-animation-start: ($i - 1) *
+    $animation-percentage -
+    $change-percentage +
+    if($isFirstSlide, 100%, 0%);
+
+  $enter-animation-end: percentage(($i - 1) * $animation-percentage / 100);
+
+  $exit-animation-start: $i * $animation-percentage - $change-percentage;
+
+  $exit-animation-end: percentage($i * $animation-percentage / 100);
+
+  @keyframes scroll-slide--#{$slide} {
+    // TODO: consider setting opacity to 0.
+    @if ($isFirstSlide) {
+      #{$enter-animation-start - 0.00001%} {
+        transform: translateY(-100vh);
+      }
+    }
+
+    #{$enter-animation-start} {
+      transform: translateY(100vh);
+    }
+
+    #{$enter-animation-end} {
+      transform: translateY(0);
+    }
+
+    #{$exit-animation-start} {
+      transform: translateY(0);
+    }
+
+    #{$exit-animation-end} {
+      transform: translateY(-100vh);
+    }
+
+    100% {
+      transform: translateY(if($isFirstSlide, 0, -100vh));
+    }
+  }
+}
+
+@keyframes scroll-slide--first {
+  from {
+    transform: translateY(100vh);
+  }
+
+  to {
+    transform: translateY(0);
+  }
+}

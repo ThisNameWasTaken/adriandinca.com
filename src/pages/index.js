@@ -2,18 +2,44 @@ import React from 'react';
 import { Link } from 'gatsby';
 
 import Layout from '../components/layout';
-import Image from '../components/image';
 import SEO from '../components/seo';
+import Hero from '../components/hero';
+import Carousel, { Slide, Layer } from '../components/carousel';
 
 const IndexPage = () => (
   <Layout>
     <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
-    <h1>Hi people</h1>
-    <p>Welcome to your new Gatsby site.</p>
-    <p>Now go build something great.</p>
-    <div style={{ maxWidth: `300px`, marginBottom: `1.45rem` }}>
-      <Image />
-    </div>
+    <Hero>
+      <Carousel>
+        <Slide className="carousel__slide--performance">
+          <Layer center style={{ textTransform: 'uppercase' }}>
+            performance
+          </Layer>
+          <Layer topLeft>topLeft</Layer>
+          <Layer topRight>topRight</Layer>
+          <Layer bottomLeft>bottomLeft</Layer>
+          <Layer bottomRight>bottomRight</Layer>
+        </Slide>
+        <Slide className="carousel__slide--reliability">
+          <Layer center style={{ textTransform: 'uppercase' }}>
+            reliability
+          </Layer>
+          <Layer topLeft>topLeft</Layer>
+          <Layer topRight>topRight</Layer>
+          <Layer bottomLeft>bottomLeft</Layer>
+          <Layer bottomRight>bottomRight</Layer>
+        </Slide>
+        <Slide className="carousel__slide--accessibility">
+          <Layer center style={{ textTransform: 'uppercase' }}>
+            accessibility
+          </Layer>
+          <Layer topLeft>topLeft</Layer>
+          <Layer topRight>topRight</Layer>
+          <Layer bottomLeft>bottomLeft</Layer>
+          <Layer bottomRight>bottomRight</Layer>
+        </Slide>
+      </Carousel>
+    </Hero>
     <Link to="/page-2/">Go to page 2</Link>
   </Layout>
 );
