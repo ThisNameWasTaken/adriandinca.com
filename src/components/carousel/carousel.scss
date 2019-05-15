@@ -32,6 +32,8 @@ $slide-ease: ease;
     &__layer {
       display: block;
       position: absolute;
+      will-change: transform;
+      transform: translateY(100vh);
       &--center {
         top: 0;
         left: 0;
@@ -62,24 +64,24 @@ $slide-ease: ease;
 }
 
 $carousel-animation-duration: length($slides) * $slide-animation-duration;
-@each $slide in $slides {
+
+@mixin scroll-animation($easing, $slide) {
   $i: index($slides, $slide); // Index starts at 1.
   $isFirstSlide: $i == 1;
 
-  .carousel__slide--#{$slide} {
-    will-change: transform;
-    transform: translateY(100vh);
-    animation: scroll-slide--#{$slide}
-        $carousel-animation-duration
-        $slide-ease
-        $slide-change-duration
-        infinite,
-      if(
-        $isFirstSlide,
-        scroll-slide--first $slide-change-duration $slide-ease 1,
-        null
-      );
-  }
+  animation: scroll-slide--#{$slide} $carousel-animation-duration $easing $slide-change-duration
+      infinite,
+    if(
+      $isFirstSlide,
+      scroll-slide--first $slide-change-duration $easing 1,
+      null
+    );
+}
+
+// Create animations.
+@each $slide in $slides {
+  $i: index($slides, $slide); // Index starts at 1.
+  $isFirstSlide: $i == 1;
 
   // The percentage that animating the current slide
   // takes form the whole animation.
@@ -139,5 +141,16 @@ $carousel-animation-duration: length($slides) * $slide-animation-duration;
 
   to {
     transform: translateY(0);
+  }
+}
+
+.carousel {
+  &__slide {
+    // Defaults.
+    @each $slide in $slides {
+      &--#{$slide} > &__inner > &__layer {
+        @include scroll-animation(ease, $slide);
+      }
+    }
   }
 }
