@@ -1,9 +1,5 @@
-$carousel-aspect-ratio: percentage(800/1330);
-$carousel-max-width: 1330px;
-$slides: 'performance', 'reliability', 'accessibility';
-$slide-animation-duration: 6s;
-$slide-change-duration: 1s;
-$slide-ease: ease;
+@import './variables.scss';
+@import './mixins.scss';
 
 .carousel {
   position: relative;
@@ -60,93 +56,7 @@ $slide-ease: ease;
         right: 0;
       }
     }
-  }
-}
-
-$carousel-animation-duration: length($slides) * $slide-animation-duration;
-
-@mixin scroll-animation($easing, $slide) {
-  $i: index($slides, $slide); // Index starts at 1.
-  $isFirstSlide: $i == 1;
-
-  animation: scroll-slide--#{$slide} $carousel-animation-duration $easing $slide-change-duration
-      infinite,
-    if(
-      $isFirstSlide,
-      scroll-slide--first $slide-change-duration $easing 1,
-      null
-    );
-}
-
-// Create animations.
-@each $slide in $slides {
-  $i: index($slides, $slide); // Index starts at 1.
-  $isFirstSlide: $i == 1;
-
-  // The percentage that animating the current slide
-  // takes form the whole animation.
-  $animation-percentage: 100 / length($slides);
-
-  // The percentage that animating the enter or exit
-  // of the current slide takes form the whole animation.
-  $change-percentage: percentage(
-    $slide-change-duration / $carousel-animation-duration
-  );
-
-  $enter-animation-start: ($i - 1) *
-    $animation-percentage -
-    $change-percentage +
-    if($isFirstSlide, 100%, 0%);
-
-  $enter-animation-end: percentage(($i - 1) * $animation-percentage / 100);
-
-  $exit-animation-start: $i * $animation-percentage - $change-percentage;
-
-  $exit-animation-end: percentage($i * $animation-percentage / 100);
-
-  @keyframes scroll-slide--#{$slide} {
-    // TODO: consider setting opacity to 0.
-    @if ($isFirstSlide) {
-      #{$enter-animation-start - 0.00001%} {
-        transform: translateY(-100vh);
-      }
-    }
-
-    #{$enter-animation-start} {
-      transform: translateY(100vh);
-    }
-
-    #{$enter-animation-end} {
-      transform: translateY(0);
-    }
-
-    #{$exit-animation-start} {
-      transform: translateY(0);
-    }
-
-    #{$exit-animation-end} {
-      transform: translateY(-100vh);
-    }
-
-    100% {
-      transform: translateY(if($isFirstSlide, 0, -100vh));
-    }
-  }
-}
-
-@keyframes scroll-slide--first {
-  from {
-    transform: translateY(100vh);
-  }
-
-  to {
-    transform: translateY(0);
-  }
-}
-
-.carousel {
-  &__slide {
-    // Defaults.
+    // Default animations.
     @each $slide in $slides {
       &--#{$slide} > &__inner > &__layer {
         @include scroll-animation(ease, $slide);
