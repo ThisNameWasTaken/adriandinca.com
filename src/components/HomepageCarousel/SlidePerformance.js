@@ -20,18 +20,18 @@ import SlideBottomRightShapes from '../../images/inline/slide-performance-bottom
 const SlidePerformance = memo(
   () => (
     <Slide className="carousel__slide--performance">
-      <Layer center>
+      <Layer center className="carousel__slide__layer--image">
         <Image
           src="../../images/slide-performance.jpg"
           className="homepage-carousel__image"
         />
       </Layer>
-      <Layer topLeft>
+      <Layer topLeft className="carousel__slide__layer--lightning">
         <picture>
           <SlideTopLeftLightning />
         </picture>
       </Layer>
-      <Layer topLeft>
+      <Layer topLeft className="carousel__slide__layer--top-left-shapes">
         <picture>
           <SlideTopLeftShapes />
         </picture>
@@ -46,17 +46,20 @@ const SlidePerformance = memo(
           <SlideBottomLeft />
         </picture>
       </Layer>
-      <Layer bottomRight>
+      <Layer bottomRight className="carousel__slide__layer--raf">
         <picture>
           <SlideBottomRightRaf />
         </picture>
       </Layer>
-      <Layer bottomRight>
+      <Layer bottomRight className="carousel__slide__layer--60fps">
         <picture>
           <SlideBottomRight60Fps />
         </picture>
       </Layer>
-      <Layer bottomRight>
+      <Layer
+        bottomRight
+        className="carousel__slide__layer--bottom-right-shapes"
+      >
         <picture>
           <SlideBottomRightShapes />
         </picture>

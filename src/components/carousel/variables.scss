@@ -4,3 +4,18 @@ $slides: 'performance', 'reliability', 'accessibility';
 $slide-animation-duration: 6s;
 $slide-change-duration: 1s;
 $slide-ease: ease;
+
+$slides-easing-map: (
+  performance: (
+    lightning: cubic-bezier(0.34, 0, 0.26, 1),
+    top-left-shapes: cubic-bezier(0.17, 0, 0.12, 1),
+    image: cubic-bezier(0.24, 0, 0.16, 1),
+    top-right: cubic-bezier(0.12, 0, 0.06, 1),
+    bottom-left: cubic-bezier(0.36, 0, 0.4, 1),
+    raf: cubic-bezier(0.24, 0, 0.16, 1),
+    60fps: cubic-bezier(0.12, 0, 0.4, 1),
+    bottom-right-shapes: cubic-bezier(0.34, 0, 0.26, 1),
+  ),
+  reliability: (),
+  accessibility: (),
+);

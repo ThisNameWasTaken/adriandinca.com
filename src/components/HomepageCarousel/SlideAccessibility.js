@@ -5,13 +5,13 @@ import Image from '../image';
 const SlideAccessibility = memo(
   () => (
     <Slide className="carousel__slide--accessibility">
-      <Layer center>
+      <Layer center className="carousel__slide__layer--image">
         <Image
           src="../../images/slide-accessibility.jpg"
           className="homepage-carousel__image"
         />
       </Layer>
-      <Layer topLeft>
+      <Layer topLeft className="carousel__slide__layer--top-left">
         <picture>
           <Image
             src="../../images/slide-accessibility-top-left.svg"
@@ -19,7 +19,7 @@ const SlideAccessibility = memo(
           />
         </picture>
       </Layer>
-      <Layer topRight>
+      <Layer topRight className="carousel__slide__layer--top-right">
         <picture>
           <Image
             src="../../images/slide-accessibility-top-right.svg"
@@ -27,7 +27,7 @@ const SlideAccessibility = memo(
           />
         </picture>
       </Layer>
-      <Layer bottomLeft>
+      <Layer bottomLeft className="carousel__slide__layer--bottom-left">
         <picture>
           <Image
             src="../../images/slide-accessibility-bottom-left.svg"
@@ -35,7 +35,7 @@ const SlideAccessibility = memo(
           />
         </picture>
       </Layer>
-      <Layer bottomRight>
+      <Layer bottomRight className="carousel__slide__layer--eye">
         <picture>
           <Image
             src="../../images/slide-accessibility-bottom-right-eye.svg"
@@ -43,7 +43,7 @@ const SlideAccessibility = memo(
           />
         </picture>
       </Layer>
-      <Layer bottomRight>
+      <Layer bottomRight className="carousel__slide__layer--voice">
         <picture>
           <Image
             src="../../images/slide-accessibility-bottom-right-voice.svg"

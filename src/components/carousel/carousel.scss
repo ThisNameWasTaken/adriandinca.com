@@ -56,10 +56,15 @@
         right: 0;
       }
     }
-    // Default animations.
-    @each $slide in $slides {
+    @each $slide, $layers-easing-map in $slides-easing-map {
+      // Default animation.
       &--#{$slide} > &__inner > &__layer {
         @include scroll-animation(ease, $slide);
+      }
+      @each $layer, $layer-easing in $layers-easing-map {
+        &--#{$slide} > &__inner > &__layer--#{$layer} {
+          @include scroll-animation($layer-easing, $slide);
+        }
       }
     }
   }
