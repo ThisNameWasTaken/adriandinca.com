@@ -2,16 +2,16 @@
 
 $carousel-animation-duration: length($slides) * $slide-animation-duration;
 
-@mixin scroll-animation($easing, $slide) {
+@mixin scroll-animation($slide, $easing: ease, $delay: 0s) {
   $i: index($slides, $slide) - 1; // Index starts at 1.
 
   animation: scroll-slide $carousel-animation-duration $easing
       // delay by the time it takes to scroll the previous slides
       // and to play the first slide enter animation
       $slide-animation-duration * $i + $slide-change-duration infinite,
-    scroll-slide--first-enter $slide-change-duration $easing
+    scroll-slide--first-enter $slide-change-duration + $delay $easing
       // delay by the time it takes to scroll the previous slides
-      $slide-animation-duration * $i 1;
+      $slide-animation-duration * $i + $delay 1;
 }
 
 // The percentage that animating the current slide

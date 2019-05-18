@@ -56,14 +56,13 @@
         right: 0;
       }
     }
-    @each $slide, $layers-easing-map in $slides-easing-map {
-      // Default animation.
-      &--#{$slide} > &__inner > &__layer {
-        @include scroll-animation(ease, $slide);
-      }
-      @each $layer, $layer-easing in $layers-easing-map {
+    @each $slide, $layers in $slides-easing-map {
+      @each $layer, $layer-easing-delay-map in $layers {
+        $easing: map-get($layer-easing-delay-map, easing);
+        $delay: map-get($layer-easing-delay-map, delay);
+
         &--#{$slide} > &__inner > &__layer--#{$layer} {
-          @include scroll-animation($layer-easing, $slide);
+          @include scroll-animation($slide, $easing, $delay);
         }
       }
     }
