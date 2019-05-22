@@ -6,121 +6,145 @@ $slide-ease: ease;
 $slides-easing-map: (
   performance: (
     lightning: (
-      easing: cubic-bezier(0.34, 0, 0.22, 1),
-      delay: 0s,
+      easing: cubic-bezier(0.25, 0, 0.25, 1),
+      delay: 0.3s,
     ),
     top-left-shapes: (
-      easing: cubic-bezier(0.22, 0, 0.24, 1),
+      easing: cubic-bezier(0.25, 0, 0.25, 1),
       delay: 0s,
     ),
     image: (
-      easing: cubic-bezier(0.18, 0, 0.36, 1),
-      delay: 0s,
+      easing: cubic-bezier(0.25, 0, 0.25, 1),
+      delay: 0.2s,
     ),
     top-right: (
-      easing: cubic-bezier(0.1, 0, 0.2, 1),
+      easing: cubic-bezier(0.25, 0, 0.25, 1),
       delay: 0s,
     ),
     bottom-left: (
-      easing: cubic-bezier(0.36, 0, 0.4, 1),
-      delay: 0s,
+      easing: cubic-bezier(0.25, 0, 0.25, 1),
+      delay: 0.3s,
     ),
     raf: (
-      easing: cubic-bezier(0.24, 0, 0.16, 1),
+      easing: cubic-bezier(0.25, 0, 0.25, 1),
       delay: 0s,
     ),
     60fps: (
-      easing: cubic-bezier(0.2, 0, 0.36, 1),
-      delay: 0s,
+      easing: cubic-bezier(0.25, 0, 0.25, 1),
+      delay: 0.1s,
     ),
     bottom-right-shapes: (
-      easing: cubic-bezier(0.3, 0, 0.25, 1),
-      delay: 0s,
+      easing: cubic-bezier(0.25, 0, 0.25, 1),
+      delay: 0.07s,
     ),
   ),
   reliability: (
     image: (
-      easing: cubic-bezier(0.18, 0, 0.36, 1),
+      easing: cubic-bezier(0.25, 0, 0.25, 1),
       delay: 0s,
     ),
     cloud: (
-      easing: cubic-bezier(0.34, 0, 0.26, 1),
+      easing: cubic-bezier(0.25, 0, 0.25, 1),
       delay: 0s,
     ),
     no-wi-fi: (
-      easing: cubic-bezier(0.22, 0, 0.48, 1),
+      easing: cubic-bezier(0.25, 0, 0.25, 1),
       delay: 0s,
     ),
     pwa-p: (
-      easing: cubic-bezier(0.12, 0, 0.28, 1),
+      easing: cubic-bezier(0.25, 0, 0.25, 1),
       delay: 0s,
     ),
     pwa-w: (
-      easing: cubic-bezier(0.145, 0, 0.32, 1),
-      delay: 0s,
+      easing: cubic-bezier(0.25, 0, 0.25, 1),
+      delay: 0.1s,
     ),
     pwa-a: (
-      easing: cubic-bezier(0.17, 0, 0.36, 1),
-      delay: 0s,
+      easing: cubic-bezier(0.25, 0, 0.25, 1),
+      delay: 0.2s,
     ),
     like: (
-      easing: cubic-bezier(0.12, 0, 0.4, 1),
+      easing: cubic-bezier(0.25, 0, 0.25, 1),
       delay: 0s,
     ),
     lock: (
-      easing: cubic-bezier(0.34, 0, 0.26, 1),
+      easing: cubic-bezier(0.25, 0, 0.25, 1),
       delay: 0s,
     ),
     server: (
-      easing: cubic-bezier(0.12, 0, 0.06, 1),
+      easing: cubic-bezier(0.25, 0, 0.25, 1),
       delay: 0s,
     ),
     dinosaur: (
-      easing: cubic-bezier(0.24, 0, 0.2, 1),
+      easing: cubic-bezier(0.25, 0, 0.25, 1),
       delay: 0s,
     ),
     sw: (
-      easing: cubic-bezier(0.12, 0, 0.08, 1),
+      easing: cubic-bezier(0.25, 0, 0.25, 1),
       delay: 0s,
     ),
     cogs: (
-      easing: cubic-bezier(0.24, 0, 0.16, 1),
+      easing: cubic-bezier(0.25, 0, 0.25, 1),
       delay: 0s,
     ),
     bottom-right: (
-      easing: cubic-bezier(0.36, 0, 0.4, 1),
-      delay: 0s,
+      easing: cubic-bezier(0.25, 0, 0.25, 1),
+      delay: 0.3s,
     ),
   ),
   accessibility: (
     image: (
-      easing: cubic-bezier(0.24, 0, 0.16, 1),
+      easing: cubic-bezier(0.25, 0, 0.25, 1),
       delay: 0s,
     ),
     top-left: (
-      easing: cubic-bezier(0.34, 0, 0.26, 1),
+      easing: cubic-bezier(0.25, 0, 0.25, 1),
       delay: 0s,
     ),
     top-right: (
-      easing: cubic-bezier(0.17, 0, 0.12, 1),
+      easing: cubic-bezier(0.25, 0, 0.25, 1),
       delay: 0s,
     ),
     bottom-left: (
-      easing: cubic-bezier(0.36, 0, 0.4, 1),
-      delay: 0s,
+      easing: cubic-bezier(0.25, 0, 0.25, 1),
+      delay: 0.3s,
     ),
     voice: (
-      easing: cubic-bezier(0.24, 0, 0.16, 1),
+      easing: cubic-bezier(0.25, 0, 0.25, 1),
       delay: 0s,
     ),
     eye: (
-      easing: cubic-bezier(0.12, 0, 0.4, 1),
+      easing: cubic-bezier(0.25, 0, 0.25, 1),
       delay: 0s,
     ),
   ),
 );
-$slides: ();
+$slides: map-keys($slides-easing-map);
 
-@each $slide, $map in $slides-easing-map {
-  $slides: append($slides, $slide);
+$start-delay: ();
+$max-delays: ();
+
+$delay-sum: 0s;
+@each $slide-name, $slide-map in $slides-easing-map {
+  $max-delay: 0s;
+  @each $layer-name, $layer-map in $slide-map {
+    $delay: map-get($layer-map, delay);
+    @if ($delay > $max-delay) {
+      $max-delay: $delay;
+    }
+  }
+  $start-delay: map-merge(
+    $start-delay,
+    (
+      $slide-name: $delay-sum,
+    )
+  );
+  $max-delays: map-merge(
+    $max-delays,
+    (
+      $slide-name: $max-delay,
+    )
+  );
+
+  $delay-sum: $delay-sum + $max-delay;
 }

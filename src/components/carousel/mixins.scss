@@ -1,62 +1,69 @@
-@import './variables.scss';
-
 $carousel-animation-duration: length($slides) * $slide-animation-duration;
 
 @mixin scroll-animation($slide, $easing: ease, $delay: 0s) {
   $i: index($slides, $slide) - 1; // Index starts at 1.
 
-  animation: scroll-slide $carousel-animation-duration $easing
-      // delay by the time it takes to scroll the previous slides
-      // and to play the first slide enter animation
-      $slide-animation-duration * $i + $slide-change-duration infinite,
-    scroll-slide--first-enter $slide-change-duration + $delay $easing
+  animation: scroll-slide--#{$slide} $carousel-animation-duration $easing // delay by the time it takes to scroll the previous slides
+      // and the time to play the first enter animation
+      $slide-animation-duration * $i + $slide-change-duration + $delay infinite,
+    scroll-slide--first-enter $slide-change-duration $easing
       // delay by the time it takes to scroll the previous slides
       $slide-animation-duration * $i + $delay 1;
 }
 
-// The percentage that animating the current slide
-// takes form the whole animation.
-$animation-percentage: 100 / length($slides);
+@mixin scroll-slide($slide) {
+  // The percentage that animating the current slide
+  // takes form the whole animation.
+  $animation-percentage: 100 / length($slides);
 
-// The percentage that animating the enter or exit
-// of the current slide takes form the whole animation.
-$change-percentage: percentage(
-  $slide-change-duration / $carousel-animation-duration
-);
+  // The percentage that animating the enter or exit
+  // of the current slide takes form the whole animation.
+  $change-percentage: percentage(
+    $slide-change-duration / $carousel-animation-duration
+  );
 
-$enter-animation-start: 100% - $change-percentage;
+  $enter-animation-start: 100% - $change-percentage;
 
-$enter-animation-end: 0%;
+  $enter-animation-end: 0%;
 
-$exit-animation-start: $animation-percentage - $change-percentage;
+  $exit-animation-start: $animation-percentage - $change-percentage -
+    percentage(map-get($max-delays, $slide) / $slide-animation-duration) *
+    0.33333;
 
-$exit-animation-end: percentage($animation-percentage / 100);
+  $exit-animation-end: percentage($animation-percentage / 100) -
+    percentage(map-get($max-delays, $slide) / $slide-animation-duration) *
+    0.33333;
 
-@keyframes scroll-slide {
-  // TODO: consider setting opacity to 0.
-  #{$enter-animation-start - 0.0001%} {
-    transform: translateY(-100vh);
+  @keyframes scroll-slide--#{$slide} {
+    // TODO: consider setting opacity to 0.
+    #{$enter-animation-start - 0.0001%} {
+      transform: translateY(-100vh);
+    }
+
+    #{$enter-animation-start} {
+      transform: translateY(100vh);
+    }
+
+    #{$enter-animation-end} {
+      transform: translateY(0);
+    }
+
+    #{$exit-animation-start} {
+      transform: translateY(0);
+    }
+
+    #{$exit-animation-end} {
+      transform: translateY(-100vh);
+    }
+
+    100% {
+      transform: translateY(0);
+    }
   }
+}
 
-  #{$enter-animation-start} {
-    transform: translateY(100vh);
-  }
-
-  #{$enter-animation-end} {
-    transform: translateY(0);
-  }
-
-  #{$exit-animation-start} {
-    transform: translateY(0);
-  }
-
-  #{$exit-animation-end} {
-    transform: translateY(-100vh);
-  }
-
-  100% {
-    transform: translateY(0);
-  }
+@each $slide in $slides {
+  @include scroll-slide($slide);
 }
 
 @keyframes scroll-slide--first-enter {
