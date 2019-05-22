@@ -27,65 +27,65 @@ $slides-easing-map: (
     ),
     raf: (
       easing: cubic-bezier(0.25, 0, 0.25, 1),
-      delay: 0s,
+      delay: 0.27s,
     ),
     60fps: (
       easing: cubic-bezier(0.25, 0, 0.25, 1),
-      delay: 0.1s,
+      delay: 0.12s,
     ),
     bottom-right-shapes: (
       easing: cubic-bezier(0.25, 0, 0.25, 1),
-      delay: 0.07s,
+      delay: 0.22s,
     ),
   ),
   reliability: (
     image: (
       easing: cubic-bezier(0.25, 0, 0.25, 1),
-      delay: 0s,
+      delay: 0.2s,
     ),
     cloud: (
-      easing: cubic-bezier(0.25, 0, 0.25, 1),
-      delay: 0s,
+      easing: cubic-bezier(0.18, 0, 0.33, 1),
+      delay: 0.24s,
     ),
     no-wi-fi: (
       easing: cubic-bezier(0.25, 0, 0.25, 1),
-      delay: 0s,
+      delay: 0.09s,
     ),
     pwa-p: (
       easing: cubic-bezier(0.25, 0, 0.25, 1),
-      delay: 0s,
+      delay: 0.02s,
     ),
     pwa-w: (
       easing: cubic-bezier(0.25, 0, 0.25, 1),
-      delay: 0.1s,
+      delay: 0.09s,
     ),
     pwa-a: (
       easing: cubic-bezier(0.25, 0, 0.25, 1),
-      delay: 0.2s,
+      delay: 0.16s,
     ),
     like: (
       easing: cubic-bezier(0.25, 0, 0.25, 1),
-      delay: 0s,
+      delay: 0.01s,
     ),
     lock: (
       easing: cubic-bezier(0.25, 0, 0.25, 1),
-      delay: 0s,
+      delay: 0.13s,
     ),
     server: (
-      easing: cubic-bezier(0.25, 0, 0.25, 1),
-      delay: 0s,
+      easing: cubic-bezier(0.34, 0, 0.22, 1),
+      delay: 0.2s,
     ),
     dinosaur: (
       easing: cubic-bezier(0.25, 0, 0.25, 1),
-      delay: 0s,
+      delay: 0.25s,
     ),
     sw: (
       easing: cubic-bezier(0.25, 0, 0.25, 1),
-      delay: 0s,
+      delay: 0.12s,
     ),
     cogs: (
       easing: cubic-bezier(0.25, 0, 0.25, 1),
-      delay: 0s,
+      delay: 0.17s,
     ),
     bottom-right: (
       easing: cubic-bezier(0.25, 0, 0.25, 1),
@@ -95,15 +95,15 @@ $slides-easing-map: (
   accessibility: (
     image: (
       easing: cubic-bezier(0.25, 0, 0.25, 1),
-      delay: 0s,
+      delay: 0.2s,
     ),
     top-left: (
       easing: cubic-bezier(0.25, 0, 0.25, 1),
       delay: 0s,
     ),
     top-right: (
-      easing: cubic-bezier(0.25, 0, 0.25, 1),
-      delay: 0s,
+      easing: cubic-bezier(0.34, 0, 0.22, 1),
+      delay: 0.17s,
     ),
     bottom-left: (
       easing: cubic-bezier(0.25, 0, 0.25, 1),
@@ -111,11 +111,11 @@ $slides-easing-map: (
     ),
     voice: (
       easing: cubic-bezier(0.25, 0, 0.25, 1),
-      delay: 0s,
+      delay: 0.16s,
     ),
     eye: (
       easing: cubic-bezier(0.25, 0, 0.25, 1),
-      delay: 0s,
+      delay: 0.25s,
     ),
   ),
 );
