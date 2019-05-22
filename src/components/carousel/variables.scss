@@ -2,7 +2,7 @@ $carousel-aspect-ratio: percentage(800/1330);
 $carousel-max-width: 1330px;
 $slide-animation-duration: 6s;
 $slide-change-duration: 1s;
-$slide-ease: ease;
+
 $slide-animations: (
   performance: (
     lightning: (
@@ -119,26 +119,31 @@ $slide-animations: (
     ),
   ),
 );
+
 $slides: map-keys($slide-animations);
 
 $start-delays: ();
 $max-delays: ();
 
 $delays-sum: 0s;
+
 @each $slide, $slide-animation in $slide-animations {
   $max-delay: 0s;
+
   @each $layer, $layer-animation in $slide-animation {
     $delay: map-get($layer-animation, delay);
     @if ($delay > $max-delay) {
       $max-delay: $delay;
     }
   }
+
   $start-delays: map-merge(
     $start-delays,
     (
       $slide: $delays-sum,
     )
   );
+
   $max-delays: map-merge(
     $max-delays,
     (
