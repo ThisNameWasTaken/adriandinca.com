@@ -17,6 +17,20 @@ module.exports = {
       resolve: `gatsby-plugin-sass`,
       options: {
         includePaths: ['node_modules'],
+        postCssPlugins: [
+          require('cssnano')({
+            preset: [
+              'advanced',
+              {
+                autoprefixer: false,
+                zindex: false,
+                discardComments: {
+                  removeAll: true,
+                },
+              },
+            ],
+          }),
+        ],
       },
     },
     {

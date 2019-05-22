@@ -26,6 +26,9 @@
     "react-intersection-observer": "^8.23.0"
   },
   "devDependencies": {
+    "cssnano": "^4.1.10",
+    "cssnano-preset-advanced": "^4.0.7",
+    "postcss": "^7.0.16",
     "prettier": "^1.17.0"
   },
   "keywords": [
