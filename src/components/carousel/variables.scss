@@ -3,7 +3,7 @@ $carousel-max-width: 1330px;
 $slide-animation-duration: 6s;
 $slide-change-duration: 1s;
 $slide-ease: ease;
-$slides-easing-map: (
+$slide-animations: (
   performance: (
     lightning: (
       easing: cubic-bezier(0.25, 0, 0.25, 1),
@@ -119,32 +119,32 @@ $slides-easing-map: (
     ),
   ),
 );
-$slides: map-keys($slides-easing-map);
+$slides: map-keys($slide-animations);
 
-$start-delay: ();
+$start-delays: ();
 $max-delays: ();
 
-$delay-sum: 0s;
-@each $slide-name, $slide-map in $slides-easing-map {
+$delays-sum: 0s;
+@each $slide, $slide-animation in $slide-animations {
   $max-delay: 0s;
-  @each $layer-name, $layer-map in $slide-map {
-    $delay: map-get($layer-map, delay);
+  @each $layer, $layer-animation in $slide-animation {
+    $delay: map-get($layer-animation, delay);
     @if ($delay > $max-delay) {
       $max-delay: $delay;
     }
   }
-  $start-delay: map-merge(
-    $start-delay,
+  $start-delays: map-merge(
+    $start-delays,
     (
-      $slide-name: $delay-sum,
+      $slide: $delays-sum,
     )
   );
   $max-delays: map-merge(
     $max-delays,
     (
-      $slide-name: $max-delay,
+      $slide: $max-delay,
     )
   );
 
-  $delay-sum: $delay-sum + $max-delay;
+  $delays-sum: $delays-sum + $max-delay;
 }

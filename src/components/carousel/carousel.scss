@@ -56,10 +56,10 @@
         right: 0;
       }
     }
-    @each $slide, $layers in $slides-easing-map {
-      @each $layer, $layer-easing-delay-map in $layers {
-        $easing: map-get($layer-easing-delay-map, easing);
-        $delay: map-get($layer-easing-delay-map, delay);
+    @each $slide, $layer-animations in $slide-animations {
+      @each $layer, $layer-animation in $layer-animations {
+        $easing: map-get($layer-animation, easing);
+        $delay: map-get($layer-animation, delay);
 
         &--#{$slide} > &__inner > &__layer--#{$layer} {
           @include scroll-animation($slide, $easing, $delay);
