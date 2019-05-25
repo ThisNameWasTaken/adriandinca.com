@@ -12,100 +12,76 @@ const SlideReliability = memo(
         />
       </Layer>
       <Layer topLeft className="carousel__slide__layer--cloud">
-        <picture>
-          <Image
-            src="../../images/slide-reliability-top-left-cloud.svg"
-            sizes="(max-width: 1330px) 100vw, 1330px"
-          />
-        </picture>
+        <Image
+          src="../../images/slide-reliability-top-left-cloud.svg"
+          sizes="(max-width: 1330px) 100vw, 1330px"
+        />
       </Layer>
       <Layer topLeft className="carousel__slide__layer--no-wi-fi">
-        <picture>
-          <Image
-            src="../../images/slide-reliability-top-left-no-wi-fi.svg"
-            sizes="(max-width: 1330px) 100vw, 1330px"
-          />
-        </picture>
+        <Image
+          src="../../images/slide-reliability-top-left-no-wi-fi.svg"
+          sizes="(max-width: 1330px) 100vw, 1330px"
+        />
       </Layer>
       <Layer topLeft className="carousel__slide__layer--pwa-p">
-        <picture>
-          <Image
-            src="../../images/slide-reliability-top-left-pwa-p.svg"
-            sizes="(max-width: 1330px) 100vw, 1330px"
-          />
-        </picture>
+        <Image
+          src="../../images/slide-reliability-top-left-pwa-p.svg"
+          sizes="(max-width: 1330px) 100vw, 1330px"
+        />
       </Layer>
       <Layer topLeft className="carousel__slide__layer--pwa-w">
-        <picture>
-          <Image
-            src="../../images/slide-reliability-top-left-pwa-w.svg"
-            sizes="(max-width: 1330px) 100vw, 1330px"
-          />
-        </picture>
+        <Image
+          src="../../images/slide-reliability-top-left-pwa-w.svg"
+          sizes="(max-width: 1330px) 100vw, 1330px"
+        />
       </Layer>
       <Layer topLeft className="carousel__slide__layer--pwa-a">
-        <picture>
-          <Image
-            src="../../images/slide-reliability-top-left-pwa-a.svg"
-            sizes="(max-width: 1330px) 100vw, 1330px"
-          />
-        </picture>
+        <Image
+          src="../../images/slide-reliability-top-left-pwa-a.svg"
+          sizes="(max-width: 1330px) 100vw, 1330px"
+        />
       </Layer>
       <Layer topRight className="carousel__slide__layer--lock">
-        <picture>
-          <Image
-            src="../../images/slide-reliability-top-right-lock.svg"
-            sizes="(max-width: 1330px) 100vw, 1330px"
-          />
-        </picture>
+        <Image
+          src="../../images/slide-reliability-top-right-lock.svg"
+          sizes="(max-width: 1330px) 100vw, 1330px"
+        />
       </Layer>
       <Layer topRight className="carousel__slide__layer--server">
-        <picture>
-          <Image
-            src="../../images/slide-reliability-top-right-server.svg"
-            sizes="(max-width: 1330px) 100vw, 1330px"
-          />
-        </picture>
+        <Image
+          src="../../images/slide-reliability-top-right-server.svg"
+          sizes="(max-width: 1330px) 100vw, 1330px"
+        />
       </Layer>
       <Layer topRight className="carousel__slide__layer--like">
-        <picture>
-          <Image
-            src="../../images/slide-reliability-top-right-like.svg"
-            sizes="(max-width: 1330px) 100vw, 1330px"
-          />
-        </picture>
+        <Image
+          src="../../images/slide-reliability-top-right-like.svg"
+          sizes="(max-width: 1330px) 100vw, 1330px"
+        />
       </Layer>
       <Layer bottomLeft className="carousel__slide__layer--dinosaur">
-        <picture>
-          <Image
-            src="../../images/slide-reliability-bottom-left-dinosaur.svg"
-            sizes="(max-width: 1330px) 100vw, 1330px"
-          />
-        </picture>
+        <Image
+          src="../../images/slide-reliability-bottom-left-dinosaur.svg"
+          sizes="(max-width: 1330px) 100vw, 1330px"
+        />
       </Layer>
       <Layer bottomLeft className="carousel__slide__layer--sw">
-        <picture>
-          <Image
-            src="../../images/slide-reliability-bottom-left-sw.svg"
-            sizes="(max-width: 1330px) 100vw, 1330px"
-          />
-        </picture>
+        <Image
+          src="../../images/slide-reliability-bottom-left-sw.svg"
+          sizes="(max-width: 1330px) 100vw, 1330px"
+        />
       </Layer>
       <Layer bottomLeft className="carousel__slide__layer--cogs">
-        <picture>
-          <Image
-            src="../../images/slide-reliability-bottom-left-cogs.svg"
-            sizes="(max-width: 1330px) 100vw, 1330px"
-          />
-        </picture>
+        <Image
+          src="../../images/slide-reliability-bottom-left-cogs.svg"
+          sizes="(max-width: 1330px) 100vw, 1330px"
+        />
       </Layer>
       <Layer bottomRight className="carousel__slide__layer--bottom-right">
-        <picture>
-          <Image
-            src="../../images/slide-reliability-bottom-right.svg"
-            sizes="(max-width: 1330px) 100vw, 1330px"
-          />
-        </picture>
+        <Image
+          src="../../images/slide-reliability-bottom-right.svg"
+          sizes="(max-width: 1330px) 100vw, 1330px"
+        />
       </Layer>
     </Slide>
   ),

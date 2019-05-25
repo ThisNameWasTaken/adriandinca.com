@@ -12,44 +12,34 @@ const SlideAccessibility = memo(
         />
       </Layer>
       <Layer topLeft className="carousel__slide__layer--top-left">
-        <picture>
-          <Image
-            src="../../images/slide-accessibility-top-left.svg"
-            sizes="(max-width: 1330px) 100vw, 1330px"
-          />
-        </picture>
+        <Image
+          src="../../images/slide-accessibility-top-left.svg"
+          sizes="(max-width: 1330px) 100vw, 1330px"
+        />
       </Layer>
       <Layer topRight className="carousel__slide__layer--top-right">
-        <picture>
-          <Image
-            src="../../images/slide-accessibility-top-right.svg"
-            sizes="(max-width: 1330px) 100vw, 1330px"
-          />
-        </picture>
+        <Image
+          src="../../images/slide-accessibility-top-right.svg"
+          sizes="(max-width: 1330px) 100vw, 1330px"
+        />
       </Layer>
       <Layer bottomLeft className="carousel__slide__layer--bottom-left">
-        <picture>
-          <Image
-            src="../../images/slide-accessibility-bottom-left.svg"
-            sizes="(max-width: 1330px) 100vw, 1330px"
-          />
-        </picture>
+        <Image
+          src="../../images/slide-accessibility-bottom-left.svg"
+          sizes="(max-width: 1330px) 100vw, 1330px"
+        />
       </Layer>
       <Layer bottomRight className="carousel__slide__layer--eye">
-        <picture>
-          <Image
-            src="../../images/slide-accessibility-bottom-right-eye.svg"
-            sizes="(max-width: 1330px) 100vw, 1330px"
-          />
-        </picture>
+        <Image
+          src="../../images/slide-accessibility-bottom-right-eye.svg"
+          sizes="(max-width: 1330px) 100vw, 1330px"
+        />
       </Layer>
       <Layer bottomRight className="carousel__slide__layer--voice">
-        <picture>
-          <Image
-            src="../../images/slide-accessibility-bottom-right-voice.svg"
-            sizes="(max-width: 1330px) 100vw, 1330px"
-          />
-        </picture>
+        <Image
+          src="../../images/slide-accessibility-bottom-right-voice.svg"
+          sizes="(max-width: 1330px) 100vw, 1330px"
+        />
       </Layer>
     </Slide>
   ),

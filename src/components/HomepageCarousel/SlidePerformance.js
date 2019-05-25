@@ -27,42 +27,28 @@ const SlidePerformance = memo(
         />
       </Layer>
       <Layer topLeft className="carousel__slide__layer--lightning">
-        <picture>
-          <SlideTopLeftLightning />
-        </picture>
+        <SlideTopLeftLightning />
       </Layer>
       <Layer topLeft className="carousel__slide__layer--top-left-shapes">
-        <picture>
-          <SlideTopLeftShapes />
-        </picture>
+        <SlideTopLeftShapes />
       </Layer>
       <Layer topRight>
-        <picture>
-          <SlideTopRight />
-        </picture>
+        <SlideTopRight />
       </Layer>
       <Layer bottomLeft>
-        <picture>
-          <SlideBottomLeft />
-        </picture>
+        <SlideBottomLeft />
       </Layer>
       <Layer bottomRight className="carousel__slide__layer--raf">
-        <picture>
-          <SlideBottomRightRaf />
-        </picture>
+        <SlideBottomRightRaf />
       </Layer>
       <Layer bottomRight className="carousel__slide__layer--60fps">
-        <picture>
-          <SlideBottomRight60Fps />
-        </picture>
+        <SlideBottomRight60Fps />
       </Layer>
       <Layer
         bottomRight
         className="carousel__slide__layer--bottom-right-shapes"
       >
-        <picture>
-          <SlideBottomRightShapes />
-        </picture>
+        <SlideBottomRightShapes />
       </Layer>
     </Slide>
   ),
