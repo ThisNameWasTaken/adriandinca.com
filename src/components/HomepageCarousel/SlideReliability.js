@@ -1,5 +1,6 @@
 import React, { memo } from 'react';
 import { Slide, Layer } from '../carousel';
+import { Headline2 } from '../material/Typography';
 import Image from '../image';
 
 const SlideReliability = memo(
@@ -82,6 +83,9 @@ const SlideReliability = memo(
           src="../../images/slide-reliability-bottom-right.svg"
           sizes="(max-width: 1330px) 100vw, 1330px"
         />
+      </Layer>
+      <Layer center className="carousel__slide__layer--headline">
+        <Headline2>Reliable</Headline2>
       </Layer>
     </Slide>
   ),

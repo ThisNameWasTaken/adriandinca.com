@@ -1,6 +1,8 @@
 import React, { memo } from 'react';
 import { Slide, Layer } from '../carousel';
+import { Headline2 } from '../material/Typography';
 import Image from '../image';
+
 
 // @ts-ignore
 import SlideTopLeftLightning from '../../images/inline/slide-performance-top-left-lightning.svg';
@@ -49,6 +51,9 @@ const SlidePerformance = memo(
         className="carousel__slide__layer--bottom-right-shapes"
       >
         <SlideBottomRightShapes />
+      </Layer>
+      <Layer center className="carousel__slide__layer--headline">
+        <Headline2>Blazing Fast</Headline2>
       </Layer>
     </Slide>
   ),
