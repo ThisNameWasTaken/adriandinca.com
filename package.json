@@ -5,6 +5,7 @@
   "version": "0.1.0",
   "author": "Kyle Mathews <mathews.kyle@gmail.com>",
   "dependencies": {
+    "@loadable/component": "^5.10.1",
     "@material/react-typography": "^0.12.0",
     "classnames": "^2.2.6",
     "gatsby": "^2.4.2",
@@ -27,6 +28,9 @@
     "react-intersection-observer": "^8.23.0"
   },
   "devDependencies": {
+    "@loadable/babel-plugin": "^5.10.0",
+    "@loadable/webpack-plugin": "^5.7.1",
+    "babel-preset-gatsby": "^0.1.11",
     "cssnano": "^4.1.10",
     "cssnano-preset-advanced": "^4.0.7",
     "postcss": "^7.0.16",
