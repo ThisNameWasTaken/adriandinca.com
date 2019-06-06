@@ -1,7 +1,6 @@
 import React, { memo, useEffect } from 'react';
 import { StaticQuery, graphql } from 'gatsby';
 import Img from 'gatsby-image';
-import { useInView } from 'react-intersection-observer';
 
 /*
  * This component is built using `gatsby-image` to automatically serve optimized
@@ -13,23 +12,6 @@ import { useInView } from 'react-intersection-observer';
  * - `gatsby-image`: https://gatsby.dev/gatsby-image
  * - `StaticQuery`: https://gatsby.dev/staticquery
  */
-
-const LazySvg = memo(({ src, otherProps }) => {
-  const [ref, inView] = useInView({
-    rootMargin: '200px',
-    triggerOnce: true,
-  });
-
-  useEffect(() => {
-    const preloadLink = document.createElement('link');
-    preloadLink.href = src;
-    preloadLink.rel = 'preload';
-    preloadLink.as = 'image';
-    document.head.appendChild(preloadLink);
-  }, []);
-
-  return <img src={inView ? src : ''} ref={ref} {...otherProps} />;
-});
 
 const Image = memo(({ src, ...otherProps }) => (
   <StaticQuery
@@ -66,10 +48,12 @@ const Image = memo(({ src, ...otherProps }) => (
       const image = images.edges.find(({ node }) => node.relativePath === src);
 
       // TODO: Check for external urls or url encodings
-      if (!image) { return <img src={src} {...otherProps} />; }
+      if (!image) {
+        return <img src={src} {...otherProps} />;
+      }
 
       if (image.node.extension === 'svg') {
-        return <LazySvg src={image.node.publicURL} {...otherProps} />;
+        return <img src={image.node.publicURL} {...otherProps} />;
       }
 
       return <Img fluid={image.node.childImageSharp.fluid} {...otherProps} />;
