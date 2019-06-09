@@ -6,6 +6,21 @@
   display: flex;
   width: 100%;
   max-width: $carousel-max-width;
+  @media screen and (max-height: 800px) and (orientation: landscape) {
+    padding: 6rem;
+  }
+  @media screen and (max-height: 700px) and (orientation: landscape) {
+    padding: 10rem;
+  }
+  @media screen and (max-height: 600px) and (orientation: landscape) {
+    padding: 12rem;
+  }
+  @media screen and (max-height: 500px) and (orientation: landscape) {
+    padding: 18rem;
+  }
+  @media screen and (max-height: 400px) and (orientation: landscape) {
+    padding: 24rem;
+  }
   &__inner {
     width: 100%;
     padding-top: $carousel-aspect-ratio;
