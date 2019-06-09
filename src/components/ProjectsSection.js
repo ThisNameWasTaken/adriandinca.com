@@ -6,7 +6,7 @@ import { Headline2 } from './material/Typography';
 import ProjectCard from './ProjectCard';
 
 const ProjectsSection = () => (
-  <section className="projects-section">
+  <section className="projects-section" id="projects">
     <Headline2 className="projects-section__headline">
       Recent Projects
     </Headline2>
