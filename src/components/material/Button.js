@@ -54,65 +54,67 @@ const CSS_CLASSES = {
  *  unbounded?: boolean
  * }} param0
  */
-const Button = ({
-  className = '',
-  raised = false,
-  unelevated = false,
-  outlined = false,
-  dense = false,
-  disabled = false,
-  icon,
-  href,
-  children,
-  initRipple,
-  trailingIcon,
-  // eslint disabled since we do not want to include
-  // this in ...otherProps.
-  // if unbounded is passed to the <button> element, it will throw
-  // a warning.
-  unbounded = false, // eslint-disable-line @typescript-eslint/no-unused-vars
-  ...otherProps
-}) => {
-  const props = {
-    className: classnames(CSS_CLASSES.ROOT, className, {
-      [CSS_CLASSES.RAISED]: raised,
-      [CSS_CLASSES.UNELEVATED]: unelevated,
-      [CSS_CLASSES.OUTLINED]: outlined,
-      [CSS_CLASSES.DENSE]: dense,
-    }),
-    ref: initRipple,
-    disabled,
-    ...otherProps,
-  };
+const Button = withRipple(
+  ({
+    className = '',
+    raised = false,
+    unelevated = false,
+    outlined = false,
+    dense = false,
+    disabled = false,
+    icon,
+    href,
+    children,
+    initRipple,
+    trailingIcon,
+    // eslint disabled since we do not want to include
+    // this in ...otherProps.
+    // if unbounded is passed to the <button> element, it will throw
+    // a warning.
+    unbounded = false, // eslint-disable-line @typescript-eslint/no-unused-vars
+    ...otherProps
+  }) => {
+    const props = {
+      className: classnames(CSS_CLASSES.ROOT, className, {
+        [CSS_CLASSES.RAISED]: raised,
+        [CSS_CLASSES.UNELEVATED]: unelevated,
+        [CSS_CLASSES.OUTLINED]: outlined,
+        [CSS_CLASSES.DENSE]: dense,
+      }),
+      ref: initRipple,
+      disabled,
+      ...otherProps,
+    };
 
-  if (href) {
-    if (href.startsWith('http')) {
+    if (href) {
+      if (href.startsWith('http')) {
+        return (
+          <a {...props} href={href}>
+            {!trailingIcon ? renderIcon(icon) : null}
+            <span className={CSS_CLASSES.LABEL}>{children}</span>
+            {trailingIcon ? renderIcon(trailingIcon) : null}
+          </a>
+        );
+      }
+
       return (
-        <a {...props} href={href}>
+        <Link {...props} to={href}>
           {!trailingIcon ? renderIcon(icon) : null}
           <span className={CSS_CLASSES.LABEL}>{children}</span>
           {trailingIcon ? renderIcon(trailingIcon) : null}
-        </a>
+        </Link>
       );
     }
 
     return (
-      <Link {...props} to={href}>
+      <button {...props}>
         {!trailingIcon ? renderIcon(icon) : null}
         <span className={CSS_CLASSES.LABEL}>{children}</span>
         {trailingIcon ? renderIcon(trailingIcon) : null}
-      </Link>
+      </button>
     );
   }
-
-  return (
-    <button {...props}>
-      {!trailingIcon ? renderIcon(icon) : null}
-      <span className={CSS_CLASSES.LABEL}>{children}</span>
-      {trailingIcon ? renderIcon(trailingIcon) : null}
-    </button>
-  );
-};
+);
 
 const renderIcon = icon =>
   icon
@@ -121,4 +123,4 @@ const renderIcon = icon =>
       })
     : null;
 
-export default withRipple(Button);
+export default Button;
