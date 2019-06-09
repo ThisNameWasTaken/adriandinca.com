@@ -1,0 +1,7 @@
+@import '@material/react-top-app-bar/index.scss';
+@import '@material/react-button/index.scss';
+@import '@material/ripple/mixins.scss';
+
+.mdc-button.site-title {
+  @include mdc-button-filled-accessible(transparent);
+}
