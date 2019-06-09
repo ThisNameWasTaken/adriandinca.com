@@ -5,6 +5,7 @@ import Layout from '../components/layout';
 import SEO from '../components/seo';
 import Hero from '../components/hero';
 import HomepageCarousel from '../components/HomepageCarousel';
+import ProjectsSection from '../components/ProjectsSection';
 
 const IndexPage = () => (
   <Layout>
@@ -12,6 +13,7 @@ const IndexPage = () => (
     <Hero>
       <HomepageCarousel />
     </Hero>
+    <ProjectsSection />
     <Link to="/page-2/">Go to page 2</Link>
   </Layout>
 );
