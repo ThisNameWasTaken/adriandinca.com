@@ -1,5 +1,10 @@
 @import '~normalize.css/normalize.css';
 
+$mdc-theme-primary: #a600ff;
+$mdc-theme-secondary: #59ff00;
+
+@import '@material/theme/mdc-theme';
+
 html {
   font-family: sans-serif;
   -ms-text-size-adjust: 100%;
