@@ -46,7 +46,7 @@ const SlideAccessibility = memo(
         <BottomRightVoice />
       </Layer>
       <Layer center className="carousel__slide__layer--headline">
-        <Headline2>Accessible</Headline2>
+        <h2 className="homepage-carousel__headline">Accessible</h2>
       </Layer>
     </Slide>
   ),

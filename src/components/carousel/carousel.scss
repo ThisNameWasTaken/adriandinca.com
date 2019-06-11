@@ -70,15 +70,6 @@
         bottom: 0;
         right: 0;
       }
-      &--headline > .mdc-typography {
-        color: #fff;
-        text-transform: uppercase;
-        font-weight: 400;
-        letter-spacing: 1rem;
-        text-shadow: 2.5px 2.5px 0 #000, 2.5px -2.5px 0 #000,
-          -2.5px 2.5px 0 #000, -2.5px -2.5px 0 #000, 2.5px 0px 0 #000,
-          0px 2.5px 0 #000, -2.5px 0px 0 #000, 0px -2.5px 0 #000;
-      }
     }
     @each $slide, $layer-animations in $slide-animations {
       @each $layer, $layer-animation in $layer-animations {

@@ -88,7 +88,7 @@ const SlideReliability = memo(
         <BottomRightSvg />
       </Layer>
       <Layer center className="carousel__slide__layer--headline">
-        <Headline2>Reliable</Headline2>
+        <h2 className="homepage-carousel__headline">Reliable</h2>
       </Layer>
     </Slide>
   ),

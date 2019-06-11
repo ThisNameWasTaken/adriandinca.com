@@ -3,7 +3,6 @@ import { Slide, Layer } from '../carousel';
 import { Headline2 } from '../material/Typography';
 import Image from '../image';
 
-
 // @ts-ignore
 import SlideTopLeftLightning from '../../images/inline/slide-performance-top-left-lightning.svg';
 // @ts-ignore
@@ -53,7 +52,7 @@ const SlidePerformance = memo(
         <SlideBottomRightShapes />
       </Layer>
       <Layer center className="carousel__slide__layer--headline">
-        <Headline2>Blazing Fast</Headline2>
+        <h2 className="homepage-carousel__headline">Blazing Fast</h2>
       </Layer>
     </Slide>
   ),
