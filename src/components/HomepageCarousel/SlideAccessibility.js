@@ -3,6 +3,24 @@ import { Slide, Layer } from '../carousel';
 import { Headline2 } from '../material/Typography';
 import Image from '../image';
 
+import loadable from '@loadable/component';
+
+const TopLeftSvg = loadable(() =>
+  import('../../images/slide-accessibility-top-left.svg')
+);
+const TopRightSvg = loadable(() =>
+  import('../../images/slide-accessibility-top-right.svg')
+);
+const BottomLeftSvg = loadable(() =>
+  import('../../images/slide-accessibility-bottom-left.svg')
+);
+const BottomRightEye = loadable(() =>
+  import('../../images/slide-accessibility-bottom-right-eye.svg')
+);
+const BottomRightVoice = loadable(() =>
+  import('../../images/slide-accessibility-bottom-right-voice.svg')
+);
+
 const SlideAccessibility = memo(
   () => (
     <Slide className="carousel__slide--accessibility">
@@ -13,34 +31,19 @@ const SlideAccessibility = memo(
         />
       </Layer>
       <Layer topLeft className="carousel__slide__layer--top-left">
-        <Image
-          src="../../images/slide-accessibility-top-left.svg"
-          sizes="(max-width: 1330px) 100vw, 1330px"
-        />
+        <TopLeftSvg />
       </Layer>
       <Layer topRight className="carousel__slide__layer--top-right">
-        <Image
-          src="../../images/slide-accessibility-top-right.svg"
-          sizes="(max-width: 1330px) 100vw, 1330px"
-        />
+        <TopRightSvg />
       </Layer>
       <Layer bottomLeft className="carousel__slide__layer--bottom-left">
-        <Image
-          src="../../images/slide-accessibility-bottom-left.svg"
-          sizes="(max-width: 1330px) 100vw, 1330px"
-        />
+        <BottomLeftSvg />
       </Layer>
       <Layer bottomRight className="carousel__slide__layer--eye">
-        <Image
-          src="../../images/slide-accessibility-bottom-right-eye.svg"
-          sizes="(max-width: 1330px) 100vw, 1330px"
-        />
+        <BottomRightEye />
       </Layer>
       <Layer bottomRight className="carousel__slide__layer--voice">
-        <Image
-          src="../../images/slide-accessibility-bottom-right-voice.svg"
-          sizes="(max-width: 1330px) 100vw, 1330px"
-        />
+        <BottomRightVoice />
       </Layer>
       <Layer center className="carousel__slide__layer--headline">
         <Headline2>Accessible</Headline2>

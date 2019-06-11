@@ -3,6 +3,45 @@ import { Slide, Layer } from '../carousel';
 import { Headline2 } from '../material/Typography';
 import Image from '../image';
 
+import loadable from '@loadable/component';
+
+const TopLeftCloud = loadable(() =>
+  import('../../images/slide-reliability-top-left-cloud.svg')
+);
+const TopLeftNoWiFi = loadable(() =>
+  import('../../images/slide-reliability-top-left-no-wi-fi.svg')
+);
+const TopLeftPwaP = loadable(() =>
+  import('../../images/slide-reliability-top-left-pwa-p.svg')
+);
+const TopLeftPwaW = loadable(() =>
+  import('../../images/slide-reliability-top-left-pwa-w.svg')
+);
+const TopLeftPwaA = loadable(() =>
+  import('../../images/slide-reliability-top-left-pwa-a.svg')
+);
+const TopRightLock = loadable(() =>
+  import('../../images/slide-reliability-top-right-lock.svg')
+);
+const TopRightServer = loadable(() =>
+  import('../../images/slide-reliability-top-right-server.svg')
+);
+const TopRightLike = loadable(() =>
+  import('../../images/slide-reliability-top-right-like.svg')
+);
+const BottomLeftDinosaur = loadable(() =>
+  import('../../images/slide-reliability-bottom-left-dinosaur.svg')
+);
+const BottomLeftSw = loadable(() =>
+  import('../../images/slide-reliability-bottom-left-sw.svg')
+);
+const BottomLeftCogs = loadable(() =>
+  import('../../images/slide-reliability-bottom-left-cogs.svg')
+);
+const BottomRightSvg = loadable(() =>
+  import('../../images/slide-reliability-bottom-right.svg')
+);
+
 const SlideReliability = memo(
   () => (
     <Slide className="carousel__slide--reliability">
@@ -13,76 +52,40 @@ const SlideReliability = memo(
         />
       </Layer>
       <Layer topLeft className="carousel__slide__layer--cloud">
-        <Image
-          src="../../images/slide-reliability-top-left-cloud.svg"
-          sizes="(max-width: 1330px) 100vw, 1330px"
-        />
+        <TopLeftCloud />
       </Layer>
       <Layer topLeft className="carousel__slide__layer--no-wi-fi">
-        <Image
-          src="../../images/slide-reliability-top-left-no-wi-fi.svg"
-          sizes="(max-width: 1330px) 100vw, 1330px"
-        />
+        <TopLeftNoWiFi />
       </Layer>
       <Layer topLeft className="carousel__slide__layer--pwa-p">
-        <Image
-          src="../../images/slide-reliability-top-left-pwa-p.svg"
-          sizes="(max-width: 1330px) 100vw, 1330px"
-        />
+        <TopLeftPwaP />
       </Layer>
       <Layer topLeft className="carousel__slide__layer--pwa-w">
-        <Image
-          src="../../images/slide-reliability-top-left-pwa-w.svg"
-          sizes="(max-width: 1330px) 100vw, 1330px"
-        />
+        <TopLeftPwaW />
       </Layer>
       <Layer topLeft className="carousel__slide__layer--pwa-a">
-        <Image
-          src="../../images/slide-reliability-top-left-pwa-a.svg"
-          sizes="(max-width: 1330px) 100vw, 1330px"
-        />
+        <TopLeftPwaA />
       </Layer>
       <Layer topRight className="carousel__slide__layer--lock">
-        <Image
-          src="../../images/slide-reliability-top-right-lock.svg"
-          sizes="(max-width: 1330px) 100vw, 1330px"
-        />
+        <TopRightLock />
       </Layer>
       <Layer topRight className="carousel__slide__layer--server">
-        <Image
-          src="../../images/slide-reliability-top-right-server.svg"
-          sizes="(max-width: 1330px) 100vw, 1330px"
-        />
+        <TopRightServer />
       </Layer>
       <Layer topRight className="carousel__slide__layer--like">
-        <Image
-          src="../../images/slide-reliability-top-right-like.svg"
-          sizes="(max-width: 1330px) 100vw, 1330px"
-        />
+        <TopRightLike />
       </Layer>
       <Layer bottomLeft className="carousel__slide__layer--dinosaur">
-        <Image
-          src="../../images/slide-reliability-bottom-left-dinosaur.svg"
-          sizes="(max-width: 1330px) 100vw, 1330px"
-        />
+        <BottomLeftDinosaur />
       </Layer>
       <Layer bottomLeft className="carousel__slide__layer--sw">
-        <Image
-          src="../../images/slide-reliability-bottom-left-sw.svg"
-          sizes="(max-width: 1330px) 100vw, 1330px"
-        />
+        <BottomLeftSw />
       </Layer>
       <Layer bottomLeft className="carousel__slide__layer--cogs">
-        <Image
-          src="../../images/slide-reliability-bottom-left-cogs.svg"
-          sizes="(max-width: 1330px) 100vw, 1330px"
-        />
+        <BottomLeftCogs />
       </Layer>
       <Layer bottomRight className="carousel__slide__layer--bottom-right">
-        <Image
-          src="../../images/slide-reliability-bottom-right.svg"
-          sizes="(max-width: 1330px) 100vw, 1330px"
-        />
+        <BottomRightSvg />
       </Layer>
       <Layer center className="carousel__slide__layer--headline">
         <Headline2>Reliable</Headline2>
