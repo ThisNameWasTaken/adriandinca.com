@@ -1,0 +1,41 @@
+@import '@material/animation/variables';
+@import './variables.scss';
+
+.mdc-tooltip {
+  pointer-events: none;
+  opacity: 0;
+  transform-origin: top center;
+  z-index: 999;
+  background: $tooltip-background-color;
+  border-radius: 0.25rem;
+  color: $tooltip-text-color;
+  display: inline-block;
+  font-size: $tooltip-font-size;
+  font-weight: 500;
+  line-height: 1rem;
+  max-width: 20rem;
+  position: fixed;
+  top: -500px;
+  left: -500px;
+  padding: 0.5rem;
+  text-align: center;
+  &--active {
+    animation: pulse 200ms $mdc-animation-deceleration-curve-timing-function;
+    opacity: 1;
+    pointer-events: auto;
+  }
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
