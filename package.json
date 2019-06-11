@@ -6,6 +6,7 @@
   "author": "Kyle Mathews <mathews.kyle@gmail.com>",
   "dependencies": {
     "@loadable/component": "^5.10.1",
+    "@material/animation": "^1.0.0",
     "@material/elevation": "^1.1.0",
     "@material/react-button": "^0.13.0",
     "@material/react-card": "^0.13.0",
