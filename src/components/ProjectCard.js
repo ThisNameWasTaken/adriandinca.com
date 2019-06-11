@@ -33,7 +33,7 @@ const ProjectCard = ({
 
     <ChipSet>
       {tags.map(tag => (
-        <Chip label={tag} tabIndex={-1} />
+        <Chip label={tag} tabIndex={-1} key={tag} />
       ))}
     </ChipSet>
     <CardActions>
