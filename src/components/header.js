@@ -36,10 +36,9 @@ const Header = ({ siteTitle }) => (
           </TopAppBarTitle>
         </TopAppBarSection>
         <TopAppBarSection align="end" role="toolbar">
-          <TopAppBarIcon actionItem tabIndex={0}>
+          <TopAppBarIcon actionItem>
             <IconButton
-              isLink
-              href="#projects"
+              href="/#projects"
               aria-label="View my projects"
               role="button"
               id="projects-top-app-bar-link"
@@ -47,10 +46,9 @@ const Header = ({ siteTitle }) => (
               <WorkSvg aria-hidden="true" />
             </IconButton>
           </TopAppBarIcon>
-          <TopAppBarIcon actionItem tabIndex={0}>
+          <TopAppBarIcon actionItem>
             <IconButton
-              isLink
-              href="#about"
+              href="/#about"
               aria-label="Read more about me"
               role="button"
               id="about-top-app-bar-link"
@@ -58,9 +56,8 @@ const Header = ({ siteTitle }) => (
               <PersonSvg aria-hidden="true" />
             </IconButton>
           </TopAppBarIcon>
-          <TopAppBarIcon actionItem tabIndex={0}>
+          <TopAppBarIcon actionItem>
             <IconButton
-              isLink
               href="mailto:adriandinca2008@gmail.com"
               aria-label="Email me"
               role="button"
@@ -69,9 +66,8 @@ const Header = ({ siteTitle }) => (
               <MailSvg aria-hidden="true" />
             </IconButton>
           </TopAppBarIcon>
-          <TopAppBarIcon actionItem tabIndex={0}>
+          <TopAppBarIcon actionItem>
             <IconButton
-              isLink
               href="https://github.com/ThisNameWasTaken/"
               aria-label="Go to github profile"
               role="button"
