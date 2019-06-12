@@ -25,6 +25,8 @@ const Tooltip = ({
   const displayTooltip = event => {
     const root = rootRef.current;
 
+    if (!root) return;
+
     const anchorRect = event.target.getBoundingClientRect();
 
     let x = anchorRect.x + anchorRect.width / 2;
@@ -103,6 +105,7 @@ const Tooltip = ({
 
   const hideTooltip = () => {
     const root = rootRef.current;
+    if (!root) return;
     root.classList.remove(Tooltip._cssClasses.IS_ACTIVE);
   };
 
@@ -123,7 +126,11 @@ const Tooltip = ({
 
     anchor.addEventListener('touchend', displayTooltip, false);
 
-    anchor.addEventListener('focus', displayTooltip, false);
+    anchor.addEventListener(
+      'keyup',
+      event => event.key === 'Tab' && displayTooltip(event),
+      false
+    );
 
     anchor.addEventListener('blur', hideTooltip, false);
 
