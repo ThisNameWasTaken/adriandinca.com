@@ -21,7 +21,7 @@ import GithubSvg from '../images/inline/github-brands.svg';
 
 const Header = ({ siteTitle }) => (
   <>
-    <TopAppBar>
+    <TopAppBar fixed>
       <TopAppBarRow>
         <TopAppBarSection align="start">
           {/* <TopAppBarIcon navIcon tabIndex={0}>
@@ -59,8 +59,8 @@ const Header = ({ siteTitle }) => (
           <TopAppBarIcon actionItem tabIndex={0}>
             <IconButton
               isLink
-              href="#contact"
-              aria-label="get contact details"
+              href="mailto:adriandinca2008@gmail.com"
+              aria-label="email me"
               id="contact-top-app-bar-link"
             >
               <MailSvg aria-hidden="true" />
