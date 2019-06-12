@@ -6,6 +6,7 @@ import SEO from '../components/seo';
 import Hero from '../components/hero';
 import HomepageCarousel from '../components/HomepageCarousel';
 import ProjectsSection from '../components/ProjectsSection';
+import AboutSection from '../components/AboutSection';
 
 const IndexPage = () => (
   <Layout>
@@ -14,6 +15,7 @@ const IndexPage = () => (
       <HomepageCarousel />
     </Hero>
     <ProjectsSection />
+    <AboutSection />
     <Link to="/page-2/">Go to page 2</Link>
   </Layout>
 );
