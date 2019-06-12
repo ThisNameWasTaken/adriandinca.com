@@ -36,8 +36,7 @@ const AboutSection = () => (
           loves to ensure that all users get a fast and reliable experience
           regardless of their devices or internet connection and that all of the
           content is equally accessible whether a user is physically impaired or
-          not. Want to know more? Check out{' '}
-          <Link href="/resume">my resume</Link>!
+          not. Want to know more? Check out <Link to="/resume">my resume</Link>!
         </Body1>
       </div>
     </article>
