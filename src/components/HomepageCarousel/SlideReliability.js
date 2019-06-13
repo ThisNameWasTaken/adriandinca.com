@@ -1,6 +1,5 @@
 import React, { memo } from 'react';
 import { Slide, Layer } from '../carousel';
-import { Headline2 } from '../material/Typography';
 import Image from '../image';
 
 import loadable from '@loadable/component';
