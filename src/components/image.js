@@ -1,4 +1,4 @@
-import React, { memo, useEffect } from 'react';
+import React, { memo } from 'react';
 import { StaticQuery, graphql } from 'gatsby';
 import Img from 'gatsby-image';
 
@@ -13,7 +13,7 @@ import Img from 'gatsby-image';
  * - `StaticQuery`: https://gatsby.dev/staticquery
  */
 
-const Image = memo(({ src, ...otherProps }) => (
+const Image = memo(({ src, alt, ...otherProps }) => (
   <StaticQuery
     query={graphql`
       query {
@@ -49,14 +49,14 @@ const Image = memo(({ src, ...otherProps }) => (
 
       // TODO: Check for external urls or url encodings
       if (!image) {
-        return <img src={src} {...otherProps} />;
+        return <img src={src} alt={alt} {...otherProps} />;
       }
 
       if (image.node.extension === 'svg') {
-        return <img src={image.node.publicURL} {...otherProps} />;
+        return <img src={image.node.publicURL} alt={alt} {...otherProps} />;
       }
 
-      return <Img fluid={image.node.childImageSharp.fluid} {...otherProps} />;
+      return <Img fluid={image.node.childImageSharp.fluid} alt={alt} {...otherProps} />;
     }}
   />
 ));
