@@ -142,7 +142,7 @@ const Tooltip = ({
   }, []);
 
   return (
-    <div
+    <span
       className="mdc-tooltip"
       role="tooltip"
       htmlFor={htmlFor}
@@ -151,7 +151,7 @@ const Tooltip = ({
       {...otherProps}
     >
       {children}
-    </div>
+    </span>
   );
 };
 
