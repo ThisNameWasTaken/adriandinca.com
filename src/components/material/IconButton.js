@@ -90,7 +90,8 @@ class IconButtonBase extends Component {
       ...otherProps,
     };
     if (href) {
-      if (href.startsWith('http')) {
+    const localUrl = /^\/(?!\/)/;
+      if (!localUrl.test(href)) {
         return <a {...props}>{children}</a>;
       }
       return (

@@ -86,8 +86,9 @@ const Button = withRipple(
       ...otherProps,
     };
 
+    const localUrl = /^\/(?!\/)/;
     if (href) {
-      if (href.startsWith('http')) {
+      if (!localUrl.test(href)) {
         return (
           <a {...props} href={href}>
             {!trailingIcon ? renderIcon(icon) : null}
