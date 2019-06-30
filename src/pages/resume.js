@@ -69,21 +69,19 @@ const SecondPage = () => {
     <Layout>
       <TopAppBarFixedAdjust>
         <SEO title="Page two" />
-        <div className="resume-wrapper">
-          <div className="resume-container" ref={rootRef}>
-            <div className="resume">
-              <div className="resume__inner">
-                <div className="resume__content">
-                  <div className="resume__columns">
-                    <div className="resume__column resume__column--no-top-border resume__column--left">
-                      <h2 className="resume__headline-1">
-                        Adrian Florin Dincă
-                      </h2>
-                      <h3 className="resume__subtitle-1">
+        <div className="page-container">
+          <div className="resume" ref={rootRef}>
+            <div className="page">
+              <div className="page__inner">
+                <div className="page__content">
+                  <div className="page__columns">
+                    <div className="page__column page__column--no-top-border page__column--left">
+                      <h2 className="page__headline-1">Adrian Florin Dincă</h2>
+                      <h3 className="page__subtitle-1">
                         Mobile Web Specialist
                       </h3>
                     </div>
-                    <div className="resume__column resume__column--no-top-border resume__column--right">
+                    <div className="page__column page__column--no-top-border page__column--right">
                       <ul id="contact-info">
                         <li>
                           <a href="https://www.google.com/maps/place/Strada+Gheorghe+%C8%9Ai%C8%9Beica,+Pite%C8%99ti/@44.8812152,24.831481,17z/data=!3m1!4b1!4m5!3m4!1s0x40b2bbb19af8ecd5:0x1cef63c02419aa1c!8m2!3d44.8812152!4d24.8336697">
@@ -132,15 +130,15 @@ const SecondPage = () => {
                     </div>
                   </div>
 
-                  <div className="resume__columns">
-                    <div className="resume__column resume__column--left">
-                      <h2 className="resume__headline-2">
+                  <div className="page__columns">
+                    <div className="page__column page__column--left">
+                      <h2 className="page__headline-2">
                         Open Source Projects & Contributions
                       </h2>
                     </div>
-                    <div className="resume__column resume__column--right">
-                      <h3 className="resume__headline-3">EJS plain loader</h3>
-                      <h4 className="resume__subtitle-3">
+                    <div className="page__column page__column--right">
+                      <h3 className="page__headline-3">EJS plain loader</h3>
+                      <h4 className="page__subtitle-3">
                         November 2018 - Present
                       </h4>
                       <Body2>
@@ -150,8 +148,8 @@ const SecondPage = () => {
                         css, csv, etc).
                       </Body2>
 
-                      <h3 className="resume__headline-3">RellaxJS</h3>
-                      <h4 className="resume__subtitle-3">
+                      <h3 className="page__headline-3">RellaxJS</h3>
+                      <h4 className="page__subtitle-3">
                         March 2019{' '}
                         <a href="https://github.com/dixonandmoe/rellax/pull/160">
                           #160
@@ -170,8 +168,8 @@ const SecondPage = () => {
                         redundant DOM queries.
                       </Body2>
 
-                      <h3 className="resume__headline-3">PurgeCSS</h3>
-                      <h4 className="resume__subtitle-3">
+                      <h3 className="page__headline-3">PurgeCSS</h3>
+                      <h4 className="page__subtitle-3">
                         January 2019{' '}
                         <a href="https://github.com/FullHuman/purgecss/pull/167">
                           #167
@@ -186,8 +184,8 @@ const SecondPage = () => {
                         animations with multiple keyframes.
                       </Body2>
 
-                      <h3 className="resume__headline-3">EJS</h3>
-                      <h4 className="resume__subtitle-3">
+                      <h3 className="page__headline-3">EJS</h3>
+                      <h4 className="page__subtitle-3">
                         November 2018{' '}
                         <a href="https://github.com/mde/ejs/pull/411">#441</a>
                       </h4>
@@ -198,17 +196,17 @@ const SecondPage = () => {
                     </div>
                   </div>
 
-                  <div className="resume__columns">
-                    <div className="resume__column resume__column--left">
-                      <h2 className="resume__headline-2">
+                  <div className="page__columns">
+                    <div className="page__column page__column--left">
+                      <h2 className="page__headline-2">
                         Education and Training
                       </h2>
                     </div>
-                    <div className="resume__column resume__column--right">
-                      <h3 className="resume__headline-3">
+                    <div className="page__column page__column--right">
+                      <h3 className="page__headline-3">
                         OSF Academy for students
                       </h3>
-                      <h4 className="resume__subtitle-3">
+                      <h4 className="page__subtitle-3">
                         February 2018 - March 2018{' '}
                         <a href="https://www.osf-global.com/">OSF</a>
                       </h4>
@@ -228,12 +226,12 @@ const SecondPage = () => {
               </div>
             </div>
 
-            <div className="resume">
-              <div className="resume__inner">
-                <div className="resume__content">
-                  <div className="resume__columns">
-                    <div className="resume__column resume__column--no-top-border resume__column--left" />
-                    <div className="resume__column resume__column--no-top-border resume__column--right">
+            <div className="page">
+              <div className="page__inner">
+                <div className="page__content">
+                  <div className="page__columns">
+                    <div className="page__column page__column--no-top-border page__column--left" />
+                    <div className="page__column page__column--no-top-border page__column--right">
                       <Body2>
                         styles, using code splitting and lazy loading images via
                         intersection observers. The gulp script parses the html
@@ -243,10 +241,10 @@ const SecondPage = () => {
                         developer job at OSF.
                       </Body2>
 
-                      <h3 className="resume__headline-3">
+                      <h3 className="page__headline-3">
                         Mobile Web Specialist Google Developers Certification
                       </h3>
-                      <h4 className="resume__subtitle-3">
+                      <h4 className="page__subtitle-3">
                         September 2018{' '}
                         <a href="https://www.linkedin.com/company/googledevelopers/about/">
                           Google Developers
@@ -265,10 +263,10 @@ const SecondPage = () => {
                         integrity.
                       </Body2>
 
-                      <h3 className="resume__headline-3">
+                      <h3 className="page__headline-3">
                         Mobile Web Specialist Nanodegree Program
                       </h3>
-                      <h4 className="resume__subtitle-3">
+                      <h4 className="page__subtitle-3">
                         March 2018 - July 2018{' '}
                         <a href="https://eu.udacity.com/">Udacity</a>
                       </h4>
@@ -280,10 +278,10 @@ const SecondPage = () => {
                         push notifications.
                       </Body2>
 
-                      <h3 className="resume__headline-3">
+                      <h3 className="page__headline-3">
                         Google Developer Challenge Scholarship
                       </h3>
-                      <h4 className="resume__subtitle-3">
+                      <h4 className="page__subtitle-3">
                         November 2017 - February 2018{' '}
                         <a href="https://eu.udacity.com/">Udacity</a>
                       </h4>
@@ -298,8 +296,8 @@ const SecondPage = () => {
                         to test my knowledge.
                       </Body2>
 
-                      <h3 className="resume__headline-3">Bachelor Degree</h3>
-                      <h4 className="resume__subtitle-3">
+                      <h3 className="page__headline-3">Bachelor Degree</h3>
+                      <h4 className="page__subtitle-3">
                         October 2017 - PRESENT{' '}
                         <a href="https://unibuc.ro/?lang=en">
                           University of Bucharest
@@ -310,8 +308,8 @@ const SecondPage = () => {
                         University of Bucharest.
                       </Body2>
 
-                      <h3 className="resume__headline-3">High School</h3>
-                      <h4 className="resume__subtitle-3">
+                      <h3 className="page__headline-3">High School</h3>
+                      <h4 className="page__subtitle-3">
                         September 2013 - July 2017{' '}
                         <a href="http://zinca-golescu.ro/">
                           CNL "Zinca Golescu"
@@ -328,14 +326,14 @@ const SecondPage = () => {
                 </div>
               </div>
             </div>
-            <div className="resume">
-              <div className="resume__inner">
-                <div className="resume__content">
-                  <div className="resume__columns">
-                    <div className="resume__column resume__column--left">
-                      <h2 className="resume__headline-2">Spoken Languages</h2>
+            <div className="page">
+              <div className="page__inner">
+                <div className="page__content">
+                  <div className="page__columns">
+                    <div className="page__column page__column--left">
+                      <h2 className="page__headline-2">Spoken Languages</h2>
                     </div>
-                    <div className="resume__column resume__column--right">
+                    <div className="page__column page__column--right">
                       <table id="spoken-languages">
                         <thead>
                           <tr>
@@ -380,13 +378,13 @@ const SecondPage = () => {
                     </div>
                   </div>
 
-                  <div className="resume__columns">
-                    <div className="resume__column resume__column--left">
-                      <h2 className="resume__headline-2">Hackathons</h2>
+                  <div className="page__columns">
+                    <div className="page__column page__column--left">
+                      <h2 className="page__headline-2">Hackathons</h2>
                     </div>
-                    <div className="resume__column resume__column--right">
-                      <h3 className="resume__headline-3">MS.Hack</h3>
-                      <h4 className="resume__subtitle-3">May 2019</h4>
+                    <div className="page__column page__column--right">
+                      <h3 className="page__headline-3">MS.Hack</h3>
+                      <h4 className="page__subtitle-3">May 2019</h4>
                       <Body2>
                         Won the 2<sup>nd</sup> place with a team of 3 people by
                         building a PWA using Microsoft's Azure Cognitive
@@ -397,8 +395,8 @@ const SecondPage = () => {
                         smartphone.
                       </Body2>
 
-                      <h3 className="resume__headline-3">ITFest</h3>
-                      <h4 className="resume__subtitle-3">November 2018 </h4>
+                      <h3 className="page__headline-3">ITFest</h3>
+                      <h4 className="page__subtitle-3">November 2018 </h4>
                       <Body2>
                         Won the 1<sup>st</sup> place with a team of 3 people by
                         building a file sharing PWA. The contest was about

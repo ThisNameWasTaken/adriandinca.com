@@ -1,10 +1,10 @@
 $primary: #a600ff;
-$resume-column-gap: 0 !default;
+$page-column-gap: 0 !default;
 
 @import '@material/typography/mdc-typography';
 @import '@material/elevation/mdc-elevation';
 
-.resume-wrapper {
+.resume-container {
   position: relative;
   width: 100%;
   display: block;
@@ -16,7 +16,7 @@ $resume-column-gap: 0 !default;
   }
 }
 
-.resume-container {
+.resume {
   @media screen and (max-width: 799.99999px) {
     position: absolute;
     top: 0;
@@ -29,7 +29,7 @@ $resume-column-gap: 0 !default;
   width: 800px + 2 * $padding;
   margin: auto;
 }
-.resume {
+.page {
   margin: 32px 0;
   $border-radius: 4px;
   padding-bottom: 129.375%;
@@ -103,7 +103,7 @@ $resume-column-gap: 0 !default;
     flex-basis: 0;
     flex-grow: 1;
     flex-shrink: 1;
-    padding: $resume-column-gap;
+    padding: $page-column-gap;
     position: relative;
     @mixin top-border() {
       content: '';
@@ -111,7 +111,7 @@ $resume-column-gap: 0 !default;
       top: 0;
       background: #a600ff;
       height: 4px;
-      transform: translateY(calc(-100% + #{$resume-column-gap}));
+      transform: translateY(calc(-100% + #{$page-column-gap}));
     }
     &--left {
       order: 0;
@@ -138,9 +138,9 @@ $resume-column-gap: 0 !default;
   &__columns {
     width: 100%;
     display: flex;
-    margin: -$resume-column-gap;
+    margin: -$page-column-gap;
     &:not(:last-child) {
-      margin-bottom: calc(1.5rem - #{$resume-column-gap});
+      margin-bottom: calc(1.5rem - #{$page-column-gap});
     }
     &--centered-horizontally {
       justify-content: center;
@@ -156,7 +156,7 @@ $resume-column-gap: 0 !default;
       &:not(:last-child) {
         margin-bottom: 1.5rem;
       }
-      & > .resume__column {
+      & > .page__column {
         margin: 0;
         padding: 0 !important;
       }
