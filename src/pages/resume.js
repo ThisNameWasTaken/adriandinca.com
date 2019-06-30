@@ -47,7 +47,7 @@ const LoadingPage = (
   </div>
 );
 
-const SecondPage = () => {
+const Resume = () => {
   const rootRef = useRef();
   let rootRect;
 
@@ -245,4 +245,4 @@ const SecondPage = () => {
   );
 };
 
-export default SecondPage;
+export default Resume;
