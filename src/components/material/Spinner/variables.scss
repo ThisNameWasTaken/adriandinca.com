@@ -1,0 +1,21 @@
+@import './functions';
+
+$spinner-color-1: #42a5f5 !default;
+$spinner-color-2: #f44336 !default;
+$spinner-color-3: #fdd835 !default;
+$spinner-color-4: #4caf50 !default;
+
+$spinner-single-color: #a600ff !default;
+
+$spinner-size: 28px !default;
+$spinner-stroke-width: 3px !default;
+
+// Amount of circle the arc takes up.
+$spinner-arc-size: 270deg !default;
+// Time it takes to expand and contract arc.
+$spinner-arc-time: 1333ms !default;
+// How much the start location of the arc should rotate each time.
+$spinner-arc-start-rotation: 216deg !default;
+
+$spinner-duration: 360 * $spinner-arc-time /
+  (strip-units($spinner-arc-start-rotation + (360deg - $spinner-arc-size)));
