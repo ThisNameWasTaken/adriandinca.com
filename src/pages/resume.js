@@ -14,6 +14,7 @@ import Phone from '../images/icons/baseline-phone-24px.svg';
 import Email from '../images/icons/baseline-email-24px.svg';
 import LinkedIn from '../images/icons/linkedin-in-brands.svg';
 import Github from '../images/icons/github-brands.svg';
+import Tooltip from '../components/material/Tooltip';
 
 const Page2 = lazy(() => import('../partials/resume/page-2'));
 const Page3 = lazy(() => import('../partials/resume/page-3'));
@@ -170,12 +171,11 @@ const Resume = () => {
                         #159
                       </a>{' '}
                       which enabled sharing nodes and node lists. The{' '}
-                      <span id="pr" title="Pull Request">
-                        PR
-                      </span>{' '}
-                      increased performance on large DOM trees by avoiding
-                      redundant DOM queries.
+                      <span id="pr">PR</span> increased performance on large DOM
+                      trees by avoiding redundant DOM queries.
                     </Body2>
+
+                    <Tooltip htmlFor="pr">Pull Request</Tooltip>
 
                     <h3 className="page__headline-3">PurgeCSS</h3>
                     <h4 className="page__subtitle-3">

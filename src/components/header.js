@@ -9,7 +9,7 @@ import TopAppBar, {
 
 import IconButton from './material/IconButton';
 import Button from './material/Button';
-import Tooltip from './material/Tooltip/Tooltip';
+import Tooltip from './material/Tooltip';
 
 // @ts-ignore
 // import MenuSvg from '../images/inline/baseline-menu-24px.svg';
@@ -79,6 +79,7 @@ const Header = ({ siteTitle }) => (
         </TopAppBarSection>
       </TopAppBarRow>
     </TopAppBar>
+
     <Tooltip htmlFor="projects-top-app-bar-link">Projects</Tooltip>
     <Tooltip htmlFor="about-top-app-bar-link">About</Tooltip>
     <Tooltip htmlFor="contact-top-app-bar-link">Contact</Tooltip>
