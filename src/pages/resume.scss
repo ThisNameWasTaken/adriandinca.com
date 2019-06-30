@@ -4,18 +4,6 @@ $page-column-gap: 0 !default;
 @import '@material/typography/mdc-typography';
 @import '@material/elevation/mdc-elevation';
 
-.resume-container {
-  position: relative;
-  width: 100%;
-  display: block;
-  height: calc(100vh - 56px);
-  overflow-y: auto;
-  overflow-x: hidden;
-  @media screen and (min-width: 600px) {
-    height: calc(100vh - 64px);
-  }
-}
-
 .resume {
   @media screen and (max-width: 799.99999px) {
     position: absolute;
