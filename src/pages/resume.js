@@ -95,6 +95,7 @@ const Resume = () => {
     <Layout>
       <TopAppBarFixedAdjust>
         <SEO title="Page two" />
+        <div className="resume-background" />
         <div className="resume" ref={rootRef}>
           <div className="page" ref={pageRef}>
             <div className="page__inner">
