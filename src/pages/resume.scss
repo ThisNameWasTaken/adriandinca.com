@@ -4,6 +4,11 @@ $page-column-gap: 0 !default;
 @import '@material/typography/mdc-typography';
 @import '@material/elevation/mdc-elevation';
 
+html,
+body {
+  overflow-x: hidden;
+}
+
 .resume {
   @media screen and (max-width: 799.99999px) {
     position: absolute;
@@ -16,6 +21,7 @@ $page-column-gap: 0 !default;
   padding: 0 $padding;
   width: 800px + 2 * $padding;
   margin: auto;
+  margin-top: 80px;
 }
 .page {
   margin: 32px 0;

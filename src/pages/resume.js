@@ -52,6 +52,9 @@ const Resume = () => {
   const rootRef = useRef();
   let rootRect;
 
+  const pageRef = useRef();
+  let pageRect;
+
   function resize() {
     if (!rootRect) return;
 
@@ -66,7 +69,13 @@ const Resume = () => {
     }
 
     const x = -(rootRect.width - scale * rootRect.width) / 2;
-    const y = -(rootRect.height - scale * rootRect.height) / 2;
+    const y =
+      -(
+        rootRect.height -
+        scale * rootRect.height +
+        pageRect.height -
+        scale * pageRect.height
+      ) / 2;
 
     root.style.transform = `translateX(${x}px) translateY(${y}px) scale(${scale})`;
   }
@@ -74,6 +83,10 @@ const Resume = () => {
   useEffect(() => {
     const root = rootRef.current;
     rootRect = root.getBoundingClientRect();
+
+    const page = pageRef.current;
+    pageRect = page.getBoundingClientRect();
+
     resize();
     window.addEventListener('resize', resize);
   }, []);
@@ -83,7 +96,7 @@ const Resume = () => {
       <TopAppBarFixedAdjust>
         <SEO title="Page two" />
         <div className="resume" ref={rootRef}>
-          <div className="page">
+          <div className="page" ref={pageRef}>
             <div className="page__inner">
               <div className="page__content">
                 <div className="page__columns">
