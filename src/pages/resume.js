@@ -6,6 +6,8 @@ import SEO from '../components/seo';
 import { TopAppBarFixedAdjust } from '../components/material/TopAppBar';
 import { Body2 } from '../components/material/Typography';
 import Spinner from '../components/material/Spinner';
+import Tooltip from '../components/material/Tooltip';
+import Fab from '../components/material/Fab';
 
 import './resume.scss';
 
@@ -14,7 +16,6 @@ import Phone from '../images/icons/baseline-phone-24px.svg';
 import Email from '../images/icons/baseline-email-24px.svg';
 import LinkedIn from '../images/icons/linkedin-in-brands.svg';
 import Github from '../images/icons/github-brands.svg';
-import Tooltip from '../components/material/Tooltip';
 
 const Page2 = lazy(() => import('../partials/resume/page-2'));
 const Page3 = lazy(() => import('../partials/resume/page-3'));
@@ -80,6 +81,14 @@ const Resume = () => {
     root.style.transform = `translateX(${x}px) translateY(${y}px) scale(${scale})`;
   }
 
+  const downloadLinkRef = useRef();
+
+  function downloadResume(event) {
+    downloadLinkRef.current.click();
+    const fab = event.target;
+    fab.focus();
+  }
+
   useEffect(() => {
     const root = rootRef.current;
     rootRect = root.getBoundingClientRect();
@@ -93,9 +102,34 @@ const Resume = () => {
 
   return (
     <Layout>
-      <TopAppBarFixedAdjust>
+      <TopAppBarFixedAdjust tag="div">
         <SEO title="Page two" />
+        <a
+          href="/Adrian-Florin-Dinca-Resume.pdf"
+          download
+          style={{ display: 'none' }}
+          ref={downloadLinkRef}
+        />
+        <Fab
+          id="download-resume-fab"
+          onClick={downloadResume}
+          role="link"
+          download
+          aria-label="download pdf"
+          icon={
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+            >
+              <path d="M0 0h24v24H0z" fill="none" />
+              <path d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96zM17 13l-5 5-5-5h3V9h4v4h3z" />
+            </svg>
+          }
+        />
         <div className="resume-background" />
+        <Tooltip htmlFor="download-resume-fab">Download PDF</Tooltip>
         <div className="resume" ref={rootRef}>
           <div className="page" ref={pageRef}>
             <div className="page__inner">
@@ -239,7 +273,10 @@ const Resume = () => {
                       for selling shoes. Implemented custom GulpJS setup which
                       handled sass and ES2018 transpiling, image optimization,
                       dynamic imports, and dead code removal. Improved
-                      performance by inlining critical
+                      performance by inlining critical styles, using code
+                      splitting and lazy loading images via intersection
+                      observers. The gulp script parses the html and ensures
+                      that only needed files are included in the final build.
                     </Body2>
                   </div>
                 </div>

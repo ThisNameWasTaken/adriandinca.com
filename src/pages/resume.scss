@@ -1,5 +1,6 @@
 $primary: #a600ff;
 $page-column-gap: 0 !default;
+$resume-background-height: 260px;
 
 @import '@material/typography/mdc-typography';
 @import '@material/elevation/mdc-elevation';
@@ -13,9 +14,28 @@ body {
   position: fixed;
   width: 100%;
   display: block;
-  height: 260px;
+  height: $resume-background-height;
   background: #c468ff;
   z-index: -1;
+  &__inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+#download-resume-fab {
+  position: fixed;
+  bottom: 32px;
+  right: 32px;
+  z-index: 8;
+  @media screen and (min-width: 1040px) {
+    bottom: 0;
+    right: 0;
+    top: $resume-background-height + 5px;
+    left: calc(50% + 440px);
+    transform: translateY(50%);
+  }
 }
 
 .resume {
@@ -32,15 +52,16 @@ body {
   margin: auto;
   margin-top: 80px;
 }
+
 .page {
   z-index: 0;
   background: #fff;
   margin: 32px 0;
   $border-radius: 4px;
-  padding-bottom: 129.375%;
+  padding-bottom: 141.421356237%;
   position: relative;
   width: 100%;
-  @include mdc-elevation(8);
+  @include mdc-elevation(4);
   border-radius: $border-radius;
   &__inner {
     border-radius: $border-radius;
@@ -167,25 +188,29 @@ body {
       }
     }
   }
+}
 
-  #contact-info {
-    padding: 0;
-    margin: 0;
-    @include mdc-typography('body2');
-    list-style: none;
-    & > li > a {
-      display: flex;
-      align-items: center;
-      margin-bottom: 0.2rem;
-    }
-    & > li > a > svg {
-      width: 1.1rem;
-      height: 1.1rem;
-      fill: $primary;
-      flex-shrink: 0;
-      margin-right: 0.5rem;
-    }
+#contact-info {
+  padding: 0;
+  margin: 0;
+  @include mdc-typography('body2');
+  list-style: none;
+  & > li > a {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.2rem;
   }
+  & > li > a > svg {
+    width: 1.1rem;
+    height: 1.1rem;
+    fill: $primary;
+    flex-shrink: 0;
+    margin-right: 0.5rem;
+  }
+}
+
+a {
+  text-decoration: underline;
 }
 
 .text--primary {

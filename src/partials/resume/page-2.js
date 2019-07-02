@@ -9,11 +9,8 @@ const Page2 = () => (
           <div className="page__column page__column--no-top-border page__column--left" />
           <div className="page__column page__column--no-top-border page__column--right">
             <Body2>
-              styles, using code splitting and lazy loading images via
-              intersection observers. The gulp script parses the html and
-              ensures that only needed files are included in the final build. At
-              the end of the program, my mentor, Volodymyr Lysenko, recommended
-              me for a frontend developer job at OSF.
+              At the end of the program, my mentor, Volodymyr Lysenko,
+              recommended me for a frontend developer job at OSF.
             </Body2>
 
             <h3 className="page__headline-3">
@@ -31,9 +28,7 @@ const Page2 = () => (
                 mobile web specialist exam
               </a>
               , a four and a half hours test consisting in fixing layout,
-              performance and accessibility issues and common mistakes. The exam
-              ends with a 5 minute exit interview with a few exam related
-              questions to insure its integrity.
+              performance and accessibility issues and common mistakes.
             </Body2>
 
             <h3 className="page__headline-3">
@@ -87,6 +82,53 @@ const Page2 = () => (
               Pitești. Created a <a href="#">website</a> while learning the
               basics of HTML, CSS, JavaScript, PHP and SQL.
             </Body2>
+          </div>
+        </div>
+
+        <div className="page__columns">
+          <div className="page__column page__column--left">
+            <h2 className="page__headline-2">Spoken Languages</h2>
+          </div>
+          <div className="page__column page__column--right">
+            <table id="spoken-languages">
+              <thead>
+                <tr>
+                  <th style={{ width: '35%' }}>Understanding</th>
+                  <th style={{ width: '48%' }}>Speaking</th>
+                  <th style={{ width: '17%' }}>Writing</th>
+                </tr>
+                <tr>
+                  <th style={{ width: '17.5%' }}>Listening</th>
+                  <th style={{ width: '17.5%' }}>Reading</th>
+                  <th style={{ width: '24%' }}>Spoken Interaction</th>
+                  <th style={{ width: '24%' }}>Spoken Production</th>
+                  <th style={{ width: '17%' }} />
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th>English</th>
+                  <td style={{ width: '17.5%' }}>C2</td>
+                  <td style={{ width: '17.5%' }}>C2</td>
+                  <td style={{ width: '24%' }}>C2</td>
+                  <td style={{ width: '24%' }}>C2</td>
+                  <td style={{ width: '17%' }}>C2</td>
+                </tr>
+                <tr>
+                  <th>Romanian</th>
+                  <td style={{ width: '17.5%' }}>C1</td>
+                  <td style={{ width: '17.5%' }}>C1</td>
+                  <td style={{ width: '24%' }}>C1</td>
+                  <td style={{ width: '24%' }}>C1</td>
+                  <td style={{ width: '17%' }}>C1</td>
+                </tr>
+              </tbody>
+              <tfoot>
+                <tr>
+                  <td style={{ width: '100%' }}>Cambridge CAE, grade B</td>
+                </tr>
+              </tfoot>
+            </table>
           </div>
         </div>
       </div>
