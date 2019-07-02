@@ -56,6 +56,8 @@ const Resume = () => {
   const pageRef = useRef();
   let pageRect;
 
+  let bodyRect;
+
   function resize() {
     if (!rootRect) return;
 
@@ -79,6 +81,7 @@ const Resume = () => {
       ) / 2;
 
     root.style.transform = `translateX(${x}px) translateY(${y}px) scale(${scale})`;
+    document.body.style.maxHeight = `${bodyRect.height * scale}px`;
   }
 
   useEffect(() => {
@@ -88,8 +91,19 @@ const Resume = () => {
     const page = pageRef.current;
     pageRect = page.getBoundingClientRect();
 
+    bodyRect = document.body.getBoundingClientRect();
+
     resize();
     window.addEventListener('resize', resize);
+
+    document.body.style.overflowX = 'hidden';
+    document.documentElement.style.overflowX = 'hidden';
+
+    return () => {
+      document.body.style.overflowX = '';
+      document.documentElement.style.overflowX = '';
+      document.body.style.maxHeight = '';
+    };
   }, []);
 
   return (

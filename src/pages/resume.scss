@@ -5,11 +5,6 @@ $resume-background-height: 260px;
 @import '@material/typography/mdc-typography';
 @import '@material/elevation/mdc-elevation';
 
-html,
-body {
-  overflow-x: hidden;
-}
-
 .resume-background {
   position: fixed;
   width: 100%;
