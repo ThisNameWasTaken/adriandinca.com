@@ -81,14 +81,6 @@ const Resume = () => {
     root.style.transform = `translateX(${x}px) translateY(${y}px) scale(${scale})`;
   }
 
-  const downloadLinkRef = useRef();
-
-  function downloadResume(event) {
-    downloadLinkRef.current.click();
-    const fab = event.target;
-    fab.focus();
-  }
-
   useEffect(() => {
     const root = rootRef.current;
     rootRect = root.getBoundingClientRect();
@@ -104,16 +96,9 @@ const Resume = () => {
     <Layout>
       <TopAppBarFixedAdjust tag="div">
         <SEO title="Page two" />
-        <a
-          href="/Adrian-Florin-Dinca-Resume.pdf"
-          download
-          style={{ display: 'none' }}
-          ref={downloadLinkRef}
-        />
         <Fab
           id="download-resume-fab"
-          onClick={downloadResume}
-          role="link"
+          href="/Adrian-Florin-Dinca-Resume.pdf"
           download
           aria-label="download pdf"
           icon={
