@@ -72,6 +72,7 @@ const Button = withRipple(
     // if unbounded is passed to the <button> element, it will throw
     // a warning.
     unbounded = false, // eslint-disable-line @typescript-eslint/no-unused-vars
+    download = undefined,
     ...otherProps
   }) => {
     const props = {
@@ -88,7 +89,7 @@ const Button = withRipple(
 
     const localUrl = /^\/(?!\/)/;
     if (href) {
-      if (!localUrl.test(href)) {
+      if (!localUrl.test(href) || download) {
         return (
           <a {...props} href={href}>
             {!trailingIcon ? renderIcon(icon) : null}
