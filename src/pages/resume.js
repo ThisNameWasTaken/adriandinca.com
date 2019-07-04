@@ -56,8 +56,6 @@ const Resume = () => {
   const pageRef = useRef();
   let pageRect;
 
-  let bodyRect;
-
   function resize() {
     if (!rootRect) return;
 
@@ -94,8 +92,6 @@ const Resume = () => {
 
     const page = pageRef.current;
     pageRect = page.getBoundingClientRect();
-
-    bodyRect = document.body.getBoundingClientRect();
 
     resize();
     window.addEventListener('resize', resize);
