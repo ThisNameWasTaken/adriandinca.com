@@ -77,6 +77,7 @@ class IconButtonBase extends Component {
       handleChange,
       onClick,
       unbounded,
+      download,
       [ARIA_PRESSED]: ariaPressed,
       /* eslint-enable @typescript-eslint/no-unused-vars */
       ...otherProps
@@ -87,12 +88,17 @@ class IconButtonBase extends Component {
       ref: initRipple,
       [ARIA_PRESSED]: this.state[ARIA_PRESSED],
       onClick: this.handleClick_,
+      download,
       ...otherProps,
     };
     if (href) {
-    const localUrl = /^\/(?!\/)/;
-      if (!localUrl.test(href)) {
-        return <a {...props}>{children}</a>;
+      const localUrl = /^\/(?!\/)/;
+      if (!localUrl.test(href) || download) {
+        return (
+          <a href={href} {...props}>
+            {children}
+          </a>
+        );
       }
       return (
         <Link to={href} {...props}>
