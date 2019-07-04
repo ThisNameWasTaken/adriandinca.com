@@ -81,7 +81,6 @@ const Resume = () => {
       ) / 2;
 
     root.style.transform = `translateX(${x}px) translateY(${y}px) scale(${scale})`;
-    document.body.style.maxHeight = `${bodyRect.height * scale}px`;
   }
 
   useEffect(() => {
@@ -102,7 +101,6 @@ const Resume = () => {
     return () => {
       document.body.style.overflowX = '';
       document.documentElement.style.overflowX = '';
-      document.body.style.maxHeight = '';
     };
   }, []);
 
