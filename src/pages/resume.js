@@ -71,6 +71,9 @@ const Resume = () => {
       return;
     }
 
+    // TODO: Import from sass
+    const pageMarginTop = 32;
+
     const x = -(rootRect.width - scale * rootRect.width) / 2;
     const y =
       -(
@@ -78,7 +81,9 @@ const Resume = () => {
         scale * rootRect.height +
         pageRect.height -
         scale * pageRect.height
-      ) / 2;
+      ) /
+        2 +
+      pageMarginTop;
 
     root.style.transform = `translateX(${x}px) translateY(${y}px) scale(${scale})`;
   }
