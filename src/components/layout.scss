@@ -1,9 +1,5 @@
+@import '../components/theme.scss';
 @import '~normalize.css/normalize.css';
-
-$mdc-theme-primary: #a600ff;
-$mdc-theme-secondary: #59ff00;
-
-@import '@material/theme/mdc-theme';
 
 html {
   font-family: sans-serif;
@@ -53,13 +49,13 @@ html {
 }
 
 a {
-  color: #a600ff;
+  color: $mdc-theme-primary;
   &:focus {
-    outline: 1px solid #a600ff;
+    outline: 1px solid $mdc-theme-primary;
   }
 }
 
 ::selection {
-  background: #a600ff;
+  background: $mdc-theme-primary;
   color: #fff;
 }

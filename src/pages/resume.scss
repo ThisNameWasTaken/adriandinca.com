@@ -1,7 +1,7 @@
-$primary: #a600ff;
 $page-column-gap: 0 !default;
 $resume-background-height: 260px;
 
+@import '../components/theme.scss';
 @import '@material/typography/mdc-typography';
 @import '@material/elevation/mdc-elevation';
 
@@ -10,7 +10,7 @@ $resume-background-height: 260px;
   width: 100%;
   display: block;
   height: $resume-background-height;
-  background: #c468ff;
+  background: lighten($mdc-theme-primary, 27);
   z-index: -1;
   &__inner {
     position: relative;
@@ -80,7 +80,7 @@ $resume-background-height: 260px;
     font-size: 2.5rem;
     margin: 0;
     line-height: 1.2;
-    color: $primary;
+    color: $mdc-theme-primary;
   }
   &__subtitle-1 {
     @include mdc-typography('subtitle1');
@@ -95,7 +95,7 @@ $resume-background-height: 260px;
     // margin: 1rem 0;
     font-weight: 500;
     // line-height: 1.2;
-    color: $primary;
+    color: $mdc-theme-primary;
   }
   &__headline-3 {
     @include mdc-typography('subtitle1');
@@ -104,7 +104,7 @@ $resume-background-height: 260px;
     font-weight: 500;
     margin-bottom: 0;
     // line-height: 1.2;
-    // color: $primary;
+    // color: $mdc-theme-primary;
   }
   &__subtitle-3 {
     @include mdc-typography('subtitle2');
@@ -114,7 +114,7 @@ $resume-background-height: 260px;
     // margin: 1rem 0;
     // font-weight: 500;
     // line-height: 1.2;
-    // color: $primary;
+    // color: $mdc-theme-primary;
     a {
       font-weight: 400;
     }
@@ -198,7 +198,7 @@ $resume-background-height: 260px;
   & > li > a > svg {
     width: 1.1rem;
     height: 1.1rem;
-    fill: $primary;
+    fill: $mdc-theme-primary;
     flex-shrink: 0;
     margin-right: 0.5rem;
   }
@@ -209,7 +209,7 @@ a {
 }
 
 .text--primary {
-  color: $primary;
+  color: $mdc-theme-primary;
 }
 
 #generic-info {
@@ -249,7 +249,7 @@ a {
   th {
     font-weight: 400;
     text-transform: uppercase;
-    color: $primary;
+    color: $mdc-theme-primary;
   }
   th,
   td {
