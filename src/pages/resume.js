@@ -9,7 +9,8 @@ import Spinner from '../components/material/Spinner';
 import Tooltip from '../components/material/Tooltip';
 import Fab from '../components/material/Fab';
 
-import './resume.scss';
+// import './resume.scss';
+import styles from './resume.scss';
 
 import Location from '../images/icons/baseline-location_on-24px.svg';
 import Phone from '../images/icons/baseline-phone-24px.svg';
@@ -69,8 +70,7 @@ const Resume = () => {
       return;
     }
 
-    // TODO: Import from sass
-    const pageMarginTop = 32;
+    const pageMarginTop = parseInt(styles.pageMargin.match(/\d+/)[0]);
 
     const x = -(rootRect.width - scale * rootRect.width) / 2;
     const y =

@@ -48,10 +48,12 @@ $resume-background-height: 260px;
   width: 800px;
 }
 
+$page-margin: 32px 0px;
+
 .page {
   z-index: 0;
   background: #fff;
-  margin: 32px 0;
+  margin: $page-margin;
   $border-radius: 4px;
   padding-bottom: 141.421356237%;
   position: relative;
@@ -269,4 +271,8 @@ a {
       border: none;
     }
   }
+}
+
+:export {
+  pageMargin: $page-margin;
 }
