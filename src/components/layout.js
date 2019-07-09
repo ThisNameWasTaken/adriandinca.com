@@ -12,6 +12,8 @@ import { StaticQuery, graphql } from 'gatsby';
 import Header from './header';
 import './layout.scss';
 
+import {TopAppBarFixedAdjust} from '@material/react-top-app-bar';
+
 const Layout = ({ children }) => {
   useEffect(() => {
     document.documentElement.style.scrollBehavior = 'smooth';
@@ -33,7 +35,7 @@ const Layout = ({ children }) => {
       render={data => (
         <>
           <Header siteTitle={data.site.siteMetadata.title} />
-          <main>{children}</main>
+          <TopAppBarFixedAdjust>{children}</TopAppBarFixedAdjust>
         </>
       )}
     />

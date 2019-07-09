@@ -3,7 +3,6 @@ import React, { Suspense, useEffect, useRef, lazy } from 'react';
 import Layout from '../components/layout';
 import SEO from '../components/seo';
 
-import { TopAppBarFixedAdjust } from '../components/material/TopAppBar';
 import { Body2 } from '../components/material/Typography';
 import Spinner from '../components/material/Spinner';
 import Tooltip from '../components/material/Tooltip';
@@ -107,7 +106,6 @@ const Resume = () => {
 
   return (
     <Layout>
-      <TopAppBarFixedAdjust tag="div">
         <SEO title="Page two" />
         <Fab
           id="download-resume-fab"
@@ -289,7 +287,6 @@ const Resume = () => {
             </Suspense>
           )}
         </div>
-      </TopAppBarFixedAdjust>
     </Layout>
   );
 };
