@@ -1,0 +1,183 @@
+@import '@material/animation/variables';
+@import '@material/top-app-bar/variables';
+
+.home-banner {
+  width: 100%;
+  height: calc(100vh - 56px);
+  position: relative;
+  // TODO: Import breakpoint from mdc top app bar
+  @media screen and (min-width: $mdc-top-app-bar-mobile-breakpoint) {
+    height: calc(100vh - 64px);
+  }
+
+  &-svg {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    height: auto;
+    width: calc(100% - 1rem);
+    @media screen and (min-width: 1200px) {
+      height: 100%;
+      width: auto;
+    }
+  }
+}
+
+@mixin animation-fade-in($duration: 0.5s, $delay: 0s) {
+  animation: fade-in 0.5s $mdc-animation-acceleration-curve-timing-function
+    $delay both;
+}
+
+@mixin animation-rise($duration: 0.4s, $delay: 0s) {
+  animation: rise 0.4s $mdc-animation-standard-curve-timing-function $delay both;
+}
+
+@mixin animation-scale-up($duration: 0.4s, $delay: 0s) {
+  transform-origin: 50% 40%;
+  animation: scale-up 0.4s $mdc-animation-standard-curve-timing-function $delay
+    both;
+}
+
+#monitor-screen {
+  @include animation-fade-in();
+}
+
+#phone-screen {
+  @include animation-fade-in();
+}
+
+#message-bubble {
+  @include animation-rise($delay: 0.6s);
+}
+
+#internet {
+  @include animation-rise($delay: 0.5s);
+}
+
+#mail {
+  @include animation-rise($delay: 0.35s);
+}
+
+#at {
+  @include animation-rise($delay: 0.45s);
+}
+
+#shield {
+  @include animation-rise($delay: 0.8s);
+}
+
+#wi-fi {
+  & > path:nth-of-type(1) {
+    @include animation-fade-in($duration: 0.3s, $delay: 0.3s);
+  }
+  & > path:nth-of-type(2) {
+    @include animation-fade-in($duration: 0.3s, $delay: 0.4s);
+  }
+  & > path:nth-of-type(3) {
+    @include animation-fade-in($duration: 0.3s, $delay: 0.5s);
+  }
+  & > path:nth-of-type(4) {
+    @include animation-fade-in($duration: 0.3s, $delay: 0.6s);
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes rise {
+  from {
+    transform: translateY(-10%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes scale-up {
+  from {
+    transform: scaleY(0);
+  }
+  to {
+    transform: scaleY(1);
+  }
+}
+
+#chart-1 {
+  @include animation-scale-up(
+    $duration: 0.3s,
+    $delay: (
+      0.3s + 0.3s,
+    )
+  );
+}
+
+#chart-1-reflection {
+  @include animation-scale-up(
+    $duration: 0.3s,
+    $delay: (
+      0.3s + 0.3s,
+    )
+  );
+}
+
+#chart-2 {
+  @include animation-scale-up(
+    $duration: 0.3s,
+    $delay: (
+      0.3s + 0.6s,
+    )
+  );
+}
+
+#chart-2-reflection {
+  @include animation-scale-up(
+    $duration: 0.3s,
+    $delay: (
+      0.3s + 0.6s,
+    )
+  );
+}
+
+#chart-3 {
+  @include animation-scale-up(
+    $duration: 0.3s,
+    $delay: (
+      0.3s + 0.5s,
+    )
+  );
+}
+
+#chart-3-reflection {
+  @include animation-scale-up(
+    $duration: 0.3s,
+    $delay: (
+      0.3s + 0.5s,
+    )
+  );
+}
+
+#chart-4 {
+  @include animation-scale-up(
+    $duration: 0.3s,
+    $delay: (
+      0.3s + 0.4s,
+    )
+  );
+}
+
+#chart-4-reflection {
+  @include animation-scale-up(
+    $duration: 0.3s,
+    $delay: (
+      0.3s + 0.4s,
+    )
+  );
+}
