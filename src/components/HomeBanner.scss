@@ -12,26 +12,41 @@
 
   @media screen and (max-width: 1199px) {
     flex-direction: column;
-    &__svgs {
-      margin-top: auto;
-      height: auto;
-      width: 100%;
-    }
   }
 
   &__svgs {
     position: relative;
-    @media screen and (min-width: 1200px) {
-      margin-left: auto;
-      height: 100%;
-      width: auto;
-    }
     z-index: 1;
+
+    @mixin orientation($orientation) {
+      @if ($orientation == 'portrait') {
+        margin-top: auto;
+        height: auto;
+        width: 100%;
+      } @else {
+        margin-left: auto;
+        height: 100%;
+        width: auto;
+      }
+    }
+
+    @media screen and (orientation: portrait) {
+      @include orientation('portrait');
+    }
+
+    @media screen and (orientation: landscape) {
+      @include orientation('landscape');
+    }
+
+    @media screen and (orientation: landscape) and (max-width: 120vh) {
+      @include orientation('portrait');
+    }
   }
 
   &__svg {
     height: 100%;
     width: auto;
+
     &:not(:first-of-type) {
       position: absolute;
       bottom: 0;
