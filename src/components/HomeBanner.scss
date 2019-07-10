@@ -1,24 +1,29 @@
+@import './theme';
 @import '@material/animation/variables';
 @import '@material/top-app-bar/variables';
+@import '@material/typography/mdc-typography';
+@import '@material/button/variables';
 
 .home-banner {
   width: 100%;
   height: calc(100vh - 56px);
   position: relative;
-  // TODO: Import breakpoint from mdc top app bar
-  @media screen and (min-width: $mdc-top-app-bar-mobile-breakpoint) {
-    height: calc(100vh - 64px);
+  display: flex;
+
+  &__svgs {
+    margin-left: auto;
+    height: 100%;
+    width: auto;
+    z-index: 1;
   }
 
-  &-svg {
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    height: auto;
-    width: calc(100% - 1rem);
-    @media screen and (min-width: 1200px) {
-      height: 100%;
-      width: auto;
+  &__svg {
+    height: 100%;
+    width: auto;
+    &:not(:first-of-type) {
+      position: absolute;
+      bottom: 0;
+      right: 0;
     }
   }
 }
