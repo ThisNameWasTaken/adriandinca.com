@@ -10,10 +10,22 @@
   position: relative;
   display: flex;
 
+  @media screen and (max-width: 1199px) {
+    flex-direction: column;
+    &__svgs {
+      margin-top: auto;
+      height: auto;
+      width: 100%;
+    }
+  }
+
   &__svgs {
-    margin-left: auto;
-    height: 100%;
-    width: auto;
+    position: relative;
+    @media screen and (min-width: 1200px) {
+      margin-left: auto;
+      height: 100%;
+      width: auto;
+    }
     z-index: 1;
   }
 
