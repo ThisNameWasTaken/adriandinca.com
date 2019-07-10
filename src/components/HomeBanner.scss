@@ -4,6 +4,9 @@
 @import '@material/typography/mdc-typography';
 @import '@material/button/variables';
 
+$line-thin-width: 4px;
+$line-width: 6px;
+
 .home-banner {
   width: 100%;
   min-height: 300px;
@@ -55,17 +58,18 @@
     }
   }
 
-  $line-thin-width: 4px;
-  $line-width: 6px;
-
   &__line {
     position: absolute;
     left: 0;
     top: 0;
     width: $line-thin-width;
-    transform: translateX(-300%);
+    transform: scale(1) translateX(-300%);
+    transform-origin: top center;
     background: $mdc-theme-primary;
     height: 100%;
+    animation: line-animation 1s $mdc-animation-standard-curve-timing-function
+      both;
+
     @media screen and (orientation: landscape) and (min-width: 120vh) and (min-height: 700px) {
       width: $line-width;
     }
@@ -123,12 +127,58 @@
     font-size: 2.6rem;
     line-height: 2.825rem;
     margin-left: 3 * $line-thin-width;
+
     @media screen and (orientation: landscape) and (min-width: 120vh) and (min-height: 700px) {
       @include mdc-typography('headline2');
       font-weight: 400;
       margin: 0;
       margin-left: 3 * $line-width;
     }
+
+    &__placeholder {
+      visibility: hidden;
+    }
+
+    &__mask {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      overflow: hidden;
+      animation: reveal 1s $mdc-animation-standard-curve-timing-function both;
+      &__inner {
+        animation: reverse-reveal 1s $mdc-animation-standard-curve-timing-function both;
+      }
+    }
+  }
+}
+
+@keyframes reveal {
+  0% {
+    transform: translateX(100%);
+  }
+
+  40% {
+    transform: translateX(100%);
+  }
+
+  100% {
+    transform: translateX(0%);
+  }
+}
+
+@keyframes reverse-reveal {
+  0% {
+    transform: translateX(-100%);
+  }
+
+  40% {
+    transform: translateX(-100%);
+  }
+
+  100% {
+    transform: translateX(0%);
   }
 }
 
@@ -208,6 +258,21 @@
   }
   to {
     opacity: 1;
+  }
+}
+
+@keyframes line-animation {
+  0% {
+    // There are 3-4 fixed width
+    transform: scaleY(0) translateX(468px + 4 * $line-width);
+  }
+
+  40% {
+    transform: scaleY(1) translateX(468px + 4 * $line-width);
+  }
+
+  100% {
+    transform: scaleY(1) translateX(-3 * $line-width);
   }
 }
 
