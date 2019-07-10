@@ -6,6 +6,7 @@
 
 .home-banner {
   width: 100%;
+  min-height: 300px;
   height: calc(100vh - 56px);
   position: relative;
   display: flex;
@@ -59,10 +60,36 @@
     position: absolute;
     z-index: 2;
 
+    @media screen and (orientation: landscape) and (min-width: 120vh) and (min-height: 700px) {
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+    }
+
     & > * {
       margin-top: 3rem !important;
-      @media screen and (min-height: 400px) {
+      @media screen and (min-height: 400px) and (min-width: 500px) {
         margin-top: 4rem !important;
+      }
+      @media screen and (orientation: landscape) and (min-width: 120vh) and (min-height: 700px) {
+        margin-top: 0 !important;
+      }
+    }
+
+    & > div > .mdc-button {
+      @mixin button($scale: 1) {
+        $mdc-button-font-size: 0.875rem;
+        border-radius: $mdc-button-height / 2 * $scale;
+        height: $mdc-button-height * $scale;
+        padding: 0 2 * $mdc-button-horizontal-padding * $scale;
+        font-size: $mdc-button-font-size * $scale;
+      }
+
+      @include button(1);
+
+      @media screen and (orientation: landscape) and (min-width: 120vh) and (min-height: 700px) {
+        @include button(1.5);
       }
     }
   }
@@ -78,6 +105,24 @@
     margin: 0;
     font-size: 2.6rem;
     line-height: 2.825rem;
+
+    @media screen and (orientation: landscape) and (min-width: 120vh) and (min-height: 700px) {
+      @include mdc-typography('headline2');
+      font-weight: 400;
+      margin: 0;
+    }
+  }
+}
+
+.hide-small {
+  @media screen and (max-width: 499px) {
+    display: none;
+  }
+}
+
+.hide-large {
+  @media screen and (min-width: 500px) {
+    display: none;
   }
 }
 

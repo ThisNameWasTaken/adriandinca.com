@@ -12,8 +12,14 @@ const HomeBanner = () => {
     <div className="home-banner">
       <div className="home-banner__content">
         <h1 className="home-banner__headline">
-          <div>Web Development</div>
-          <div>& Maintenance</div>
+          <div>
+            Web Dev
+            <span className="hide-small">elopment</span>
+            <span className="hide-large"> &</span>
+          </div>
+          <div>
+            <span className="hide-small">& </span>Maintenance
+          </div>
         </h1>
 
         <div>
@@ -21,6 +27,8 @@ const HomeBanner = () => {
             get in touch
           </Button>
         </div>
+
+        <div />
       </div>
       <div className="home-banner__svgs">
         <SvgIdle className="home-banner__svg home-banner__svg--idle" />
