@@ -12,6 +12,7 @@ const HomeBanner = () => {
     <div className="home-banner">
       <div className="home-banner__content">
         <h1 className="home-banner__headline">
+          <div className="home-banner__line" />
           <div>
             Web Dev
             <span className="hide-small">elopment</span>

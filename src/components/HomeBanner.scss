@@ -55,6 +55,22 @@
     }
   }
 
+  $line-thin-width: 4px;
+  $line-width: 6px;
+
+  &__line {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: $line-thin-width;
+    transform: translateX(-300%);
+    background: $mdc-theme-primary;
+    height: 100%;
+    @media screen and (orientation: landscape) and (min-width: 120vh) and (min-height: 700px) {
+      width: $line-width;
+    }
+  }
+
   &__content {
     padding: 0 2rem;
     position: absolute;
@@ -95,6 +111,7 @@
   }
 
   &__headline {
+    position: relative;
     color: $mdc-theme-primary;
     text-shadow: 2.5px 2.5px 0 $mdc-theme-on-primary,
       2.5px -2.5px 0 $mdc-theme-on-primary, -2.5px 2.5px 0 $mdc-theme-on-primary,
@@ -105,11 +122,12 @@
     margin: 0;
     font-size: 2.6rem;
     line-height: 2.825rem;
-
+    margin-left: 3 * $line-thin-width;
     @media screen and (orientation: landscape) and (min-width: 120vh) and (min-height: 700px) {
       @include mdc-typography('headline2');
       font-weight: 400;
       margin: 0;
+      margin-left: 3 * $line-width;
     }
   }
 }
