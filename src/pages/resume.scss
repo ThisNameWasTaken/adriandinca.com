@@ -4,12 +4,16 @@ $resume-background-height: 260px;
 @import '../components/theme.scss';
 @import '@material/typography/mdc-typography';
 @import '@material/elevation/mdc-elevation';
+@import '@material/top-app-bar/variables';
 
 .resume-background {
   position: fixed;
   width: 100%;
   display: block;
   height: $resume-background-height;
+  @media screen and (max-width: $mdc-top-app-bar-mobile-breakpoint) {
+    height: $resume-background-height - 8px;
+  }
   background: lighten($mdc-theme-primary, 27);
   z-index: -1;
   &__inner {
@@ -36,24 +40,23 @@ $resume-background-height: 260px;
 .resume {
   @media screen and (max-width: 799.99999px) {
     position: absolute;
-    top: 0;
+    top: 32px;
     left: 0;
   }
-  $padding: 16px;
-  display: block;
-  margin: 80px $padding 0px $padding;
-  @media screen and (min-width: 800px + 2 * $padding) {
-    margin: 80px auto 0px auto;
+  @media screen and (max-width: $mdc-top-app-bar-mobile-breakpoint) {
+    top: 24px;
   }
-  width: 800px;
+  $padding: 16px;
+  padding: 0 $padding;
+  display: block;
+  margin: 80px auto 0px auto;
+  width: 800px + 2 * $padding;
 }
-
-$page-margin: 32px 0px;
 
 .page {
   z-index: 0;
   background: #fff;
-  margin: $page-margin;
+  margin: 32px 0px;
   $border-radius: 4px;
   padding-bottom: 141.421356237%;
   position: relative;
@@ -271,8 +274,4 @@ a {
       border: none;
     }
   }
-}
-
-:export {
-  pageMargin: $page-margin;
 }
