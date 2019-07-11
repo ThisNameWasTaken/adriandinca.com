@@ -107,13 +107,13 @@
     margin: 0;
     font-size: 2.6rem;
     line-height: 2.825rem;
-    margin-left: 3 * $reveal-line-thin-width;
+    margin-left: 3 * $line-reveal-line-thin-width;
 
     @media screen and (orientation: landscape) and (min-width: 120vh) and (min-height: 700px) {
       @include mdc-typography('headline2');
       font-weight: 400;
       margin: 0;
-      margin-left: 3 * $reveal-line-width;
+      margin-left: 3 * $line-reveal-line-width;
     }
   }
 }

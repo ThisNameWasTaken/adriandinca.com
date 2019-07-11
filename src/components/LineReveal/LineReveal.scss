@@ -7,16 +7,31 @@
     position: absolute;
     left: 0;
     top: 0;
-    width: $reveal-line-thin-width;
-    transform: scale(1) translateX(-300%);
+    bottom: 0;
+    right: 0;
+    display: block;
+    z-index: 1;
     transform-origin: top center;
-    background: $mdc-theme-primary;
     height: 100%;
-    animation: line-animation 1s $mdc-animation-standard-curve-timing-function
+    animation: line-animation $line-reveal-animation-duration
+      $mdc-animation-standard-curve-timing-function $line-reveal-animation-delay
       both;
 
-    @media screen and (orientation: landscape) and (min-width: 120vh) and (min-height: 700px) {
-      width: $reveal-line-width;
+    &::before {
+      content: '';
+      display: block;
+      background: $mdc-theme-primary;
+      width: $line-reveal-line-thin-width;
+      height: 100%;
+      position: absolute;
+      left: -2 * $line-reveal-line-thin-width;
+      top: 0;
+      bottom: 0;
+
+      @media screen and (orientation: landscape) and (min-width: 120vh) and (min-height: 700px) {
+        width: $line-reveal-line-width;
+        left: -2 * $line-reveal-line-width;
+      }
     }
   }
 
@@ -31,11 +46,14 @@
     left: 0;
     right: 0;
     overflow: hidden;
-    animation: reveal 1s $mdc-animation-standard-curve-timing-function both;
+    animation: reveal $line-reveal-animation-duration
+      $mdc-animation-standard-curve-timing-function $line-reveal-animation-delay
+      both;
   }
 
   &__inner-mask {
-    animation: reverse-reveal 1s $mdc-animation-standard-curve-timing-function
+    animation: reverse-reveal $line-reveal-animation-duration
+      $mdc-animation-standard-curve-timing-function $line-reveal-animation-delay
       both;
   }
 }
@@ -70,15 +88,14 @@
 
 @keyframes line-animation {
   0% {
-    // There are 3-4 fixed width
-    transform: scaleY(0) translateX(468px + 4 * $reveal-line-width);
+    transform: scaleY(0) translateX(100%);
   }
 
   40% {
-    transform: scaleY(1) translateX(468px + 4 * $reveal-line-width);
+    transform: scaleY(1) translateX(100%);
   }
 
   100% {
-    transform: scaleY(1) translateX(-3 * $reveal-line-width);
+    transform: scaleY(1) translateX(0);
   }
 }
