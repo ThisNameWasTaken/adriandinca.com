@@ -1,5 +1,6 @@
 import React, { Suspense, lazy } from 'react';
 import Button from './material/Button';
+import LineReveal from './LineReveal';
 import './HomeBanner.scss';
 
 import SvgIdle from '../images/home-banner-idle.svg';
@@ -12,8 +13,7 @@ const HomeBanner = () => {
     <div className="home-banner">
       <div className="home-banner__content">
         <h1 className="home-banner__headline">
-          <div className="home-banner__line" />
-          <span className="home-banner__headline__placeholder">
+          <LineReveal>
             <div>
               Web Dev
               <span className="hide-small">elopment</span>
@@ -22,19 +22,7 @@ const HomeBanner = () => {
             <div>
               <span className="hide-small">& </span>Maintenance
             </div>
-          </span>
-          <div className="home-banner__headline__mask">
-            <div className="home-banner__headline__mask__inner">
-              <div>
-                Web Dev
-                <span className="hide-small">elopment</span>
-                <span className="hide-large"> &</span>
-              </div>
-              <div>
-                <span className="hide-small">& </span>Maintenance
-              </div>
-            </div>
-          </div>
+          </LineReveal>
         </h1>
 
         <div>
