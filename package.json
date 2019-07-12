@@ -21,6 +21,7 @@
     "classnames": "^2.2.6",
     "gatsby": "^2.4.2",
     "gatsby-image": "^2.0.41",
+    "gatsby-plugin-layout": "^1.1.1",
     "gatsby-plugin-manifest": "^2.1.1",
     "gatsby-plugin-offline": "^2.1.0",
     "gatsby-plugin-purgecss": "^3.1.1",
@@ -36,7 +37,9 @@
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-helmet": "^5.2.1",
-    "react-intersection-observer": "^8.23.0"
+    "react-intersection-observer": "^8.23.0",
+    "react-spring": "^8.0.27",
+    "react-transition-group": "^4.2.1"
   },
   "devDependencies": {
     "@loadable/babel-plugin": "^5.10.0",
@@ -53,8 +56,10 @@
   "license": "MIT",
   "scripts": {
     "build": "gatsby build",
+    "postbuild": "npm run purgecss",
     "develop": "gatsby develop",
     "format": "prettier --write src/**/*.{js,jsx}",
+    "purgecss": "node scripts/purgecss",
     "start": "npm run develop",
     "serve": "gatsby serve",
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\""

@@ -26,7 +26,11 @@ const HomeBanner = () => {
         </h1>
 
         <div>
-          <Button raised href="mailto:adriandinca2008@gmail.com">
+          <Button
+            raised
+            href="/page-2/"
+            // href="mailto:adriandinca2008@gmail.com"
+          >
             get in touch
           </Button>
         </div>

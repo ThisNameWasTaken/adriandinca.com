@@ -8,15 +8,18 @@
 import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { StaticQuery, graphql } from 'gatsby';
+import { CSSTransition, TransitionGroup } from 'react-transition-group';
 
 import Header from './header';
 import './layout.scss';
 
-import {TopAppBarFixedAdjust} from '@material/react-top-app-bar';
+import { TopAppBarFixedAdjust } from '@material/react-top-app-bar';
 
-const Layout = ({ children }) => {
+const Layout = ({ children, location }) => {
+  console.log(location);
   useEffect(() => {
-    document.documentElement.style.scrollBehavior = 'smooth';
+    document.documentElement.style.scrollBehavior = 'auto';
+    document.documentElement.style.overflowX = 'hidden';
 
     return () => (document.documentElement.style.scrollBehavior = 'auto');
   }, []);
@@ -35,7 +38,17 @@ const Layout = ({ children }) => {
       render={data => (
         <>
           <Header siteTitle={data.site.siteMetadata.title} />
-          <TopAppBarFixedAdjust>{children}</TopAppBarFixedAdjust>
+          <TopAppBarFixedAdjust>
+            <TransitionGroup>
+              <CSSTransition
+                key={location.pathname}
+                timeout={1000}
+                classNames="fade"
+              >
+                {children}
+              </CSSTransition>
+            </TransitionGroup>
+          </TopAppBarFixedAdjust>
         </>
       )}
     />
