@@ -29,6 +29,7 @@
     "gatsby-plugin-sharp": "^2.0.36",
     "gatsby-source-filesystem": "^2.0.33",
     "gatsby-transformer-sharp": "^2.1.19",
+    "gh-pages": "^2.0.1",
     "node-sass": "^4.11.0",
     "normalize.css": "^8.0.1",
     "prop-types": "^15.7.2",
@@ -54,6 +55,7 @@
   "scripts": {
     "build": "gatsby build",
     "postbuild": "npm run purgecss",
+    "deploy": "gh-pages -d public -m \"chore: Deploy to gh pages\"",
     "develop": "gatsby develop",
     "format": "prettier --write src/**/*.{js,jsx}",
     "purgecss": "node scripts/purgecss",
