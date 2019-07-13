@@ -37,7 +37,8 @@
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-helmet": "^5.2.1",
-    "react-intersection-observer": "^8.23.0"
+    "react-intersection-observer": "^8.23.0",
+    "rimraf": "^2.6.3"
   },
   "devDependencies": {
     "@loadable/babel-plugin": "^5.10.0",
@@ -53,8 +54,10 @@
   ],
   "license": "MIT",
   "scripts": {
+    "prebuild": "npm run cleanup",
     "build": "gatsby build",
     "postbuild": "npm run purgecss",
+    "cleanup": "node scripts/cleanup",
     "deploy": "gh-pages -d public -m \"chore: Deploy to gh pages\"",
     "develop": "gatsby develop",
     "format": "prettier --write src/**/*.{js,jsx}",
