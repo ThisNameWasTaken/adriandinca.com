@@ -58,8 +58,13 @@ const Resume = () => {
   let pageCount = 2;
 
   useEffect(() => {
+    const updatePageCount = () =>
+      (pageCount = rootRef.current.getElementsByClassName('page').length);
+
+    updatePageCount();
+
     new MutationObserver(mutations => {
-      pageCount = rootRef.current.getElementsByClassName('page').length;
+      updatePageCount();
       resize();
     }).observe(rootRef.current, { childList: true });
   }, []);
@@ -79,8 +84,6 @@ const Resume = () => {
 
     const x = -(rootRect.width - scale * rootRect.width) / 2;
     const y = -(pageCount * (pageRect.height - scale * pageRect.height)) / 2;
-
-    console.log('resize', document.body.clientWidth, x, y);
 
     root.style.transform = `translateX(${x}px) translateY(${y}px) scale(${scale})`;
   }
