@@ -20,6 +20,13 @@ routeTransitionsStyles.routeTransitionDuration = parseInt(
   routeTransitionsStyles.routeTransitionDuration
 );
 
+function updateRouteTransitionScroll() {
+  document.documentElement.style.setProperty(
+    '--default-route-transition-exit-scroll',
+    `-${window.lastScrollY}px`
+  );
+}
+
 const Layout = ({ children, location }) => {
   const [lastLocation, setLastLocation] = useState(location);
 
@@ -27,10 +34,7 @@ const Layout = ({ children, location }) => {
     document.documentElement.style.scrollBehavior = 'auto';
 
     window.addEventListener('scroll', event => {
-      document.documentElement.style.setProperty(
-        '--default-route-transition-exit-scroll',
-        `-${window.lastScrollY}px`
-      );
+      updateRouteTransitionScroll();
 
       if (window.scrollY > 0) {
         window.lastScrollY = window.scrollY;
@@ -42,9 +46,19 @@ const Layout = ({ children, location }) => {
 
   useEffect(() => {
     if (lastLocation.pathname !== location.pathname) {
-      setTimeout(
-        () => (window.lastScrollY = 0),
-        routeTransitionsStyles.routeTransitionDuration
+      document.documentElement.style.setProperty(
+        '--current-route-transition-duration',
+        `${routeTransitionsStyles.routeTransitionDuration}ms`
+      );
+
+      setTimeout(() => {
+        window.lastScrollY = 0;
+        updateRouteTransitionScroll();
+      }, routeTransitionsStyles.routeTransitionDuration);
+    } else {
+      document.documentElement.style.setProperty(
+        '--current-route-transition-duration',
+        `0ms`
       );
     }
 

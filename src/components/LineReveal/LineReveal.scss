@@ -16,6 +16,12 @@
     animation: line-animation $line-reveal-animation-duration
       $mdc-animation-standard-curve-timing-function $line-reveal-animation-delay
       both;
+    animation: line-animation $line-reveal-animation-duration
+      $mdc-animation-standard-curve-timing-function
+      calc(
+        #{$line-reveal-animation-delay} + var(--current-route-transition-duration)
+      )
+      both;
 
     &::before {
       content: '';
@@ -47,13 +53,22 @@
     right: 0;
     overflow: hidden;
     animation: reveal $line-reveal-animation-duration
-      $mdc-animation-standard-curve-timing-function $line-reveal-animation-delay
+      $mdc-animation-standard-curve-timing-function
+      calc(
+        #{$line-reveal-animation-delay} + var(--current-route-transition-duration)
+      )
       both;
   }
 
   &__inner-mask {
     animation: reverse-reveal $line-reveal-animation-duration
       $mdc-animation-standard-curve-timing-function $line-reveal-animation-delay
+      both;
+    animation: reverse-reveal $line-reveal-animation-duration
+      $mdc-animation-standard-curve-timing-function
+      calc(
+        #{$line-reveal-animation-delay} + var(--current-route-transition-duration)
+      )
       both;
   }
 }

@@ -135,16 +135,22 @@
 @mixin animation-fade-in($duration: 0.5s, $delay: 0s) {
   animation: fade-in 0.5s $mdc-animation-acceleration-curve-timing-function
     $delay both;
+  animation: fade-in 0.5s $mdc-animation-acceleration-curve-timing-function
+    calc(#{$delay} + var(--current-route-transition-duration)) both;
 }
 
 @mixin animation-rise($duration: 0.4s, $delay: 0s) {
   animation: rise 0.4s $mdc-animation-standard-curve-timing-function $delay both;
+  animation: rise 0.4s $mdc-animation-standard-curve-timing-function
+    calc(#{$delay} + var(--current-route-transition-duration)) both;
 }
 
 @mixin animation-scale-up($duration: 0.4s, $delay: 0s) {
   transform-origin: 50% 40%;
   animation: scale-up 0.4s $mdc-animation-standard-curve-timing-function $delay
     both;
+  animation: scale-up 0.4s $mdc-animation-standard-curve-timing-function
+    calc(#{$delay} + var(--current-route-transition-duration)) both;
 }
 
 #monitor-screen {

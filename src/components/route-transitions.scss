@@ -5,6 +5,11 @@
 $route-transition-duration: 300ms !default;
 $route-transition-easing: $mdc-animation-standard-curve-timing-function !default;
 
+:root {
+  --default-route-transition-exit-scroll: 0px;
+  --current-route-transition-duration: 0ms;
+}
+
 @mixin route-center {
   right: 0;
   top: 0;
@@ -16,10 +21,6 @@ $route-transition-easing: $mdc-animation-standard-curve-timing-function !default
   @media screen and (max-width: $mdc-top-app-bar-mobile-breakpoint) {
     padding-top: $mdc-top-app-bar-mobile-row-height;
   }
-}
-
-:root {
-  --default-route-transition-exit-scroll: 0px;
 }
 
 .default-route-transition-enter {
