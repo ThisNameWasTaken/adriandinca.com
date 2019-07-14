@@ -14,6 +14,12 @@ import { TopAppBarFixedAdjust } from '@material/react-top-app-bar';
 import Header from './header';
 import './layout.scss';
 
+import routeTransitionsStyles from '../components/route-transitions.scss';
+
+routeTransitionsStyles.routeTransitionDuration = parseInt(
+  routeTransitionsStyles.routeTransitionDuration
+);
+
 const Layout = ({ children, location }) => {
   const [lastLocation, setLastLocation] = useState(location);
 
@@ -21,10 +27,8 @@ const Layout = ({ children, location }) => {
     document.documentElement.style.scrollBehavior = 'auto';
 
     window.addEventListener('scroll', event => {
-      console.log('scroll');
-
       document.documentElement.style.setProperty(
-        '--fade-exit-scroll',
+        '--default-route-transition-exit-scroll',
         `-${window.lastScrollY}px`
       );
 
@@ -38,7 +42,10 @@ const Layout = ({ children, location }) => {
 
   useEffect(() => {
     if (lastLocation.pathname !== location.pathname) {
-      setTimeout(() => (window.lastScrollY = 0), 3000);
+      setTimeout(
+        () => (window.lastScrollY = 0),
+        routeTransitionsStyles.routeTransitionDuration
+      );
     }
 
     setLastLocation(location);
@@ -62,8 +69,8 @@ const Layout = ({ children, location }) => {
             <TransitionGroup>
               <CSSTransition
                 key={location.pathname}
-                classNames="fade"
-                timeout={3000}
+                classNames="default-route-transition"
+                timeout={routeTransitionsStyles.routeTransitionDuration}
               >
                 {children}
               </CSSTransition>

@@ -1,0 +1,10 @@
+/// Removes the unit of a variable
+/// @param {Any} var - Variable to remove unit from
+/// @return {Number} - Variable's unit-stripped value
+@function strip-unit($var) {
+  @if type-of($var) == 'number' and not unitless($var) {
+    @return $var / ($var * 0 + 1);
+  }
+
+  @return $var;
+}

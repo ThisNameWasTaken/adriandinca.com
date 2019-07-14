@@ -19,9 +19,9 @@ $resume-background-height: 260px;
   z-index: -9999;
 }
 
-.fade-exit {
+.default-route-transition-exit {
   .resume-background {
-    top: calc(-1 * var(--fade-exit-scroll));
+    top: calc(-1 * var(--default-route-transition-exit-scroll));
   }
 }
 

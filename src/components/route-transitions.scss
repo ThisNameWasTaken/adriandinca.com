@@ -1,0 +1,54 @@
+@import './utils.scss';
+@import '@material/animation/variables';
+@import '@material/top-app-bar/variables';
+
+$route-transition-duration: 300ms !default;
+$route-transition-easing: $mdc-animation-standard-curve-timing-function !default;
+
+@mixin route-center {
+  right: 0;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  position: absolute;
+  display: block;
+  padding-top: $mdc-top-app-bar-row-height;
+  @media screen and (max-width: $mdc-top-app-bar-mobile-breakpoint) {
+    padding-top: $mdc-top-app-bar-mobile-row-height;
+  }
+}
+
+:root {
+  --default-route-transition-exit-scroll: 0px;
+}
+
+.default-route-transition-enter {
+  @include route-center();
+  transform: translateX(100%);
+  z-index: 0;
+}
+
+.default-route-transition-enter.default-route-transition-enter-active {
+  transform: translateX(0%);
+  transition: transform $route-transition-duration $route-transition-easing;
+}
+
+.default-route-transition-exit {
+  @include route-center();
+  top: var(--default-route-transition-exit-scroll);
+  transform: translateX(0%);
+  z-index: -9999;
+}
+
+.default-route-transition-exit.default-route-transition-exit-active {
+  transform: translateX(-100%);
+  transition: transform $route-transition-duration $route-transition-easing;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+:export {
+  routeTransitionDuration: strip-unit($route-transition-duration);
+}
