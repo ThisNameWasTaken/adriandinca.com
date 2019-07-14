@@ -5,7 +5,7 @@
  * See: https://www.gatsbyjs.org/docs/static-query/
  */
 
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { StaticQuery, graphql } from 'gatsby';
 
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
@@ -15,20 +15,34 @@ import Header from './header';
 import './layout.scss';
 
 const Layout = ({ children, location }) => {
+  const [lastLocation, setLastLocation] = useState(location);
+
   useEffect(() => {
     document.documentElement.style.scrollBehavior = 'auto';
 
     window.addEventListener('scroll', event => {
+      console.log('scroll');
+
+      document.documentElement.style.setProperty(
+        '--fade-exit-scroll',
+        `-${window.lastScrollY}px`
+      );
+
       if (window.scrollY > 0) {
-        document.documentElement.style.setProperty(
-          '--fade-exit-scroll',
-          `-${window.scrollY}px`
-        );
+        window.lastScrollY = window.scrollY;
       }
     });
 
     return () => (document.documentElement.style.scrollBehavior = 'auto');
   }, []);
+
+  useEffect(() => {
+    if (lastLocation.pathname !== location.pathname) {
+      setTimeout(() => (window.lastScrollY = 0), 3000);
+    }
+
+    setLastLocation(location);
+  }, [location]);
 
   return (
     <StaticQuery

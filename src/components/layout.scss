@@ -60,6 +60,8 @@ a {
   color: $mdc-theme-on-primary;
 }
 
+// ROUTE TRANSITIONS
+
 @import '@material/top-app-bar/variables';
 
 @mixin route-center {
@@ -85,9 +87,14 @@ a {
   z-index: 0;
 }
 
+@import '@material/animation/variables';
+
+$route-transition-duration: 3000ms !default;
+$route-transition-easing: $mdc-animation-standard-curve-timing-function !default;
+
 .fade-enter.fade-enter-active {
   transform: translateX(0%);
-  transition: transform 3000ms;
+  transition: transform $route-transition-duration $route-transition-easing;
 }
 
 .fade-exit {
@@ -99,7 +106,7 @@ a {
 
 .fade-exit.fade-exit-active {
   transform: translateX(-100%);
-  transition: transform 3000ms;
+  transition: transform $route-transition-duration $route-transition-easing;
 }
 
 body {
