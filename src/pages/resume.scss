@@ -17,10 +17,11 @@ $resume-background-height: 260px;
   }
   background: lighten($mdc-theme-primary, 27);
   z-index: -9999;
-  &__inner {
-    position: relative;
-    width: 100%;
-    height: 100%;
+}
+
+.fade-exit {
+  .resume-background {
+    top: calc(-1 * var(--fade-exit-scroll));
   }
 }
 

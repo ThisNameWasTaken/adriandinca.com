@@ -75,6 +75,10 @@ a {
   }
 }
 
+:root {
+  --fade-exit-scroll: 0px;
+}
+
 .fade-enter {
   @include route-center();
   transform: translateX(100%);
@@ -88,6 +92,7 @@ a {
 
 .fade-exit {
   @include route-center();
+  top: var(--fade-exit-scroll);
   transform: translateX(0%);
   z-index: -9999;
 }

@@ -18,6 +18,15 @@ const Layout = ({ children, location }) => {
   useEffect(() => {
     document.documentElement.style.scrollBehavior = 'auto';
 
+    window.addEventListener('scroll', event => {
+      if (window.scrollY > 0) {
+        document.documentElement.style.setProperty(
+          '--fade-exit-scroll',
+          `-${window.scrollY}px`
+        );
+      }
+    });
+
     return () => (document.documentElement.style.scrollBehavior = 'auto');
   }, []);
 
@@ -37,11 +46,6 @@ const Layout = ({ children, location }) => {
           <Header siteTitle={data.site.siteMetadata.title} />
           <TopAppBarFixedAdjust>
             <TransitionGroup>
-              {/* no different than other usage of
-                CSSTransition, just make sure to pass
-                `location` to `Switch` so it can match
-                the old location as it animates out
-            */}
               <CSSTransition
                 key={location.pathname}
                 classNames="fade"
