@@ -8,14 +8,15 @@ $resume-background-height: 260px;
 
 .resume-background {
   position: fixed;
-  width: 100%;
+  top: 0;
   display: block;
-  height: $resume-background-height;
+  width: 100%;
+  height: $mdc-top-app-bar-row-height + $resume-background-height;
   @media screen and (max-width: $mdc-top-app-bar-mobile-breakpoint) {
-    height: $resume-background-height - 8px;
+    height: $mdc-top-app-bar-mobile-row-height + $resume-background-height;
   }
   background: lighten($mdc-theme-primary, 27);
-  z-index: -1;
+  z-index: -9999;
   &__inner {
     position: relative;
     width: 100%;

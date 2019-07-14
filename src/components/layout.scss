@@ -57,5 +57,46 @@ a {
 
 ::selection {
   background: $mdc-theme-primary;
-  color: #fff;
+  color: $mdc-theme-on-primary;
+}
+
+@import '@material/top-app-bar/variables';
+
+@mixin route-center {
+  right: 0;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  position: absolute;
+  display: block;
+  padding-top: $mdc-top-app-bar-row-height;
+  @media screen and (max-width: $mdc-top-app-bar-mobile-breakpoint) {
+    padding-top: $mdc-top-app-bar-mobile-row-height;
+  }
+}
+
+.fade-enter {
+  @include route-center();
+  transform: translateX(100%);
+  z-index: 0;
+}
+
+.fade-enter.fade-enter-active {
+  transform: translateX(0%);
+  transition: transform 3000ms;
+}
+
+.fade-exit {
+  @include route-center();
+  transform: translateX(0%);
+  z-index: -9999;
+}
+
+.fade-exit.fade-exit-active {
+  transform: translateX(-100%);
+  transition: transform 3000ms;
+}
+
+body {
+  overflow-x: hidden;
 }

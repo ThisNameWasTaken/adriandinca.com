@@ -6,17 +6,17 @@
  */
 
 import React, { useEffect } from 'react';
-import PropTypes from 'prop-types';
 import { StaticQuery, graphql } from 'gatsby';
+
+import { CSSTransition, TransitionGroup } from 'react-transition-group';
+import { TopAppBarFixedAdjust } from '@material/react-top-app-bar';
 
 import Header from './header';
 import './layout.scss';
 
-import {TopAppBarFixedAdjust} from '@material/react-top-app-bar';
-
-const Layout = ({ children }) => {
+const Layout = ({ children, location }) => {
   useEffect(() => {
-    document.documentElement.style.scrollBehavior = 'smooth';
+    document.documentElement.style.scrollBehavior = 'auto';
 
     return () => (document.documentElement.style.scrollBehavior = 'auto');
   }, []);
@@ -35,15 +35,26 @@ const Layout = ({ children }) => {
       render={data => (
         <>
           <Header siteTitle={data.site.siteMetadata.title} />
-          <TopAppBarFixedAdjust>{children}</TopAppBarFixedAdjust>
+          <TopAppBarFixedAdjust>
+            <TransitionGroup>
+              {/* no different than other usage of
+                CSSTransition, just make sure to pass
+                `location` to `Switch` so it can match
+                the old location as it animates out
+            */}
+              <CSSTransition
+                key={location.pathname}
+                classNames="fade"
+                timeout={3000}
+              >
+                {children}
+              </CSSTransition>
+            </TransitionGroup>
+          </TopAppBarFixedAdjust>
         </>
       )}
     />
   );
-};
-
-Layout.propTypes = {
-  children: PropTypes.node.isRequired,
 };
 
 export default Layout;

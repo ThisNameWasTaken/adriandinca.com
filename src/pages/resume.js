@@ -1,6 +1,5 @@
 import React, { Suspense, useEffect, useRef, lazy } from 'react';
 
-import Layout from '../components/layout';
 import SEO from '../components/seo';
 
 import { Body2 } from '../components/material/Typography';
@@ -96,7 +95,7 @@ const Resume = () => {
   }, []);
 
   return (
-    <Layout>
+    <div>
       <SEO title="Page two" />
       <Fab
         id="download-resume-fab"
@@ -117,164 +116,177 @@ const Resume = () => {
       />
       <div className="resume-background" />
       <Tooltip htmlFor="download-resume-fab">Download PDF</Tooltip>
-      <div className="resume" ref={rootRef}>
-        <div className="page" ref={pageRef}>
-          <div className="page__inner">
-            <div className="page__content">
-              <div className="page__columns">
-                <div className="page__column page__column--no-top-border page__column--left">
-                  <h2 className="page__headline-1">Adrian Florin Dincă</h2>
-                  <h3 className="page__subtitle-1">Mobile Web Specialist</h3>
+      <div
+        style={{
+          position: 'relative',
+          display: 'block',
+          width: '100%',
+          height: '100%',
+        }}
+      >
+        <div className="resume" ref={rootRef}>
+          <div className="page" ref={pageRef}>
+            <div className="page__inner">
+              <div className="page__content">
+                <div className="page__columns">
+                  <div className="page__column page__column--no-top-border page__column--left">
+                    <h2 className="page__headline-1">Adrian Florin Dincă</h2>
+                    <h3 className="page__subtitle-1">Mobile Web Specialist</h3>
+                  </div>
+                  <div className="page__column page__column--no-top-border page__column--right">
+                    <ul id="contact-info">
+                      <li>
+                        <a href="https://www.google.com/maps/place/Strada+Gheorghe+%C8%9Ai%C8%9Beica,+Pite%C8%99ti/@44.8812152,24.831481,17z/data=!3m1!4b1!4m5!3m4!1s0x40b2bbb19af8ecd5:0x1cef63c02419aa1c!8m2!3d44.8812152!4d24.8336697">
+                          <Location aria-hidden="true" />
+                          <span>
+                            Flat 11/B, Gheorghe Titeica Street, Pitesti, Arges
+                            County 110329
+                          </span>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="tel:+40725437838">
+                          <Phone aria-hidden="true" />
+                          <span>(+40) 725 437 838</span>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="mailto:adriandinca2008@gmail.com">
+                          <Email aria-hidden="true" />
+                          <span>adriandinca2008@gmail.com</span>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="https://www.linkedin.com/in/adrian-dinca-427401159">
+                          <LinkedIn aria-hidden="true" />
+                          <span>
+                            https://www.linkedin.com/in/adrian-dinca-427401159
+                          </span>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="https://github.com/thisNameWasTaken/">
+                          <Github aria-hidden="true" />
+                          <span>https://github.com/thisNameWasTaken/</span>
+                        </a>
+                      </li>
+                    </ul>
+
+                    <GenericInfo
+                      items={[
+                        { key: 'Sex', value: 'Male' },
+                        { key: 'Date of birth', value: '12-07-1998' },
+                        { key: 'Nationality', value: 'Romanian' },
+                      ]}
+                    />
+                  </div>
                 </div>
-                <div className="page__column page__column--no-top-border page__column--right">
-                  <ul id="contact-info">
-                    <li>
-                      <a href="https://www.google.com/maps/place/Strada+Gheorghe+%C8%9Ai%C8%9Beica,+Pite%C8%99ti/@44.8812152,24.831481,17z/data=!3m1!4b1!4m5!3m4!1s0x40b2bbb19af8ecd5:0x1cef63c02419aa1c!8m2!3d44.8812152!4d24.8336697">
-                        <Location aria-hidden="true" />
-                        <span>
-                          Flat 11/B, Gheorghe Titeica Street, Pitesti, Arges
-                          County 110329
-                        </span>
-                      </a>
-                    </li>
-                    <li>
-                      <a href="tel:+40725437838">
-                        <Phone aria-hidden="true" />
-                        <span>(+40) 725 437 838</span>
-                      </a>
-                    </li>
-                    <li>
-                      <a href="mailto:adriandinca2008@gmail.com">
-                        <Email aria-hidden="true" />
-                        <span>adriandinca2008@gmail.com</span>
-                      </a>
-                    </li>
-                    <li>
-                      <a href="https://www.linkedin.com/in/adrian-dinca-427401159">
-                        <LinkedIn aria-hidden="true" />
-                        <span>
-                          https://www.linkedin.com/in/adrian-dinca-427401159
-                        </span>
-                      </a>
-                    </li>
-                    <li>
-                      <a href="https://github.com/thisNameWasTaken/">
-                        <Github aria-hidden="true" />
-                        <span>https://github.com/thisNameWasTaken/</span>
-                      </a>
-                    </li>
-                  </ul>
 
-                  <GenericInfo
-                    items={[
-                      { key: 'Sex', value: 'Male' },
-                      { key: 'Date of birth', value: '12-07-1998' },
-                      { key: 'Nationality', value: 'Romanian' },
-                    ]}
-                  />
+                <div className="page__columns">
+                  <div className="page__column page__column--left">
+                    <h2 className="page__headline-2">
+                      Open Source Projects & Contributions
+                    </h2>
+                  </div>
+                  <div className="page__column page__column--right">
+                    <h3 className="page__headline-3">EJS plain loader</h3>
+                    <h4 className="page__subtitle-3">
+                      November 2018 - Present
+                    </h4>
+                    <Body2>
+                      Created a Webpack plugin for loading EJS templates. It
+                      also enables imports of CommonJS modules, JSON files and
+                      any file formats which can be converted to a .txt (html,
+                      css, csv, etc).
+                    </Body2>
+
+                    <h3 className="page__headline-3">RellaxJS</h3>
+                    <h4 className="page__subtitle-3">
+                      March 2019{' '}
+                      <a href="https://github.com/dixonandmoe/rellax/pull/160">
+                        #160
+                      </a>
+                    </h4>
+                    <Body2>
+                      Made a pull request to close issue{' '}
+                      <a href="https://github.com/dixonandmoe/rellax/issues/159">
+                        #159
+                      </a>{' '}
+                      which enabled sharing nodes and node lists. The{' '}
+                      <span id="pr">PR</span> increased performance on large DOM
+                      trees by avoiding redundant DOM queries.
+                    </Body2>
+
+                    <Tooltip htmlFor="pr">Pull Request</Tooltip>
+
+                    <h3 className="page__headline-3">PurgeCSS</h3>
+                    <h4 className="page__subtitle-3">
+                      January 2019{' '}
+                      <a href="https://github.com/FullHuman/purgecss/pull/167">
+                        #167
+                      </a>
+                    </h4>
+                    <Body2>
+                      Fixed{' '}
+                      <a href="https://github.com/FullHuman/purgecss/issues/166">
+                        a self discovered bug
+                      </a>{' '}
+                      which would remove all but the first keyframe when using
+                      animations with multiple keyframes.
+                    </Body2>
+
+                    <h3 className="page__headline-3">EJS</h3>
+                    <h4 className="page__subtitle-3">
+                      November 2018{' '}
+                      <a href="https://github.com/mde/ejs/pull/411">#441</a>
+                    </h4>
+                    <Body2>
+                      Exposed the template class in order for it to be extended
+                      or overridden by other npm modules.
+                    </Body2>
+                  </div>
                 </div>
-              </div>
 
-              <div className="page__columns">
-                <div className="page__column page__column--left">
-                  <h2 className="page__headline-2">
-                    Open Source Projects & Contributions
-                  </h2>
-                </div>
-                <div className="page__column page__column--right">
-                  <h3 className="page__headline-3">EJS plain loader</h3>
-                  <h4 className="page__subtitle-3">November 2018 - Present</h4>
-                  <Body2>
-                    Created a Webpack plugin for loading EJS templates. It also
-                    enables imports of CommonJS modules, JSON files and any file
-                    formats which can be converted to a .txt (html, css, csv,
-                    etc).
-                  </Body2>
-
-                  <h3 className="page__headline-3">RellaxJS</h3>
-                  <h4 className="page__subtitle-3">
-                    March 2019{' '}
-                    <a href="https://github.com/dixonandmoe/rellax/pull/160">
-                      #160
-                    </a>
-                  </h4>
-                  <Body2>
-                    Made a pull request to close issue{' '}
-                    <a href="https://github.com/dixonandmoe/rellax/issues/159">
-                      #159
-                    </a>{' '}
-                    which enabled sharing nodes and node lists. The{' '}
-                    <span id="pr">PR</span> increased performance on large DOM
-                    trees by avoiding redundant DOM queries.
-                  </Body2>
-
-                  <Tooltip htmlFor="pr">Pull Request</Tooltip>
-
-                  <h3 className="page__headline-3">PurgeCSS</h3>
-                  <h4 className="page__subtitle-3">
-                    January 2019{' '}
-                    <a href="https://github.com/FullHuman/purgecss/pull/167">
-                      #167
-                    </a>
-                  </h4>
-                  <Body2>
-                    Fixed{' '}
-                    <a href="https://github.com/FullHuman/purgecss/issues/166">
-                      a self discovered bug
-                    </a>{' '}
-                    which would remove all but the first keyframe when using
-                    animations with multiple keyframes.
-                  </Body2>
-
-                  <h3 className="page__headline-3">EJS</h3>
-                  <h4 className="page__subtitle-3">
-                    November 2018{' '}
-                    <a href="https://github.com/mde/ejs/pull/411">#441</a>
-                  </h4>
-                  <Body2>
-                    Exposed the template class in order for it to be extended or
-                    overridden by other npm modules.
-                  </Body2>
-                </div>
-              </div>
-
-              <div className="page__columns">
-                <div className="page__column page__column--left">
-                  <h2 className="page__headline-2">Education and Training</h2>
-                </div>
-                <div className="page__column page__column--right">
-                  <h3 className="page__headline-3">OSF Academy for students</h3>
-                  <h4 className="page__subtitle-3">
-                    February 2018 - March 2018{' '}
-                    <a href="https://www.osf-global.com/">OSF</a>
-                  </h4>
-                  <Body2>
-                    Built the frontend of an{' '}
-                    <a href="https://thisnamewastaken.github.io/foose-shoes/">
-                      e-commerce website
-                    </a>{' '}
-                    for selling shoes. Implemented custom GulpJS setup which
-                    handled sass and ES2018 transpiling, image optimization,
-                    dynamic imports, and dead code removal. Improved performance
-                    by inlining critical styles, using code splitting and lazy
-                    loading images via intersection observers. The gulp script
-                    parses the html and ensures that only needed files are
-                    included in the final build.
-                  </Body2>
+                <div className="page__columns">
+                  <div className="page__column page__column--left">
+                    <h2 className="page__headline-2">Education and Training</h2>
+                  </div>
+                  <div className="page__column page__column--right">
+                    <h3 className="page__headline-3">
+                      OSF Academy for students
+                    </h3>
+                    <h4 className="page__subtitle-3">
+                      February 2018 - March 2018{' '}
+                      <a href="https://www.osf-global.com/">OSF</a>
+                    </h4>
+                    <Body2>
+                      Built the frontend of an{' '}
+                      <a href="https://thisnamewastaken.github.io/foose-shoes/">
+                        e-commerce website
+                      </a>{' '}
+                      for selling shoes. Implemented custom GulpJS setup which
+                      handled sass and ES2018 transpiling, image optimization,
+                      dynamic imports, and dead code removal. Improved
+                      performance by inlining critical styles, using code
+                      splitting and lazy loading images via intersection
+                      observers. The gulp script parses the html and ensures
+                      that only needed files are included in the final build.
+                    </Body2>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
 
-        {typeof window !== 'undefined' && (
-          <Suspense fallback={LoadingPage}>
-            <Page2 />
-            <Page3 />
-          </Suspense>
-        )}
+          {typeof window !== 'undefined' && (
+            <Suspense fallback={LoadingPage}>
+              <Page2 />
+              <Page3 />
+            </Suspense>
+          )}
+        </div>
       </div>
-    </Layout>
+    </div>
   );
 };
 
