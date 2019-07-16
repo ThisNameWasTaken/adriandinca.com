@@ -84,6 +84,11 @@ const Layout = ({ children, location }) => {
     setLastLocation(location);
   }, [location]);
 
+  function onExited() {
+    window.lastScrollY = window.scrollY;
+    updateRouteTransitionScroll();
+  }
+
   return (
     <StaticQuery
       query={graphql`
@@ -104,10 +109,7 @@ const Layout = ({ children, location }) => {
                 key={location.pathname}
                 classNames="route-transition"
                 timeout={routeTransitionDuration}
-                onExited={() => {
-                  window.lastScrollY = window.scrollY;
-                  updateRouteTransitionScroll();
-                }}
+                onExited={onExited}
               >
                 {children}
               </CSSTransition>
