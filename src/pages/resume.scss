@@ -5,6 +5,7 @@ $resume-background-height: 260px;
 @import '@material/typography/mdc-typography';
 @import '@material/elevation/mdc-elevation';
 @import '@material/top-app-bar/variables';
+@import '@material/animation/variables';
 
 .resume-background {
   position: fixed;
@@ -30,12 +31,45 @@ $resume-background-height: 260px;
   bottom: 32px;
   right: 32px;
   z-index: 8;
+  transform-origin: 50% 50%;
+  animation: dr-scale-up $mdc-animation-deceleration-curve-timing-function
+    3000ms 0s both;
+  animation: dr-scale-up $mdc-animation-deceleration-curve-timing-function
+    3000ms var(--current-route-transition-duration) both;
+
   @media screen and (min-width: 1040px) {
     bottom: 0;
     right: 0;
     top: $resume-background-height + 5px;
     left: calc(50% + 440px);
     transform: translateY(50%);
+    // it is 100% on the Y axis because of the translateY which is offsetting it by 50%
+    transform-origin: 50% 100%;
+    animation: dr-scale-up--desktop
+      $mdc-animation-deceleration-curve-timing-function 300ms 0s both;
+    animation: dr-scale-up--desktop
+      $mdc-animation-deceleration-curve-timing-function 300ms
+      var(--current-route-transition-duration) both;
+  }
+}
+
+@keyframes dr-scale-up {
+  0% {
+    transform: scale(0);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes dr-scale-up--desktop {
+  0% {
+    transform: scale(0) translateY(50%);
+  }
+
+  100% {
+    transform: scale(1) translateY(50%);
   }
 }
 
