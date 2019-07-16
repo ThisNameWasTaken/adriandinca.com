@@ -101,7 +101,22 @@ const Resume = () => {
 
   return (
     <div>
-      <SEO title="Page two" />
+      <SEO
+        title="Resume"
+        keywords={[
+          'Mobile',
+          'Web',
+          'Specialist',
+          'Developer',
+          'JavaScript',
+          'JS',
+          'React',
+          'Gatsby',
+          'Application',
+          'App',
+          'Freelancer',
+        ]}
+      />
       <Fab
         id="download-resume-fab"
         href="/Adrian-Florin-Dinca-Resume.pdf"
