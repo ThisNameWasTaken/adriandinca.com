@@ -32,43 +32,35 @@ const ROUTE = {
   },
 };
 
+let isGoingBackwards = false;
+
 function updateRouteTransitionDirection() {
   document.documentElement.style.setProperty(
     ROUTE.CSS_VARS.DIRECTION,
-    `${
-      window.isGoingBackwards
-        ? ROUTE.DIRECTIONS.TO_LEFT
-        : ROUTE.DIRECTIONS.TO_RIGHT
-    }`
+    `${isGoingBackwards ? ROUTE.DIRECTIONS.TO_LEFT : ROUTE.DIRECTIONS.TO_RIGHT}`
   );
 }
+
+let isPlayingRouteTransition = false;
+
+function updateRouteTransitionScroll() {
+  if (isPlayingRouteTransition) return;
+
+  document.documentElement.style.setProperty(
+    ROUTE.CSS_VARS.SCROLL,
+    `${-window.scrollY}px`
+  );
+}
+
+window.addEventListener('scroll', event => {
+  updateRouteTransitionScroll();
+});
 
 const Layout = ({ children, location }) => {
   const [lastLocation, setLastLocation] = useState(location);
 
-  function updateRouteTransitionScroll() {
-    document.documentElement.style.setProperty(
-      ROUTE.CSS_VARS.SCROLL,
-      `${-window.lastScrollY}px`
-    );
-  }
-
   useEffect(() => {
-    document.documentElement.style.scrollBehavior = 'auto';
-
-    window.addEventListener('scroll', event => {
-      updateRouteTransitionScroll();
-
-      if (window.scrollY > 0) {
-        window.lastScrollY = window.scrollY;
-      }
-    });
-
-    return () => (document.documentElement.style.scrollBehavior = 'auto');
-  }, []);
-
-  useEffect(() => {
-    window.isGoingBackwards =
+    isGoingBackwards =
       (parseInt(location.key) || 0) - (parseInt(lastLocation.key) || 0) < 0;
 
     const didLocationChange = lastLocation.pathname !== location.pathname;
@@ -82,11 +74,13 @@ const Layout = ({ children, location }) => {
       updateRouteTransitionDirection();
     }
 
+    isPlayingRouteTransition = didLocationChange;
+
     setLastLocation(location);
   }, [location]);
 
   function onExited() {
-    window.lastScrollY = window.scrollY;
+    isPlayingRouteTransition = false;
     updateRouteTransitionScroll();
   }
 
