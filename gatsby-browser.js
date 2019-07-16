@@ -15,7 +15,26 @@ export const onClientEntry = () => {
   });
 };
 
-export const shouldUpdateScroll = () => {
-  // Always scroll to the top left.
-  return [0, 0];
+export const shouldUpdateScroll = ({ routerProps, prevRouterProps }) => {
+  // console.log({ routerProps, prevRouterProps });
+
+  const didLocationChange =
+    routerProps.location.pathname !== prevRouterProps.location.pathname;
+
+  return didLocationChange ? [0, 0] : true;
+};
+
+export const onPreRouteUpdate = ({ location, prevLocation }) => {
+  // console.log({ location, prevLocation });
+
+  if (!prevLocation) {
+    document.documentElement.style.scrollBehavior = 'smooth';
+    return;
+  }
+
+  const didLocationChange = location.pathname !== prevLocation.pathname;
+
+  if (didLocationChange) {
+    document.documentElement.style.scrollBehavior = 'auto';
+  }
 };

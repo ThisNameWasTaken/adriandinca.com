@@ -14,30 +14,23 @@ import { TopAppBarFixedAdjust } from '@material/react-top-app-bar';
 import Header from './header';
 import './layout.scss';
 
-import routeTransitionsStyles from '../components/route-transitions.scss';
+import routeTransitionsStyles from '../components/RouteTransitions.scss';
+import ROUTE_TRANSITIONS from './RouteTransitions';
 
 const routeTransitionDuration = parseInt(
   routeTransitionsStyles.routeTransitionDuration
 );
 
-const ROUTE = {
-  DIRECTIONS: {
-    TO_LEFT: -1,
-    TO_RIGHT: 1,
-  },
-  CSS_VARS: {
-    CURRENT_DURATION: '--current-route-transition-duration',
-    DIRECTION: '--route-transition-direction',
-    SCROLL: '--route-transition-scroll',
-  },
-};
-
 let isGoingBackwards = false;
 
 function updateRouteTransitionDirection() {
   document.documentElement.style.setProperty(
-    ROUTE.CSS_VARS.DIRECTION,
-    `${isGoingBackwards ? ROUTE.DIRECTIONS.TO_LEFT : ROUTE.DIRECTIONS.TO_RIGHT}`
+    ROUTE_TRANSITIONS.CSS_VARS.DIRECTION,
+    `${
+      isGoingBackwards
+        ? ROUTE_TRANSITIONS.DIRECTIONS.TO_LEFT
+        : ROUTE_TRANSITIONS.DIRECTIONS.TO_RIGHT
+    }`
   );
 }
 
@@ -47,7 +40,7 @@ function updateRouteTransitionScroll() {
   if (isPlayingRouteTransition) return;
 
   document.documentElement.style.setProperty(
-    ROUTE.CSS_VARS.SCROLL,
+    ROUTE_TRANSITIONS.CSS_VARS.SCROLL,
     `${-window.scrollY}px`
   );
 }
@@ -59,7 +52,7 @@ function scrollHashIntoView() {
   const scrollTarget = document.querySelector(hash);
   if (!scrollTarget) return;
 
-  scrollTarget.scrollIntoView({ behavior: 'smooth' });
+  scrollTarget.scrollIntoView();
 }
 
 const Layout = ({ children, location }) => {
@@ -80,13 +73,14 @@ const Layout = ({ children, location }) => {
     const didLocationChange = lastLocation.pathname !== location.pathname;
 
     document.documentElement.style.setProperty(
-      ROUTE.CSS_VARS.CURRENT_DURATION,
+      ROUTE_TRANSITIONS.CSS_VARS.CURRENT_DURATION,
       `${didLocationChange ? routeTransitionDuration : 0}ms`
     );
 
     if (didLocationChange) {
       updateRouteTransitionDirection();
     } else {
+      document.documentElement.style.scrollBehavior = 'smooth';
       scrollHashIntoView();
     }
 
@@ -98,6 +92,8 @@ const Layout = ({ children, location }) => {
   function onExited() {
     isPlayingRouteTransition = false;
     updateRouteTransitionScroll();
+
+    document.documentElement.style.scrollBehavior = 'smooth';
     scrollHashIntoView();
   }
 
