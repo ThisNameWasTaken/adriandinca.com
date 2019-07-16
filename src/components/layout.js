@@ -52,12 +52,26 @@ function updateRouteTransitionScroll() {
   );
 }
 
-window.addEventListener('scroll', event => {
-  updateRouteTransitionScroll();
-});
+function scrollHashIntoView() {
+  const hash = window.location.hash;
+  if (!hash) return;
+
+  const scrollTarget = document.querySelector(hash);
+  if (!scrollTarget) return;
+
+  scrollTarget.scrollIntoView({ behavior: 'smooth' });
+}
 
 const Layout = ({ children, location }) => {
   const [lastLocation, setLastLocation] = useState(location);
+
+  useEffect(() => {
+    window.addEventListener('scroll', updateRouteTransitionScroll);
+
+    return () => {
+      window.removeEventListener('scroll', updateRouteTransitionScroll);
+    };
+  }, []);
 
   useEffect(() => {
     isGoingBackwards =
@@ -72,6 +86,8 @@ const Layout = ({ children, location }) => {
 
     if (didLocationChange) {
       updateRouteTransitionDirection();
+    } else {
+      scrollHashIntoView();
     }
 
     isPlayingRouteTransition = didLocationChange;
@@ -82,6 +98,7 @@ const Layout = ({ children, location }) => {
   function onExited() {
     isPlayingRouteTransition = false;
     updateRouteTransitionScroll();
+    scrollHashIntoView();
   }
 
   return (
