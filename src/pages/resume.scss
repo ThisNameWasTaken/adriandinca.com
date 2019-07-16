@@ -1,5 +1,6 @@
 $page-column-gap: 0 !default;
 $resume-background-height: 260px;
+$desktop-fab-breakpoint: 1040px;
 
 @import '../components/theme.scss';
 @import '@material/typography/mdc-typography';
@@ -24,6 +25,14 @@ $resume-background-height: 260px;
   .resume-background {
     top: calc(-1 * var(--route-transition-scroll));
   }
+
+  #download-resume-fab {
+    @media screen and (min-width: $desktop-fab-breakpoint) {
+      top: calc(
+        -1 * var(--route-transition-scroll) + (#{$resume-background-height} + 5px)
+      );
+    }
+  }
 }
 
 #download-resume-fab {
@@ -37,7 +46,7 @@ $resume-background-height: 260px;
   animation: dr-scale-up $mdc-animation-deceleration-curve-timing-function
     3000ms var(--current-route-transition-duration) both;
 
-  @media screen and (min-width: 1040px) {
+  @media screen and (min-width: $desktop-fab-breakpoint) {
     bottom: 0;
     right: 0;
     top: $resume-background-height + 5px;
