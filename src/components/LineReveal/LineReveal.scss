@@ -53,6 +53,9 @@
     right: 0;
     overflow: hidden;
     animation: reveal $line-reveal-animation-duration
+      $mdc-animation-standard-curve-timing-function $line-reveal-animation-delay
+      both;
+    animation: reveal $line-reveal-animation-duration
       $mdc-animation-standard-curve-timing-function
       calc(
         #{$line-reveal-animation-delay} + var(--current-route-transition-duration)
