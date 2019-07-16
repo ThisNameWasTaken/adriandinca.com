@@ -2,7 +2,7 @@
 @import '@material/animation/variables';
 @import '@material/top-app-bar/variables';
 
-$route-transition-duration: 2000ms !default;
+$route-transition-duration: 300ms !default;
 $route-transition-easing: $mdc-animation-standard-curve-timing-function !default;
 
 :root {
