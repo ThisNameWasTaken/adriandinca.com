@@ -35,27 +35,25 @@ const ROUTE = {
 function updateRouteTransitionDirection() {
   document.documentElement.style.setProperty(
     ROUTE.CSS_VARS.DIRECTION,
-    `${window.isPopping ? ROUTE.DIRECTIONS.TO_LEFT : ROUTE.DIRECTIONS.TO_RIGHT}`
-  );
-
-  window.isPopping = false;
-}
-
-function updateRouteTransitionScroll() {
-  document.documentElement.style.setProperty(
-    ROUTE.CSS_VARS.SCROLL,
-    `${-window.lastScrollY}px`
+    `${
+      window.isGoingBackwards
+        ? ROUTE.DIRECTIONS.TO_LEFT
+        : ROUTE.DIRECTIONS.TO_RIGHT
+    }`
   );
 }
 
 const Layout = ({ children, location }) => {
   const [lastLocation, setLastLocation] = useState(location);
 
-  useEffect(() => {
-    window.addEventListener('popstate', () => {
-      window.isPopping = true;
-    });
+  function updateRouteTransitionScroll() {
+    document.documentElement.style.setProperty(
+      ROUTE.CSS_VARS.SCROLL,
+      `${-window.lastScrollY}px`
+    );
+  }
 
+  useEffect(() => {
     document.documentElement.style.scrollBehavior = 'auto';
 
     window.addEventListener('scroll', event => {
@@ -70,6 +68,9 @@ const Layout = ({ children, location }) => {
   }, []);
 
   useEffect(() => {
+    window.isGoingBackwards =
+      (parseInt(location.key) || 0) - (parseInt(lastLocation.key) || 0) < 0;
+
     const didLocationChange = lastLocation.pathname !== location.pathname;
 
     document.documentElement.style.setProperty(
