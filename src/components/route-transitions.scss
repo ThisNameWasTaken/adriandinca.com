@@ -7,8 +7,8 @@ $route-transition-easing: $mdc-animation-standard-curve-timing-function !default
 
 :root {
   --route-transition-scroll: 0px;
-  --route-transition-duration: 0ms;
   --route-transition-direction: 1;
+  --current-route-transition-duration: 0ms;
 }
 
 @mixin route-center {
