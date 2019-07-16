@@ -19,9 +19,9 @@ $resume-background-height: 260px;
   z-index: -9999;
 }
 
-.default-route-transition-exit {
+.route-transition-exit {
   .resume-background {
-    top: calc(-1 * var(--default-route-transition-exit-scroll));
+    top: calc(-1 * var(--route-transition-scroll));
   }
 }
 

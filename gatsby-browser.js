@@ -14,3 +14,8 @@ export const onClientEntry = () => {
     document.head.appendChild(fontLink);
   });
 };
+
+export const shouldUpdateScroll = () => {
+  // Always scroll to the top left.
+  return [0, 0];
+};

@@ -16,14 +16,35 @@ import './layout.scss';
 
 import routeTransitionsStyles from '../components/route-transitions.scss';
 
-routeTransitionsStyles.routeTransitionDuration = parseInt(
+const routeTransitionDuration = parseInt(
   routeTransitionsStyles.routeTransitionDuration
 );
 
+const ROUTE = {
+  DIRECTIONS: {
+    TO_LEFT: -1,
+    TO_RIGHT: 1,
+  },
+  CSS_VARS: {
+    CURRENT_DURATION: '--current-route-transition-duration',
+    DIRECTION: '--route-transition-direction',
+    SCROLL: '--route-transition-scroll',
+  },
+};
+
+function updateRouteTransitionDirection() {
+  document.documentElement.style.setProperty(
+    ROUTE.CSS_VARS.DIRECTION,
+    `${window.isPopping ? ROUTE.DIRECTIONS.TO_LEFT : ROUTE.DIRECTIONS.TO_RIGHT}`
+  );
+
+  window.isPopping = false;
+}
+
 function updateRouteTransitionScroll() {
   document.documentElement.style.setProperty(
-    '--default-route-transition-exit-scroll',
-    `-${window.lastScrollY}px`
+    ROUTE.CSS_VARS.SCROLL,
+    `${-window.lastScrollY}px`
   );
 }
 
@@ -31,6 +52,10 @@ const Layout = ({ children, location }) => {
   const [lastLocation, setLastLocation] = useState(location);
 
   useEffect(() => {
+    window.addEventListener('popstate', () => {
+      window.isPopping = true;
+    });
+
     document.documentElement.style.scrollBehavior = 'auto';
 
     window.addEventListener('scroll', event => {
@@ -45,21 +70,15 @@ const Layout = ({ children, location }) => {
   }, []);
 
   useEffect(() => {
-    if (lastLocation.pathname !== location.pathname) {
-      document.documentElement.style.setProperty(
-        '--current-route-transition-duration',
-        `${routeTransitionsStyles.routeTransitionDuration}ms`
-      );
+    const didLocationChange = lastLocation.pathname !== location.pathname;
 
-      setTimeout(() => {
-        window.lastScrollY = 0;
-        updateRouteTransitionScroll();
-      }, routeTransitionsStyles.routeTransitionDuration);
-    } else {
-      document.documentElement.style.setProperty(
-        '--current-route-transition-duration',
-        `0ms`
-      );
+    document.documentElement.style.setProperty(
+      ROUTE.CSS_VARS.CURRENT_DURATION,
+      `${didLocationChange ? routeTransitionDuration : 0}ms`
+    );
+
+    if (didLocationChange) {
+      updateRouteTransitionDirection();
     }
 
     setLastLocation(location);
@@ -83,8 +102,12 @@ const Layout = ({ children, location }) => {
             <TransitionGroup>
               <CSSTransition
                 key={location.pathname}
-                classNames="default-route-transition"
-                timeout={routeTransitionsStyles.routeTransitionDuration}
+                classNames="route-transition"
+                timeout={routeTransitionDuration}
+                onExited={() => {
+                  window.lastScrollY = window.scrollY;
+                  updateRouteTransitionScroll();
+                }}
               >
                 {children}
               </CSSTransition>
