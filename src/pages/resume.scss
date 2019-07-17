@@ -42,9 +42,9 @@ $desktop-fab-breakpoint: 1040px;
   z-index: 8;
   transform-origin: 50% 50%;
   animation: dr-scale-up $mdc-animation-deceleration-curve-timing-function
-    3000ms 0s both;
+    300ms 0s both;
   animation: dr-scale-up $mdc-animation-deceleration-curve-timing-function
-    3000ms var(--current-route-transition-duration) both;
+    300ms var(--current-route-transition-duration) both;
 
   @media screen and (min-width: $desktop-fab-breakpoint) {
     bottom: 0;
