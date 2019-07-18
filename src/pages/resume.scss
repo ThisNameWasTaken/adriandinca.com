@@ -25,19 +25,31 @@ $desktop-fab-breakpoint: 1040px;
   .resume-background {
     top: var(--route-transition-enter-fixed-element-offset);
   }
+
+  #download-resume-fab {
+    // top: var(--route-transition-enter-fixed-element-offset);
+
+    @media screen and (min-width: $desktop-fab-breakpoint) {
+      top: calc(
+        var(--route-transition-enter-fixed-element-offset) +
+          (#{$resume-background-height} + 5px)
+      );
+    }
+  }
 }
 
 .route-transition-exit {
   .resume-background {
     top: var(--route-transition-exit-fixed-element-offset);
   }
-}
 
-.route-transition-exit {
   #download-resume-fab {
+    // top: var(--route-transition-exit-fixed-element-offset);
+
     @media screen and (min-width: $desktop-fab-breakpoint) {
       top: calc(
-        -1 * var(--route-transition-scroll) + (#{$resume-background-height} + 5px)
+        var(--route-transition-exit-fixed-element-offset) +
+          (#{$resume-background-height} + 5px)
       );
     }
   }
