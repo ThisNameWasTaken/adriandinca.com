@@ -7,6 +7,7 @@ const ROUTE_TRANSITIONS = {
     CURRENT_DURATION: '--current-route-transition-duration',
     DIRECTION: '--route-transition-direction',
     SCROLL: '--route-transition-scroll',
+    ENTER_SCROLL: '--route-transition-enter-scroll',
   },
 };
 

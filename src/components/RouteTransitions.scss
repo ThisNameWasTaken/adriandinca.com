@@ -2,11 +2,12 @@
 @import '@material/animation/variables';
 @import '@material/top-app-bar/variables';
 
-$route-transition-duration: 300ms !default;
+$route-transition-duration: 3000ms !default;
 $route-transition-easing: $mdc-animation-standard-curve-timing-function !default;
 
 :root {
   --route-transition-scroll: 0px;
+  --route-transition-enter-scroll: 0px;
   --route-transition-direction: 1;
   --current-route-transition-duration: 0ms;
 }
@@ -26,6 +27,7 @@ $route-transition-easing: $mdc-animation-standard-curve-timing-function !default
 
 .route-transition-enter {
   @include route-center();
+  top: var(--route-transition-enter-scroll);
   transform: translateX(calc(var(--route-transition-direction) * 100%));
   z-index: 0;
 }

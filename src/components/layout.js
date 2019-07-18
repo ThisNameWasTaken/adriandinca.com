@@ -31,7 +31,22 @@ function scrollHashIntoView() {
 }
 
 const Layout = ({ children, location }) => {
-  function onExited() {}
+  function onExited() {
+    const isNewRouteWithHash =
+      window.location.hash &&
+      window.location.action === 'PUSH' &&
+      window.location.pathname !== location.pathname;
+
+    if (isNewRouteWithHash) {
+      const hashElement = document.getElementById(
+        window.location.hash.replace('#', '')
+      );
+
+      if (hashElement) {
+        hashElement.scrollIntoView({ behavior: 'auto' });
+      }
+    }
+  }
 
   return (
     <StaticQuery

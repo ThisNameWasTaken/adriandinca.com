@@ -53,18 +53,31 @@ export const shouldUpdateScroll = ({
     0,
   ];
 
+  window.location['action'] = routerProps.location.action;
+
+  const isNewRouteWithHash =
+    routerProps.location.hash &&
+    routerProps.location.action === 'PUSH' &&
+    routerProps.location.pathname !== prevRouterProps.location.pathname;
+
+  const hashElement =
+    isNewRouteWithHash &&
+    document.getElementById(routerProps.location.hash.replace('#', ''));
+
   const newScroll = isGoingBackwards
     ? scrollY - prevScrollY
     : routerProps.location.action === 'PUSH'
     ? -prevScrollY
     : scrollY - prevScrollY;
 
-  updateRouteScrollY(newScroll);
+  requestAnimationFrame(() =>
+    document.documentElement.style.setProperty(
+      ROUTE_TRANSITIONS.CSS_VARS.ENTER_SCROLL,
+      `${hashElement ? -hashElement.offsetTop : 0}px`
+    )
+  );
 
-  const isNewRouteWithHash =
-    routerProps.location.hash &&
-    routerProps.location.action === 'PUSH' &&
-    routerProps.location.pathname !== prevRouterProps.location.pathname;
+  updateRouteScrollY(newScroll);
 
   return isNewRouteWithHash ? [0, 0] : true;
 };
