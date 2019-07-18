@@ -1,4 +1,5 @@
 import ROUTE_TRANSITIONS from './src/components/RouteTransitions';
+import { scrollHashIntoView } from './src/components/utils';
 
 /**
  * Implement Gatsby's Browser APIs in this file.
@@ -88,4 +89,8 @@ export const onPreRouteUpdate = ({ location, prevLocation }) => {
     (parseInt(location.key) || 0) - (parseInt(prevLocation.key) || 0) < 0;
 
   updateRouteDirection(isGoingBackwards);
+};
+
+export const onInitialClientRender = () => {
+  scrollHashIntoView();
 };

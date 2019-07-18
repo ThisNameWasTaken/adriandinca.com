@@ -10,6 +10,7 @@ import { StaticQuery, graphql } from 'gatsby';
 
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import { TopAppBarFixedAdjust } from '@material/react-top-app-bar';
+import { scrollHashIntoView } from './utils';
 
 import Header from './header';
 import './layout.scss';
@@ -20,16 +21,6 @@ const routeTransitionDuration = parseInt(
   routeTransitionsStyles.routeTransitionDuration
 );
 
-function scrollHashIntoView() {
-  const hash = window.location.hash;
-  if (!hash) return;
-
-  const scrollTarget = document.querySelector(hash);
-  if (!scrollTarget) return;
-
-  scrollTarget.scrollIntoView();
-}
-
 const Layout = ({ children, location }) => {
   function onExited() {
     const isNewRouteWithHash =
@@ -38,13 +29,7 @@ const Layout = ({ children, location }) => {
       window.location.pathname !== location.pathname;
 
     if (isNewRouteWithHash) {
-      const hashElement = document.getElementById(
-        window.location.hash.replace('#', '')
-      );
-
-      if (hashElement) {
-        hashElement.scrollIntoView({ behavior: 'auto' });
-      }
+      scrollHashIntoView();
     }
   }
 
