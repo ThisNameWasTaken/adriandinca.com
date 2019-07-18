@@ -1,3 +1,5 @@
+import ROUTE_TRANSITIONS from './src/components/RouteTransitions';
+
 /**
  * Implement Gatsby's Browser APIs in this file.
  *
@@ -15,26 +17,62 @@ export const onClientEntry = () => {
   });
 };
 
-export const shouldUpdateScroll = ({ routerProps, prevRouterProps }) => {
-  // console.log({ routerProps, prevRouterProps });
+function updateRouteScrollY(scrollY) {
+  document.documentElement.style.setProperty(
+    ROUTE_TRANSITIONS.CSS_VARS.SCROLL,
+    `${scrollY}px`
+  );
+}
 
-  const didLocationChange =
+function updateRouteDirection(isGoingBackwards) {
+  document.documentElement.style.setProperty(
+    ROUTE_TRANSITIONS.CSS_VARS.DIRECTION,
+    `${
+      isGoingBackwards
+        ? ROUTE_TRANSITIONS.DIRECTIONS.TO_LEFT
+        : ROUTE_TRANSITIONS.DIRECTIONS.TO_RIGHT
+    }`
+  );
+}
+
+export const shouldUpdateScroll = ({
+  routerProps,
+  prevRouterProps,
+  getSavedScrollPosition,
+}) => {
+  const isGoingBackwards =
+    prevRouterProps &&
+    (parseInt(routerProps.location.key) || 0) -
+      (parseInt(prevRouterProps.location.key) || 0) <
+      0;
+
+  const [, scrollY] = getSavedScrollPosition(routerProps.location) || [0, 0];
+
+  const [, prevScrollY] = getSavedScrollPosition(prevRouterProps.location) || [
+    0,
+    0,
+  ];
+
+  const newScroll = isGoingBackwards
+    ? scrollY - prevScrollY
+    : routerProps.location.action === 'PUSH'
+    ? -prevScrollY
+    : scrollY - prevScrollY;
+
+  updateRouteScrollY(newScroll);
+
+  const isNewRouteWithHash =
+    routerProps.location.hash &&
+    routerProps.location.action === 'PUSH' &&
     routerProps.location.pathname !== prevRouterProps.location.pathname;
 
-  return didLocationChange ? [0, 0] : true;
+  return isNewRouteWithHash ? [0, 0] : true;
 };
 
 export const onPreRouteUpdate = ({ location, prevLocation }) => {
-  // console.log({ location, prevLocation });
+  const isGoingBackwards =
+    prevLocation &&
+    (parseInt(location.key) || 0) - (parseInt(prevLocation.key) || 0) < 0;
 
-  if (!prevLocation) {
-    document.documentElement.style.scrollBehavior = 'smooth';
-    return;
-  }
-
-  const didLocationChange = location.pathname !== prevLocation.pathname;
-
-  if (didLocationChange) {
-    document.documentElement.style.scrollBehavior = 'auto';
-  }
+  updateRouteDirection(isGoingBackwards);
 };
