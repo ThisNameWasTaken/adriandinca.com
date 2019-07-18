@@ -36,6 +36,12 @@ function updateRouteDirection(isGoingBackwards) {
   );
 }
 
+let windowHeight = window.innerHeight;
+
+window.addEventListener('resize', () => {
+  windowHeight = window.innerHeight;
+});
+
 export const shouldUpdateScroll = ({
   routerProps,
   prevRouterProps,
@@ -81,12 +87,46 @@ export const shouldUpdateScroll = ({
     `${prevScrollY}px`
   );
 
-  requestAnimationFrame(() =>
+  // TODO: Do some checking
+  requestAnimationFrame(() => {
+    if (routerProps.location.pathname === prevRouterProps.location.pathname)
+      return;
+
+    // if (!hashElement) return;
+
+    const hashHeight = hashElement.offsetHeight;
+    const hashTop = hashElement.offsetTop;
+
+    const hashBottom = hashElement ? hashTop + hashHeight : 0;
+
+    const enteringRouteHeight = document.querySelector(
+      '.route-transition-enter-active'
+    ).scrollHeight;
+
+    const isHashAtTheBottom =
+      hashElement &&
+      hashBottom === enteringRouteHeight &&
+      hashHeight < windowHeight;
+
+    console.log({
+      enteringRouteHeight,
+      hashBottom,
+      hashHeight,
+      windowHeight,
+      isHashAtTheBottom,
+    });
+
     document.documentElement.style.setProperty(
       ROUTE_TRANSITIONS.CSS_VARS.ENTER_SCROLL,
-      `${hashElement ? -hashElement.offsetTop : 0}px`
-    )
-  );
+      `${
+        hashElement
+          ? isHashAtTheBottom
+            ? windowHeight - hashBottom
+            : -hashTop
+          : 0
+      }px`
+    );
+  });
 
   updateRouteScrollY(newScroll);
 
