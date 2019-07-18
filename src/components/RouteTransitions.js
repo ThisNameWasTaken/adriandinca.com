@@ -8,6 +8,8 @@ const ROUTE_TRANSITIONS = {
     DIRECTION: '--route-transition-direction',
     SCROLL: '--route-transition-scroll',
     ENTER_SCROLL: '--route-transition-enter-scroll',
+    ENTER_FIXED_ELEMENT_OFFSET: '--route-transition-enter-fixed-element-offset',
+    EXIT_FIXED_ELEMENT_OFFSET: '--route-transition-exit-fixed-element-offset',
   },
 };
 

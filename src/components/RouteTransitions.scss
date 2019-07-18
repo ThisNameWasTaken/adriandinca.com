@@ -29,7 +29,6 @@ $route-transition-easing: $mdc-animation-standard-curve-timing-function !default
   @include route-center();
   top: var(--route-transition-enter-scroll);
   transform: translateX(calc(var(--route-transition-direction) * 100%));
-  z-index: 0;
 }
 
 .route-transition-enter.route-transition-enter-active {
@@ -41,7 +40,6 @@ $route-transition-easing: $mdc-animation-standard-curve-timing-function !default
   @include route-center();
   top: var(--route-transition-scroll);
   transform: translateX(0%);
-  z-index: -9999;
 }
 
 .route-transition-exit.route-transition-exit-active {

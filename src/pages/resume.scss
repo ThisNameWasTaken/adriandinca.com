@@ -21,11 +21,19 @@ $desktop-fab-breakpoint: 1040px;
   z-index: -9999;
 }
 
+.route-transition-enter {
+  .resume-background {
+    top: var(--route-transition-enter-fixed-element-offset);
+  }
+}
+
 .route-transition-exit {
   .resume-background {
-    top: calc(-1 * var(--route-transition-scroll));
+    top: var(--route-transition-exit-fixed-element-offset);
   }
+}
 
+.route-transition-exit {
   #download-resume-fab {
     @media screen and (min-width: $desktop-fab-breakpoint) {
       top: calc(
@@ -41,10 +49,10 @@ $desktop-fab-breakpoint: 1040px;
   right: 32px;
   z-index: 8;
   transform-origin: 50% 50%;
-  animation: dr-scale-up $mdc-animation-deceleration-curve-timing-function
-    300ms 0s both;
-  animation: dr-scale-up $mdc-animation-deceleration-curve-timing-function
-    300ms var(--current-route-transition-duration) both;
+  animation: dr-scale-up $mdc-animation-deceleration-curve-timing-function 300ms
+    0s both;
+  animation: dr-scale-up $mdc-animation-deceleration-curve-timing-function 300ms
+    var(--current-route-transition-duration) both;
 
   @media screen and (min-width: $desktop-fab-breakpoint) {
     bottom: 0;

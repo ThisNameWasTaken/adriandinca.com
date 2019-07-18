@@ -71,6 +71,16 @@ export const shouldUpdateScroll = ({
     ? -prevScrollY
     : scrollY - prevScrollY;
 
+  document.documentElement.style.setProperty(
+    ROUTE_TRANSITIONS.CSS_VARS.ENTER_FIXED_ELEMENT_OFFSET,
+    `${scrollY}px`
+  );
+
+  document.documentElement.style.setProperty(
+    ROUTE_TRANSITIONS.CSS_VARS.EXIT_FIXED_ELEMENT_OFFSET,
+    `${prevScrollY}px`
+  );
+
   requestAnimationFrame(() =>
     document.documentElement.style.setProperty(
       ROUTE_TRANSITIONS.CSS_VARS.ENTER_SCROLL,
