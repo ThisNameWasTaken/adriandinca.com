@@ -18,10 +18,31 @@ export const onClientEntry = () => {
   });
 };
 
-function updateRouteScrollY(scrollY) {
+function updateRouteEnterScrollY(scrollY) {
   document.documentElement.style.setProperty(
-    ROUTE_TRANSITIONS.CSS_VARS.SCROLL,
+    ROUTE_TRANSITIONS.CSS_VARS.ENTER_SCROLL,
     `${scrollY}px`
+  );
+}
+
+function updateRouteExitScrollY(scrollY) {
+  document.documentElement.style.setProperty(
+    ROUTE_TRANSITIONS.CSS_VARS.EXIT_SCROLL,
+    `${scrollY}px`
+  );
+}
+
+function updateRouteEnterFixedElementOffset(offset) {
+  document.documentElement.style.setProperty(
+    ROUTE_TRANSITIONS.CSS_VARS.ENTER_FIXED_ELEMENT_OFFSET,
+    `${offset}px`
+  );
+}
+
+function updateRouteExitFixedElementOffset(offset) {
+  document.documentElement.style.setProperty(
+    ROUTE_TRANSITIONS.CSS_VARS.EXIT_FIXED_ELEMENT_OFFSET,
+    `${offset}px`
   );
 }
 
@@ -71,21 +92,9 @@ export const shouldUpdateScroll = ({
     isNewRouteWithHash &&
     document.getElementById(routerProps.location.hash.replace('#', ''));
 
-  const newScroll = isGoingBackwards
-    ? scrollY - prevScrollY
-    : routerProps.location.action === 'PUSH'
-    ? -prevScrollY
-    : scrollY - prevScrollY;
+  updateRouteEnterFixedElementOffset(scrollY);
 
-  document.documentElement.style.setProperty(
-    ROUTE_TRANSITIONS.CSS_VARS.ENTER_FIXED_ELEMENT_OFFSET,
-    `${scrollY}px`
-  );
-
-  document.documentElement.style.setProperty(
-    ROUTE_TRANSITIONS.CSS_VARS.EXIT_FIXED_ELEMENT_OFFSET,
-    `${prevScrollY}px`
-  );
+  updateRouteExitFixedElementOffset(prevScrollY);
 
   requestAnimationFrame(() => {
     if (routerProps.location.pathname === prevRouterProps.location.pathname)
@@ -105,19 +114,22 @@ export const shouldUpdateScroll = ({
       hashBottom === enteringRouteHeight &&
       hashHeight < windowHeight;
 
-    document.documentElement.style.setProperty(
-      ROUTE_TRANSITIONS.CSS_VARS.ENTER_SCROLL,
-      `${
-        hashElement
-          ? isHashAtTheBottom
-            ? windowHeight - hashBottom
-            : -hashTop
-          : 0
-      }px`
+    updateRouteEnterScrollY(
+      hashElement
+        ? isHashAtTheBottom
+          ? windowHeight - hashBottom
+          : -hashTop
+        : 0
     );
   });
 
-  updateRouteScrollY(newScroll);
+  updateRouteExitScrollY(
+    isGoingBackwards
+      ? scrollY - prevScrollY
+      : routerProps.location.action === 'PUSH'
+      ? -prevScrollY
+      : scrollY - prevScrollY
+  );
 
   return isNewRouteWithHash ? [0, 0] : true;
 };
