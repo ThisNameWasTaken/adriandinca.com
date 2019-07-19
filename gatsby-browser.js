@@ -87,12 +87,9 @@ export const shouldUpdateScroll = ({
     `${prevScrollY}px`
   );
 
-  // TODO: Do some checking
   requestAnimationFrame(() => {
     if (routerProps.location.pathname === prevRouterProps.location.pathname)
       return;
-
-    // if (!hashElement) return;
 
     const hashHeight = hashElement.offsetHeight;
     const hashTop = hashElement.offsetTop;
@@ -107,14 +104,6 @@ export const shouldUpdateScroll = ({
       hashElement &&
       hashBottom === enteringRouteHeight &&
       hashHeight < windowHeight;
-
-    console.log({
-      enteringRouteHeight,
-      hashBottom,
-      hashHeight,
-      windowHeight,
-      isHashAtTheBottom,
-    });
 
     document.documentElement.style.setProperty(
       ROUTE_TRANSITIONS.CSS_VARS.ENTER_SCROLL,
