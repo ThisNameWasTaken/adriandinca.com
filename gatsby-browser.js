@@ -1,6 +1,12 @@
 import ROUTE_TRANSITIONS from './src/components/RouteTransitions';
 import { scrollHashIntoView } from './src/components/utils';
 
+import routeTransitionsStyles from './src/components/RouteTransitions.scss';
+
+const routeTransitionDuration = parseInt(
+  routeTransitionsStyles.routeTransitionDuration
+);
+
 /**
  * Implement Gatsby's Browser APIs in this file.
  *
@@ -54,6 +60,13 @@ function updateRouteDirection(isGoingBackwards) {
         ? ROUTE_TRANSITIONS.DIRECTIONS.TO_LEFT
         : ROUTE_TRANSITIONS.DIRECTIONS.TO_RIGHT
     }`
+  );
+}
+
+function updateRouteCurrentDuration(duration) {
+  document.documentElement.style.setProperty(
+    ROUTE_TRANSITIONS.CSS_VARS.CURRENT_DURATION,
+    `${duration}ms`
   );
 }
 
@@ -140,6 +153,10 @@ export const onPreRouteUpdate = ({ location, prevLocation }) => {
     (parseInt(location.key) || 0) - (parseInt(prevLocation.key) || 0) < 0;
 
   updateRouteDirection(isGoingBackwards);
+
+  if (prevLocation) {
+    updateRouteCurrentDuration(routeTransitionDuration);
+  }
 };
 
 export const onInitialClientRender = () => {
