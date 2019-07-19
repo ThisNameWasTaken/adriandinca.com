@@ -2,9 +2,16 @@ import ROUTE_TRANSITIONS from './src/components/RouteTransitions';
 import { scrollHashIntoView } from './src/components/utils';
 
 import routeTransitionsStyles from './src/components/RouteTransitions.scss';
+import topAppBarStyles from './src/components/material/TopAppBar.scss';
 
 const routeTransitionDuration = parseInt(
   routeTransitionsStyles.routeTransitionDuration
+);
+
+const topAppBarHeight = parseInt(topAppBarStyles.topAppBarHeight);
+const topAppBarMobileHeight = parseInt(topAppBarStyles.topAppBarMobileHeight);
+const topAppBarMobileBreakPoint = parseInt(
+  topAppBarStyles.topAppBarMobileBreakPoint
 );
 
 /**
@@ -38,16 +45,30 @@ function updateRouteExitScrollY(scrollY) {
   );
 }
 
-function updateRouteEnterFixedElementOffset(offset) {
+function updateRouteEnterFixedElementTopOffset(offset) {
   document.documentElement.style.setProperty(
-    ROUTE_TRANSITIONS.CSS_VARS.ENTER_FIXED_ELEMENT_OFFSET,
+    ROUTE_TRANSITIONS.CSS_VARS.ENTER_FIXED_ELEMENT_TOP_OFFSET,
     `${offset}px`
   );
 }
 
-function updateRouteExitFixedElementOffset(offset) {
+function updateRouteExitFixedElementTopOffset(offset) {
   document.documentElement.style.setProperty(
-    ROUTE_TRANSITIONS.CSS_VARS.EXIT_FIXED_ELEMENT_OFFSET,
+    ROUTE_TRANSITIONS.CSS_VARS.EXIT_FIXED_ELEMENT_TOP_OFFSET,
+    `${offset}px`
+  );
+}
+
+function updateRouteEnterFixedElementBottomOffset(offset) {
+  document.documentElement.style.setProperty(
+    ROUTE_TRANSITIONS.CSS_VARS.ENTER_FIXED_ELEMENT_BOTTOM_OFFSET,
+    `${offset}px`
+  );
+}
+
+function updateRouteExitFixedElementBottomOffset(offset) {
+  document.documentElement.style.setProperty(
+    ROUTE_TRANSITIONS.CSS_VARS.EXIT_FIXED_ELEMENT_BOTTOM_OFFSET,
     `${offset}px`
   );
 }
@@ -71,9 +92,11 @@ function updateRouteCurrentDuration(duration) {
 }
 
 let windowHeight = window.innerHeight;
+let windowWidth = window.innerWidth;
 
 window.addEventListener('resize', () => {
   windowHeight = window.innerHeight;
+  windowWidth = window.innerWidth;
 });
 
 export const shouldUpdateScroll = ({
@@ -90,8 +113,8 @@ export const shouldUpdateScroll = ({
   const [, scrollY] = getSavedScrollPosition(routerProps.location) || [0, 0];
 
   const [, prevScrollY] = getSavedScrollPosition(prevRouterProps.location) || [
-    0,
-    0,
+    window.scrollX,
+    window.scrollY,
   ];
 
   window.location['action'] = routerProps.location.action;
@@ -105,9 +128,26 @@ export const shouldUpdateScroll = ({
     isNewRouteWithHash &&
     document.getElementById(routerProps.location.hash.replace('#', ''));
 
-  updateRouteEnterFixedElementOffset(scrollY);
+  updateRouteEnterFixedElementTopOffset(scrollY);
+  updateRouteExitFixedElementTopOffset(prevScrollY);
 
-  updateRouteExitFixedElementOffset(prevScrollY);
+  const windowRelativeScrollDiff =
+    Math.abs(prevScrollY - scrollY) - windowHeight;
+
+  const topAppBarOffset =
+    windowWidth <= topAppBarMobileBreakPoint
+      ? topAppBarMobileHeight
+      : topAppBarHeight;
+
+  const exitOffset =
+    windowRelativeScrollDiff < -topAppBarOffset
+      ? -scrollY
+      : -scrollY + windowRelativeScrollDiff + topAppBarOffset;
+
+  const enterOffset = -scrollY;
+
+  updateRouteEnterFixedElementBottomOffset(enterOffset);
+  updateRouteExitFixedElementBottomOffset(exitOffset);
 
   requestAnimationFrame(() => {
     if (routerProps.location.pathname === prevRouterProps.location.pathname)

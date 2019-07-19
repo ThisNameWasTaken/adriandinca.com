@@ -8,8 +8,14 @@ const ROUTE_TRANSITIONS = {
     DIRECTION: '--route-transition-direction',
     EXIT_SCROLL: '--route-transition-scroll',
     ENTER_SCROLL: '--route-transition-enter-scroll',
-    ENTER_FIXED_ELEMENT_OFFSET: '--route-transition-enter-fixed-element-offset',
-    EXIT_FIXED_ELEMENT_OFFSET: '--route-transition-exit-fixed-element-offset',
+    ENTER_FIXED_ELEMENT_TOP_OFFSET:
+      '--route-transition-enter-fixed-element-top-offset',
+    ENTER_FIXED_ELEMENT_BOTTOM_OFFSET:
+      '--route-transition-enter-fixed-element-bottom-offset',
+    EXIT_FIXED_ELEMENT_TOP_OFFSET:
+      '--route-transition-exit-fixed-element-top-offset',
+    EXIT_FIXED_ELEMENT_BOTTOM_OFFSET:
+      '--route-transition-exit-fixed-element-bottom-offset',
   },
 };
 

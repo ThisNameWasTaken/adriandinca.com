@@ -23,15 +23,17 @@ $desktop-fab-breakpoint: 1040px;
 
 .route-transition-enter {
   .resume-background {
-    top: var(--route-transition-enter-fixed-element-offset);
+    top: var(--route-transition-enter-fixed-element-top-offset);
   }
 
   #download-resume-fab {
-    // top: var(--route-transition-enter-fixed-element-offset);
+    bottom: calc(
+      var(--route-transition-enter-fixed-element-bottom-offset) + 32px
+    );
 
     @media screen and (min-width: $desktop-fab-breakpoint) {
       top: calc(
-        var(--route-transition-enter-fixed-element-offset) +
+        var(--route-transition-enter-fixed-element-top-offset) +
           (#{$resume-background-height} + 5px)
       );
     }
@@ -40,15 +42,17 @@ $desktop-fab-breakpoint: 1040px;
 
 .route-transition-exit {
   .resume-background {
-    top: var(--route-transition-exit-fixed-element-offset);
+    top: var(--route-transition-exit-fixed-element-top-offset);
   }
 
   #download-resume-fab {
-    // top: var(--route-transition-exit-fixed-element-offset);
+    bottom: calc(
+      var(--route-transition-exit-fixed-element-bottom-offset) + 32px
+    );
 
     @media screen and (min-width: $desktop-fab-breakpoint) {
       top: calc(
-        var(--route-transition-exit-fixed-element-offset) +
+        var(--route-transition-exit-fixed-element-top-offset) +
           (#{$resume-background-height} + 5px)
       );
     }
