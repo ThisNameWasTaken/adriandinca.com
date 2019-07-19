@@ -19,7 +19,7 @@
     animation: line-animation $line-reveal-animation-duration
       $mdc-animation-standard-curve-timing-function
       calc(
-        #{$line-reveal-animation-delay} + var(--current-route-transition-duration)
+        #{$line-reveal-animation-delay} + var(--route-transition-current-duration)
       )
       both;
 
@@ -58,7 +58,7 @@
     animation: reveal $line-reveal-animation-duration
       $mdc-animation-standard-curve-timing-function
       calc(
-        #{$line-reveal-animation-delay} + var(--current-route-transition-duration)
+        #{$line-reveal-animation-delay} + var(--route-transition-current-duration)
       )
       both;
   }
@@ -70,7 +70,7 @@
     animation: reverse-reveal $line-reveal-animation-duration
       $mdc-animation-standard-curve-timing-function
       calc(
-        #{$line-reveal-animation-delay} + var(--current-route-transition-duration)
+        #{$line-reveal-animation-delay} + var(--route-transition-current-duration)
       )
       both;
   }
