@@ -1,0 +1,7 @@
+@function strip-units($var) {
+  @if type-of($var) == 'number' and not unitless($var) {
+    @return $var / ($var * 0 + 1);
+  }
+
+  @return $var;
+}
