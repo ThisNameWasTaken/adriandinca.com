@@ -35,22 +35,20 @@ const Layout = ({ children, location }) => {
       render={data => (
         <>
           <Header siteTitle={data.site.siteMetadata.title} />
-          <TopAppBarFixedAdjust>
-            <TransitionGroup>
-              {/* no different than other usage of
+          <TransitionGroup>
+            {/* no different than other usage of
                 CSSTransition, just make sure to pass
                 `location` to `Switch` so it can match
                 the old location as it animates out
-            */}
-              <CSSTransition
-                key={location.pathname}
-                classNames="fade"
-                timeout={3000}
-              >
-                {children}
-              </CSSTransition>
-            </TransitionGroup>
-          </TopAppBarFixedAdjust>
+              */}
+            <CSSTransition
+              key={location.pathname}
+              classNames="fade"
+              timeout={3000}
+            >
+              <TopAppBarFixedAdjust>{children}</TopAppBarFixedAdjust>
+            </CSSTransition>
+          </TransitionGroup>
         </>
       )}
     />
