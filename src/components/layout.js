@@ -43,7 +43,7 @@ const Layout = ({ children, location }) => {
           <TransitionGroup>
             <CSSTransition
               key={location.pathname}
-              classNames="route-transition"
+              classNames={routeTransitions.classNames}
               onExit={onExit}
               timeout={routeTransitions.sassVars.routeTransitionDuration}
             >
