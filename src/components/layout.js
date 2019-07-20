@@ -21,6 +21,10 @@ const Layout = ({ children, location }) => {
     return () => (document.documentElement.style.scrollBehavior = 'auto');
   }, []);
 
+  const onExit = exitingElement => {
+    exitingElement.setAttribute('aria-hidden', 'true');
+  };
+
   return (
     <StaticQuery
       query={graphql`
@@ -44,6 +48,7 @@ const Layout = ({ children, location }) => {
             <CSSTransition
               key={location.pathname}
               classNames="fade"
+              onExit={onExit}
               timeout={3000}
             >
               <TopAppBarFixedAdjust>{children}</TopAppBarFixedAdjust>
