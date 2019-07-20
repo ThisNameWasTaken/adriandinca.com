@@ -120,6 +120,14 @@
   }
 }
 
+.contact-button {
+  @media screen and (orientation: portrait) {
+    position: absolute;
+    transform: translateY(-50%);
+    bottom: -15vh;
+  }
+}
+
 .hide-small {
   @media screen and (max-width: 499px) {
     display: none;
@@ -136,13 +144,13 @@
   animation: fade-in 0.5s $mdc-animation-acceleration-curve-timing-function
     $delay both;
   animation: fade-in 0.5s $mdc-animation-acceleration-curve-timing-function
-    calc(#{$delay} + var(--current-route-transition-duration)) both;
+    calc(#{$delay} + var(--route-transition-current-duration)) both;
 }
 
 @mixin animation-rise($duration: 0.4s, $delay: 0s) {
   animation: rise 0.4s $mdc-animation-standard-curve-timing-function $delay both;
   animation: rise 0.4s $mdc-animation-standard-curve-timing-function
-    calc(#{$delay} + var(--current-route-transition-duration)) both;
+    calc(#{$delay} + var(--route-transition-current-duration)) both;
 }
 
 @mixin animation-scale-up($duration: 0.4s, $delay: 0s) {
@@ -150,7 +158,7 @@
   animation: scale-up 0.4s $mdc-animation-standard-curve-timing-function $delay
     both;
   animation: scale-up 0.4s $mdc-animation-standard-curve-timing-function
-    calc(#{$delay} + var(--current-route-transition-duration)) both;
+    calc(#{$delay} + var(--route-transition-current-duration)) both;
 }
 
 #monitor-screen {

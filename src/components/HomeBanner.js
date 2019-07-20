@@ -25,7 +25,7 @@ const HomeBanner = () => {
           </LineReveal>
         </h1>
 
-        <div>
+        <div className="contact-button">
           <Button raised href="mailto:adriandinca2008@gmail.com">
             get in touch
           </Button>
