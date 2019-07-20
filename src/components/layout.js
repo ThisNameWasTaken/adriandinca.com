@@ -20,18 +20,24 @@ const Layout = ({ children, location }) => {
   const [prevLocation, setPrevLocation] = useState(null);
 
   useEffect(() => {
-    document.documentElement.style.scrollBehavior = 'auto';
-
-    return () => (document.documentElement.style.scrollBehavior = 'auto');
-  }, []);
-
-  useEffect(() => {
     setPrevLocation(location);
   }, [location]);
 
   const onEnter = enteringElement => {
+    const enteringElementInner = enteringElement.children[0];
+    if (!enteringElementInner) return;
+
+    // Disable smooth scrolling while updating route's scroll
+    enteringElementInner.style.scrollBehavior = 'auto';
+
     requestAnimationFrame(() =>
-      enteringElement.children[0].scroll(getSavedScroll(location))
+      requestAnimationFrame(
+        () => (enteringElementInner.style.scrollBehavior = 'smooth')
+      )
+    );
+
+    requestAnimationFrame(() =>
+      enteringElementInner.scroll(getSavedScroll(location))
     );
   };
 
@@ -39,15 +45,15 @@ const Layout = ({ children, location }) => {
     exitingElement.setAttribute('aria-hidden', 'true');
 
     const exitingElementInner = exitingElement.children[0];
-    if (exitingElementInner) {
-      setSavedScroll(
-        {
-          left: exitingElementInner.scrollLeft,
-          top: exitingElementInner.scrollTop,
-        },
-        prevLocation
-      );
-    }
+    if (!exitingElementInner) return;
+
+    setSavedScroll(
+      {
+        left: exitingElementInner.scrollLeft,
+        top: exitingElementInner.scrollTop,
+      },
+      prevLocation
+    );
   };
 
   return (

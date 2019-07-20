@@ -73,6 +73,13 @@ main {
     position: relative;
     overflow-y: scroll;
     overflow-x: hidden;
+    scroll-behavior: smooth;
+
+    @media screen and (prefers-reduced-motion: reduce) {
+      & {
+        scroll-behavior: auto !important;
+      }
+    }
   }
 }
 
