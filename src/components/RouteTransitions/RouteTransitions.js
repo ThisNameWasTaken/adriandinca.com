@@ -1,7 +1,10 @@
 import './RouteTransitions.scss';
 import sassVars from './variables.scss';
 
-Object.keys(sassVars).forEach(key => (sassVars[key] = parseInt(sassVars[key])));
+Object.keys(sassVars).forEach(key => {
+  console.log('update vars');
+  sassVars[key] = parseInt(sassVars[key]);
+});
 
 const classNameBase = `route-transition`;
 

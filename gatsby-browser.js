@@ -14,3 +14,5 @@ export const onClientEntry = () => {
     document.head.appendChild(fontLink);
   });
 };
+
+export const shouldUpdateScroll = () => false;
