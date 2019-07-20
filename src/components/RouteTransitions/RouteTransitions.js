@@ -21,6 +21,7 @@ const classNames = {
 const cssVars = {
   enterTranslateX: `--${classNames.enter}-translate-x`,
   exitTranslateX: `--${classNames.exit}-translate-x`,
+  duration: `--${classNames.base}-duration`,
 };
 
 const routeTransitions = {

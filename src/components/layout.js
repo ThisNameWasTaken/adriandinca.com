@@ -23,7 +23,15 @@ const Layout = ({ children, location }) => {
   useEffect(() => {
     setPrevLocation(location);
 
-    if (!prevLocation || location.pathname === prevLocation.pathname) {
+    const isSameOrInitialLocation =
+      !prevLocation || location.pathname === prevLocation.pathname;
+
+    document.documentElement.style.setProperty(
+      routeTransitions.cssVars.duration,
+      isSameOrInitialLocation ? '0s' : 'initial'
+    );
+
+    if (isSameOrInitialLocation) {
       const root = rootRef.current;
 
       if (location.hash) {

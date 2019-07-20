@@ -7,6 +7,7 @@ $route-transition-timing-function: $mdc-animation-standard-curve-timing-function
 :root {
   --route-transition-enter-translate-x: 100%;
   --route-transition-exit-translate-x: -100%;
+  --route-transition-duration: #{$route-transition-duration};
 }
 
 :export {

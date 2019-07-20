@@ -1,5 +1,6 @@
 @import '../theme.scss';
 @import './variables.scss';
+@import '../RouteTransitions/functions';
 @import '@material/animation/variables';
 
 .line-reveal {
@@ -14,8 +15,8 @@
     transform-origin: top center;
     height: 100%;
     animation: line-animation $line-reveal-animation-duration
-      $mdc-animation-standard-curve-timing-function $line-reveal-animation-delay
-      both;
+      $mdc-animation-standard-curve-timing-function
+      wait-for-route-transition-end($line-reveal-animation-delay) both;
 
     &::before {
       content: '';
@@ -47,14 +48,14 @@
     right: 0;
     overflow: hidden;
     animation: reveal $line-reveal-animation-duration
-      $mdc-animation-standard-curve-timing-function $line-reveal-animation-delay
-      both;
+      $mdc-animation-standard-curve-timing-function
+      wait-for-route-transition-end($line-reveal-animation-delay) both;
   }
 
   &__inner-mask {
     animation: reverse-reveal $line-reveal-animation-duration
-      $mdc-animation-standard-curve-timing-function $line-reveal-animation-delay
-      both;
+      $mdc-animation-standard-curve-timing-function
+      wait-for-route-transition-end($line-reveal-animation-delay) both;
   }
 }
 
