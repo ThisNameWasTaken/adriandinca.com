@@ -4,6 +4,11 @@
 $route-transition-duration: 3000ms !default;
 $route-transition-timing-function: $mdc-animation-standard-curve-timing-function !default;
 
+:root {
+  --route-transition-enter-translate-x: 100%;
+  --route-transition-exit-translate-x: -100%;
+}
+
 :export {
   routeTransitionDuration: strip-units($route-transition-duration);
 }

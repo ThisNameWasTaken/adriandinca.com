@@ -18,6 +18,7 @@ module.exports = {
       options: {
         includePaths: ['node_modules'],
         postCssPlugins: [
+          require('postcss-custom-properties'),
           require('cssnano')({
             preset: [
               'advanced',

@@ -7,6 +7,10 @@ const classNameBase = `route-transition`;
 
 const routeTransitions = {
   sassVars,
+  cssVars: {
+    enterTranslateX: `--${classNameBase}-enter-translate-x`,
+    exitTranslateX: `--${classNameBase}-exit-translate-x`,
+  },
   classNames: {
     base: classNameBase,
     appear: `${classNameBase}-appear`,
@@ -18,6 +22,26 @@ const routeTransitions = {
     exit: `${classNameBase}-exit`,
     exitActive: `${classNameBase}-exit-active`,
     exitDone: `${classNameBase}-exit-done`,
+  },
+  moveToLeft() {
+    document.documentElement.style.setProperty(
+      this.cssVars.enterTranslateX,
+      '100%'
+    );
+    document.documentElement.style.setProperty(
+      this.cssVars.exitTranslateX,
+      '-100%'
+    );
+  },
+  moveToRight() {
+    document.documentElement.style.setProperty(
+      this.cssVars.enterTranslateX,
+      '-100%'
+    );
+    document.documentElement.style.setProperty(
+      this.cssVars.exitTranslateX,
+      '100%'
+    );
   },
 };
 

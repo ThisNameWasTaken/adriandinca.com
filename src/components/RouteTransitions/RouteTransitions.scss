@@ -2,7 +2,7 @@
 @import './mixins';
 
 .route-transition-enter {
-  transform: translateX(100%);
+  transform: translateX(var(--route-transition-enter-translate-x));
   z-index: 0;
 
   &-active {
@@ -18,7 +18,7 @@
   z-index: -9999;
 
   &-active {
-    transform: translateX(-100%);
+    transform: translateX(var(--route-transition-exit-translate-x));
     transition: transform $route-transition-duration
       $route-transition-timing-function;
   }

@@ -34,6 +34,14 @@ const Layout = ({ children, location }) => {
         root.scroll(0, 0);
       }
     }
+
+    const isGoingBackwards =
+      prevLocation &&
+      (parseInt(prevLocation.key) || 0) < (parseInt(location.key) || 0);
+
+    isGoingBackwards
+      ? routeTransitions.moveToLeft()
+      : routeTransitions.moveToRight();
   }, [location]);
 
   const onEnter = enteringElement => {
