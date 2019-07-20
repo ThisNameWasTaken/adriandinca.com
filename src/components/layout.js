@@ -5,7 +5,7 @@
  * See: https://www.gatsbyjs.org/docs/static-query/
  */
 
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useEffect, useState } from 'react';
 import { StaticQuery, graphql } from 'gatsby';
 
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
@@ -18,7 +18,6 @@ import { getSavedScroll, setSavedScroll } from './utils';
 
 const Layout = ({ children, location }) => {
   const [prevLocation, setPrevLocation] = useState();
-  const rootRef = useRef();
 
   useEffect(() => {
     setPrevLocation(location);
@@ -32,12 +31,15 @@ const Layout = ({ children, location }) => {
     );
 
     if (isSameOrInitialLocation) {
-      const root = rootRef.current;
+      const root = document.querySelector(
+        'main:not([aria-hidden="true"]) > div'
+      );
 
       if (location.hash) {
         const scrollTarget = document.querySelector(location.hash);
 
-        root.scroll(scrollTarget.offsetLeft, scrollTarget.offsetTop);
+        scrollTarget &&
+          root.scroll(scrollTarget.offsetLeft, scrollTarget.offsetTop);
       } else {
         root.scroll(0, 0);
       }
@@ -121,7 +123,7 @@ const Layout = ({ children, location }) => {
               timeout={routeTransitions.sassVars.routeTransitionDuration}
             >
               <TopAppBarFixedAdjust>
-                <div ref={rootRef}>{children}</div>
+                <div>{children}</div>
               </TopAppBarFixedAdjust>
             </CSSTransition>
           </TransitionGroup>
