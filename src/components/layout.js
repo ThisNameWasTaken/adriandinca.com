@@ -12,6 +12,7 @@ import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import { TopAppBarFixedAdjust } from '@material/react-top-app-bar';
 
 import Header from './header';
+import routeTransitions from './RouteTransitions';
 import './layout.scss';
 
 const Layout = ({ children, location }) => {
@@ -42,9 +43,9 @@ const Layout = ({ children, location }) => {
           <TransitionGroup>
             <CSSTransition
               key={location.pathname}
-              classNames="fade"
+              classNames="route-transition"
               onExit={onExit}
-              timeout={3000}
+              timeout={routeTransitions.sassVars.routeTransitionDuration}
             >
               <TopAppBarFixedAdjust>{children}</TopAppBarFixedAdjust>
             </CSSTransition>

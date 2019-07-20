@@ -1,0 +1,25 @@
+@import './variables';
+@import './mixins';
+
+.route-transition-enter {
+  transform: translateX(100%);
+  z-index: 0;
+
+  &-active {
+    transform: translateX(0%);
+    transition: transform $route-transition-duration
+      $route-transition-timing-function;
+  }
+}
+
+.route-transition-exit {
+  @include route-center();
+  transform: translateX(0%);
+  z-index: -9999;
+
+  &-active {
+    transform: translateX(-100%);
+    transition: transform $route-transition-duration
+      $route-transition-timing-function;
+  }
+}

@@ -1,0 +1,9 @@
+@import '../utils.scss';
+@import '@material/animation/variables';
+
+$route-transition-duration: 3000ms !default;
+$route-transition-timing-function: $mdc-animation-standard-curve-timing-function !default;
+
+:export {
+  routeTransitionDuration: strip-units($route-transition-duration);
+}
