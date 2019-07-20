@@ -96,7 +96,7 @@ const Resume = () => {
   }, []);
 
   return (
-    <div>
+    <>
       <SEO title="Page two" />
       <Fab
         id="download-resume-fab"
@@ -274,7 +274,7 @@ const Resume = () => {
           </Suspense>
         )}
       </div>
-    </div>
+    </>
   );
 };
 

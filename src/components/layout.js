@@ -5,7 +5,7 @@
  * See: https://www.gatsbyjs.org/docs/static-query/
  */
 
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import { StaticQuery, graphql } from 'gatsby';
 
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
@@ -17,27 +17,53 @@ import './layout.scss';
 import { getSavedScroll, setSavedScroll } from './utils';
 
 const Layout = ({ children, location }) => {
-  const [prevLocation, setPrevLocation] = useState(null);
+  const [prevLocation, setPrevLocation] = useState();
+  const rootRef = useRef();
 
   useEffect(() => {
     setPrevLocation(location);
+
+    if (!prevLocation || location.pathname === prevLocation.pathname) {
+      const root = rootRef.current;
+
+      if (location.hash) {
+        const scrollTarget = document.querySelector(location.hash);
+
+        root.scroll(scrollTarget.offsetLeft, scrollTarget.offsetTop);
+      } else {
+        root.scroll(0, 0);
+      }
+    }
   }, [location]);
 
   const onEnter = enteringElement => {
     const enteringElementInner = enteringElement.children[0];
     if (!enteringElementInner) return;
 
-    // Disable smooth scrolling while updating route's scroll
+    // Disable smooth scrolling while updating entering route's scroll
     enteringElementInner.style.scrollBehavior = 'auto';
 
+    // Update entering route's scroll
+    requestAnimationFrame(() => {
+      const savedScroll = getSavedScroll(location);
+
+      if (savedScroll) {
+        enteringElementInner.scroll(savedScroll);
+      } else if (location.hash) {
+        const scrollTarget = document.querySelector(location.hash);
+
+        enteringElementInner.scroll(
+          scrollTarget.offsetLeft,
+          scrollTarget.offsetTop
+        );
+      }
+    });
+
+    // Re-enable smooth scrolling after updating entering route's scroll
     requestAnimationFrame(() =>
       requestAnimationFrame(
         () => (enteringElementInner.style.scrollBehavior = 'smooth')
       )
-    );
-
-    requestAnimationFrame(() =>
-      enteringElementInner.scroll(getSavedScroll(location))
     );
   };
 
@@ -78,7 +104,9 @@ const Layout = ({ children, location }) => {
               onExit={onExit}
               timeout={routeTransitions.sassVars.routeTransitionDuration}
             >
-              <TopAppBarFixedAdjust>{children}</TopAppBarFixedAdjust>
+              <TopAppBarFixedAdjust>
+                <div ref={rootRef}>{children}</div>
+              </TopAppBarFixedAdjust>
             </CSSTransition>
           </TransitionGroup>
         </>
