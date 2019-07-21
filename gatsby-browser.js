@@ -16,3 +16,13 @@ export const onClientEntry = () => {
 };
 
 export const shouldUpdateScroll = () => false;
+
+function updateVhUnits() {
+  document.documentElement.style.setProperty(
+    '--vh',
+    `${window.innerHeight / 100}px`
+  );
+}
+
+updateVhUnits();
+window.addEventListener('resize', updateVhUnits);

@@ -17,16 +17,6 @@ import './layout.scss';
 import { getSavedScroll, setSavedScroll } from './utils';
 import RouteFab from './RouteFab';
 
-function updateVhUnits() {
-  document.documentElement.style.setProperty(
-    '--vh',
-    `${window.innerHeight / 100}px`
-  );
-}
-
-updateVhUnits();
-window.addEventListener('resize', updateVhUnits);
-
 const Layout = ({ children, location }) => {
   const [prevLocation, setPrevLocation] = useState();
 
