@@ -24,7 +24,7 @@ const fabs = [
       </svg>
     ),
     label: 'download resume',
-    tooltip: 'download resume',
+    tooltip: 'Download PDF',
     pathname: '/resume',
   },
 ];
