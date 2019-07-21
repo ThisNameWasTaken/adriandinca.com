@@ -31,7 +31,7 @@ const ProjectCard = ({
       <Body1 className="project-card__body">{body}</Body1>
     </CardPrimaryContent>
 
-    <ChipSet>
+    <ChipSet className="project-card__chips">
       {tags.map(tag => (
         <Chip label={tag} tabIndex={-1} key={tag} />
       ))}
