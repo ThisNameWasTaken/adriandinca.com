@@ -58,6 +58,8 @@ const Resume = () => {
   let pageCount = 2;
 
   useEffect(() => {
+    pageCount = rootRef.current.getElementsByClassName('page').length;
+
     new MutationObserver(mutations => {
       pageCount = rootRef.current.getElementsByClassName('page').length;
       resize();
@@ -71,7 +73,8 @@ const Resume = () => {
     if (!root) return;
 
     const scale =
-      document.querySelector('main > div').clientWidth / rootRect.width;
+      document.querySelector('main:not([aria-hidden="true"]) > div')
+        .clientWidth / rootRect.width;
 
     if (scale >= 1) {
       root.style.transform = '';
