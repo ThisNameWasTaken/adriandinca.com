@@ -1,4 +1,5 @@
 @import './variables.scss';
+@import '@material/animation/functions';
 
 @function wait-for-route-transition-end($delay: 0ms) {
   @return calc(

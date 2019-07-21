@@ -2,7 +2,6 @@
 @import '@material/animation/variables';
 
 $route-transition-duration: 300ms !default;
-$route-transition-timing-function: $mdc-animation-standard-curve-timing-function !default;
 
 :root {
   --route-transition-enter-translate-x: 100%;

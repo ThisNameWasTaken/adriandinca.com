@@ -1,5 +1,6 @@
 @import './variables';
 @import './mixins';
+@import './functions';
 
 .route-transition-enter {
   transform: translateX(var(--route-transition-enter-translate-x));
@@ -7,8 +8,7 @@
 
   &-active {
     transform: translateX(0%);
-    transition: transform $route-transition-duration
-      $route-transition-timing-function;
+    transition: mdc-animation-standard(transform, $route-transition-duration);
   }
 }
 
@@ -19,7 +19,6 @@
 
   &-active {
     transform: translateX(var(--route-transition-exit-translate-x));
-    transition: transform $route-transition-duration
-      $route-transition-timing-function;
+    transition: mdc-animation-standard(transform, $route-transition-duration);
   }
 }
