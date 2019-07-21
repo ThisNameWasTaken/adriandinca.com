@@ -9,11 +9,17 @@
 .home-banner {
   width: 100%;
   min-height: 300px;
-  height: calc(100vh - 56px);
+  height: calc(calc(100 * var(--vh)) - #{$mdc-top-app-bar-row-height - 2px});
   position: relative;
   display: flex;
   overflow: hidden;
   background: $mdc-theme-on-primary;
+
+  @media screen and (max-width: $mdc-top-app-bar-mobile-breakpoint) {
+    height: calc(
+      calc(100 * var(--vh)) - #{$mdc-top-app-bar-mobile-row-height - 2px}
+    );
+  }
 
   @media screen and (max-width: 1199px) {
     flex-direction: column;

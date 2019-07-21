@@ -1,6 +1,10 @@
 @import '../components/theme.scss';
 @import '~normalize.css/normalize.css';
 
+:root {
+  --vh: 1vh;
+}
+
 html {
   font-family: sans-serif;
   -ms-text-size-adjust: 100%;
