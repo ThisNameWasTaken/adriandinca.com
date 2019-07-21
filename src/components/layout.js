@@ -15,6 +15,7 @@ import Header from './header';
 import routeTransitions from './RouteTransitions';
 import './layout.scss';
 import { getSavedScroll, setSavedScroll } from './utils';
+import RouteFab from './RouteFab';
 
 const Layout = ({ children, location }) => {
   const [prevLocation, setPrevLocation] = useState();
@@ -127,6 +128,7 @@ const Layout = ({ children, location }) => {
               </TopAppBarFixedAdjust>
             </CSSTransition>
           </TransitionGroup>
+          <RouteFab location={location} />
         </>
       )}
     />

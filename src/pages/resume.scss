@@ -24,17 +24,13 @@ $resume-background-height: 260px;
   }
 }
 
+// TODO: Need to rethink transition delays on desktop
 #download-resume-fab {
-  position: fixed;
-  bottom: 32px;
-  right: 32px;
-  z-index: 8;
   @media screen and (min-width: 1040px) {
-    bottom: 0;
-    right: 0;
-    top: $resume-background-height + 5px;
+    bottom: unset;
+    right: unset;
+    top: $resume-background-height + 32px;
     left: calc(50% + 440px);
-    transform: translateY(50%);
   }
 }
 

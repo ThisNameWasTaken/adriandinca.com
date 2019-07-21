@@ -1,0 +1,46 @@
+@import '@material/animation/functions';
+@import '../RouteTransitions/variables';
+
+.route-fab {
+  position: fixed;
+  right: 32px;
+  bottom: 32px;
+  z-index: 8;
+  will-change: transform;
+  transform-origin: center center;
+
+  &-route-transition {
+    &-enter {
+      & > .route-fab {
+        transform: scale(0);
+      }
+
+      &-active {
+        & > .route-fab {
+          transform: scale(1);
+          transition: mdc-animation-enter(
+            transform,
+            $route-transition-duration / 2,
+            $route-transition-duration / 2
+          );
+        }
+      }
+    }
+
+    &-exit {
+      & > .route-fab {
+        transform: scale(1);
+      }
+
+      &-active {
+        & > .route-fab {
+          transform: scale(0);
+          transition: mdc-animation-exit-permanent(
+            transform,
+            $route-transition-duration / 2
+          );
+        }
+      }
+    }
+  }
+}
