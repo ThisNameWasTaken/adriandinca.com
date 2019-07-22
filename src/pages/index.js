@@ -7,7 +7,22 @@ import HomeBanner from '../components/HomeBanner';
 
 const IndexPage = () => (
   <>
-    <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
+    <SEO
+      title="Home"
+      keywords={[
+        'Mobile',
+        'Web',
+        'Specialist',
+        'Developer',
+        'JavaScript',
+        'JS',
+        'React',
+        'Gatsby',
+        'Application',
+        'App',
+        'Freelancer',
+      ]}
+    />
     <HomeBanner />
     <ProjectsSection />
     <AboutSection />

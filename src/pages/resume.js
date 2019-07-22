@@ -100,7 +100,27 @@ const Resume = () => {
 
   return (
     <>
-      <SEO title="Page two" />
+      <SEO
+        title="Resume"
+        keywords={[
+          'Mobile',
+          'Web',
+          'Specialist',
+          'Developer',
+          'JavaScript',
+          'JS',
+          'React',
+          'Gatsby',
+          'Application',
+          'App',
+          'Freelancer',
+          'Resume',
+          'Adrian',
+          'Dinca',
+          'Florin',
+          'Adrian-Florin',
+        ]}
+      />
       <div className="resume-background" />
       <div className="resume" ref={rootRef}>
         <div className="page" ref={pageRef}>
