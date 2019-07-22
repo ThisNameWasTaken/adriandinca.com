@@ -36,11 +36,15 @@ const Layout = ({ children, location }) => {
         'main:not([aria-hidden="true"]) > div'
       );
 
-      if (location.hash) {
-        const scrollTarget = document.querySelector(location.hash);
+      if (!root) return;
 
-        scrollTarget &&
+      if (location.hash) {
+        requestAnimationFrame(() => {
+          const scrollTarget = document.querySelector(location.hash);
+
+          if (!scrollTarget) return;
           root.scroll(scrollTarget.offsetLeft, scrollTarget.offsetTop);
+        });
       } else {
         root.scroll(0, 0);
       }
