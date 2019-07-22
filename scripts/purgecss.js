@@ -61,6 +61,8 @@ const purgeCss = new PurgeCss({
     /internet/,
     /wi-fi/,
     /route-transition/,
+    /route-fab/,
+    /-fab/,
   ], // Keep selectors that match this patterns
   whitelistPatternsChildren: [/spoken-languages/],
   // Purgecss' keyframes purging algorithm does not seem to work for multiple animations if there is no space in between the comma and the next animation name (i.e. ... ease,second-animation ...)
