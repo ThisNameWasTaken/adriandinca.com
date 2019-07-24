@@ -1,13 +1,18 @@
 @import '@material/animation/functions';
+@import '@material/top-app-bar/variables';
 @import '../RouteTransitions/variables';
 
 .route-fab {
   position: absolute;
   right: 32px;
-  bottom: 32px;
+  top: calc(100 * var(--vh) - #{$mdc-top-app-bar-row-height} - 32px);
   z-index: 8;
   will-change: transform;
   transform-origin: center center;
+
+  @media screen and (max-width: $mdc-top-app-bar-mobile-breakpoint) {
+    top: calc(100 * var(--vh) - #{$mdc-top-app-bar-mobile-row-height} - 32px);
+  }
 
   &-route-transition {
     &-enter {
