@@ -26,6 +26,9 @@ const ProjectsSection = () => {
             sourceCode
             tags
           }
+          fields {
+            path
+          }
         }
       }
     }
@@ -49,9 +52,11 @@ const ProjectsSection = () => {
             sourceCode,
             tags,
           },
+          fields: { path },
         }) => (
           <article className="projects-section__project" key={id}>
             <ProjectCard
+              href={path}
               headline={title}
               body={description}
               media={{

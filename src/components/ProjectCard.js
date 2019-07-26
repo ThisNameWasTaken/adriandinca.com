@@ -17,11 +17,12 @@ const ProjectCard = ({
   sourceButton,
   demoButton,
   tags,
+  href,
   className = '',
   ...otherProps
 }) => (
   <Card className={`project-card ${className}`} {...otherProps}>
-    <CardPrimaryContent onClick={() => (window.location = demoButton.href)}>
+    <CardPrimaryContent href={href}>
       <CardMedia wide>
         <div className="project-card__media-image">
           <Image {...media} />
