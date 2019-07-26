@@ -1,7 +1,7 @@
 ---
 title: 'Foose Shoes'
 backgroundAlt: "A screenshot of Foose Shoes's homepage"
-backgroundImage: 'screenshot-ejs-plain-loader.png'
+backgroundImage: 'screenshot-foose-shoes.png'
 description: 'An e-commerce website for a shoe store I built during OSF Academy for Students program.'
 tags: ['HTML', 'SCSS', 'JS', 'Gulp', 'Webpack']
 demo: 'https://ThisNameWasTaken.github.io/foose-shoes'
