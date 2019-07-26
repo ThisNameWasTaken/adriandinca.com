@@ -5,7 +5,6 @@ import SEO from '../components/seo';
 import { Body2 } from '../components/material/Typography';
 import Spinner from '../components/material/Spinner';
 import Tooltip from '../components/material/Tooltip';
-import Fab from '../components/material/Fab';
 
 import './resume.scss';
 // import styles from './resume.scss';
