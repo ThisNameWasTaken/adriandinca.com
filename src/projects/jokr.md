@@ -6,4 +6,5 @@ description: "A progressive Web App I built after I had finished Udacity's Mobil
 tags: ['PWA', 'HTML', 'SCSS', 'JS', 'Webpack']
 demo: 'https://ThisNameWasTaken.github.io/Jokr'
 sourceCode: 'https://github.com/ThisNameWasTaken/Jokr'
+date: 2017-10-01T00:00:00.000Z
 ---

@@ -6,4 +6,5 @@ description: "A dark theme for Visual Studio Code inspired by Atom's One Dark co
 tags: ['VS Code', 'JSON']
 demo: 'https://marketplace.visualstudio.com/items?itemName=ThisNameWasTaken.one-moon'
 sourceCode: 'https://github.com/ThisNameWasTaken/one-moon'
+date: 2019-07-01T00:00:00.000Z
 ---

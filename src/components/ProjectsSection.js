@@ -11,7 +11,10 @@ const ProjectsSection = () => {
     allMarkdownRemark: { nodes },
   } = useStaticQuery(graphql`
     query {
-      allMarkdownRemark(limit: 6) {
+      allMarkdownRemark(
+        sort: { fields: frontmatter___date, order: DESC }
+        limit: 6
+      ) {
         nodes {
           id
           frontmatter {

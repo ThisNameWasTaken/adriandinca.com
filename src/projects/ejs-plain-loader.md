@@ -6,4 +6,5 @@ description: 'An Embedded JavaScript Loader for Webpack which I wrote in order t
 tags: ['Webpack', 'NPM', 'NodeJS']
 demo: 'https://www.npmjs.com/package/ejs-plain-loader'
 sourceCode: 'https://github.com/ThisNameWasTaken/ejs-plain-loader'
+date: 2018-11-01T00:00:00.000Z
 ---

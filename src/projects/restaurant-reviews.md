@@ -6,4 +6,5 @@ description: "A Progressive Web App I build during Udacity's Mobile Web Speciali
 tags: ['PWA', 'HTML', 'SCSS', 'JS', 'Sails.js', 'Python']
 demo: '#'
 sourceCode: 'https://github.com/ThisNameWasTaken/mws-restaurant-stage-1'
+date: 2018-02-01T00:00:00.000Z
 ---

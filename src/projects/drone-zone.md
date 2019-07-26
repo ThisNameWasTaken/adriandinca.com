@@ -6,4 +6,5 @@ description: 'A presentation website for a fictional drone selling enterprise. I
 tags: ['HTML', 'SCSS', 'JS']
 demo: '#'
 sourceCode: '#'
+date: 2018-10-01T00:00:00.000Z
 ---
