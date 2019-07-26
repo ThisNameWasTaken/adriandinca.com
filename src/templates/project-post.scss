@@ -1,5 +1,7 @@
 @import '../components/theme.scss';
 @import '@material/top-app-bar/variables';
+@import '@material/elevation/mdc-elevation';
+@import '@material/typography/mdc-typography';
 
 $background-height: 280px;
 
@@ -18,7 +20,20 @@ $background-height: 280px;
 }
 
 .project {
+  @include mdc-elevation(4);
   max-width: 800px;
   width: 100%;
   margin: auto;
+  background: #fff;
+  border-radius: 4px;
+  padding: 64px;
+  margin-top: 80px;
+
+  & > p {
+    @include mdc-typography('body1');
+  }
+
+  & > h1 {
+    @include mdc-typography('headline4');
+  }
 }

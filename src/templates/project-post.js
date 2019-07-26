@@ -1,6 +1,7 @@
 import React from 'react';
 
 import './project-post.scss';
+import { useStaticQuery, graphql } from 'gatsby';
 
 const Post = ({
   pageContext: {
@@ -14,17 +15,26 @@ const Post = ({
     html,
   },
 }) => {
+  // const data = useStaticQuery(graphql`
+
+  // `);
+
   return (
     <>
-      <div className="fixed-background" />
-      <div className="project">
-        <h1>{title}</h1>
+      <div className="project-background" />
+      <div
+        className="project"
+        dangerouslySetInnerHTML={{
+          __html: `
+        <h1>${title}</h1>
         <p>
-          <i>{timeToRead} minute read</i>
+          <i>${timeToRead} minute read</i>
         </p>
-        <p>{description}</p>
-        <div dangerouslySetInnerHTML={{ __html: html }} />
-      </div>
+        <p>${description}</p>
+        ${html}
+      `,
+        }}
+      ></div>
     </>
   );
 };
