@@ -1,11 +1,10 @@
 import React from 'react';
 
 import './project-post.scss';
-import { useStaticQuery, graphql } from 'gatsby';
+import Image from 'gatsby-image';
 
 const Post = ({
   pageContext: {
-    backgroundImage,
     backgroundAlt,
     description,
     demo,
@@ -13,15 +12,14 @@ const Post = ({
     title,
     timeToRead,
     html,
+    childImageSharp,
   },
 }) => {
-  // const data = useStaticQuery(graphql`
-
-  // `);
-
   return (
     <>
-      <div className="project-background" />
+      <div className="project-background">
+        <Image alt={backgroundAlt} {...childImageSharp} />
+      </div>
       <div
         className="project"
         dangerouslySetInnerHTML={{

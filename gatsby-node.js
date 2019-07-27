@@ -38,14 +38,15 @@ exports.onCreateNode = ({ node, actions: { createNodeField } }) => {
   }
 };
 
-exports.createPages = ({ graphql, actions }) => {
+exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions;
   const blogPostTemplate = path.resolve(`src/templates/project-post.js`);
   // Query for markdown nodes to use in creating pages.
   // You can query for whatever data you want to create pages for e.g.
   // products, portfolio items, landing pages, etc.
   // Variables can be added as the second function parameter
-  return graphql(`
+
+  const result = await graphql(`
     query {
       allMarkdownRemark {
         nodes {
@@ -68,13 +69,40 @@ exports.createPages = ({ graphql, actions }) => {
         }
       }
     }
-  `).then(result => {
-    if (result.errors) {
-      throw result.errors;
-    }
+  `);
 
-    // Create blog post pages.
-    result.data.allMarkdownRemark.nodes.forEach(node => {
+  if (result.errors) {
+    throw result.errors;
+  }
+
+  // Create blog post pages.
+  return await Promise.all(
+    result.data.allMarkdownRemark.nodes.map(async node => {
+      const imageResult = await graphql(
+        `
+          query imageQuery($imagePath: String!) {
+            file(relativePath: { eq: $imagePath }) {
+              childImageSharp {
+                fluid(maxWidth: 665) {
+                  srcSetWebp
+                  base64
+                  aspectRatio
+                  sizes
+                  src
+                  srcSet
+                  srcWebp
+                }
+              }
+            }
+          }
+        `,
+        { imagePath: node.frontmatter.backgroundImage }
+      );
+
+      if (imageResult.errors) {
+        throw imageResult.errors;
+      }
+
       createPage({
         // Path for this page — required
         path: node.fields.path,
@@ -90,9 +118,10 @@ exports.createPages = ({ graphql, actions }) => {
           // argument.
           timeToRead: node.timeToRead,
           html: node.html,
+          childImageSharp: imageResult.data.file.childImageSharp,
           ...node.frontmatter,
         },
       });
-    });
-  });
+    })
+  );
 };

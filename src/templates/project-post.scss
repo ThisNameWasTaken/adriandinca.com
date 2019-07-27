@@ -3,19 +3,25 @@
 @import '@material/elevation/mdc-elevation';
 @import '@material/typography/mdc-typography';
 
-$background-height: 280px;
+$background-height: 40vh;
 
 .project-background {
   position: fixed;
   top: 0;
   display: block;
   width: 100%;
-  height: $mdc-top-app-bar-row-height + $background-height;
+  height: calc(#{$mdc-top-app-bar-row-height} + #{$background-height});
   background: lighten($mdc-theme-primary, 27);
   z-index: -9999;
+  overflow: hidden;
+  display: flex;
 
   @media screen and (max-width: $mdc-top-app-bar-mobile-breakpoint) {
-    height: $mdc-top-app-bar-mobile-row-height + $background-height;
+    height: calc(#{$mdc-top-app-bar-mobile-row-height} + #{$background-height});
+  }
+
+  & > .gatsby-image-wrapper {
+    margin: auto;
   }
 }
 
