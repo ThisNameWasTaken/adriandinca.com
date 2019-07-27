@@ -17,22 +17,27 @@ const Post = ({
 }) => {
   return (
     <>
-      <div className="project-background">
-        <Image alt={backgroundAlt} {...childImageSharp} />
+      <Image
+        className="project-background"
+        style={{ position: 'fixed' }}
+        alt={backgroundAlt}
+        {...childImageSharp}
+      />
+      <div className="project">
+        <div
+          className="project__page"
+          dangerouslySetInnerHTML={{
+            __html: `
+          <h1>${title}</h1>
+          <p>
+            <i>${timeToRead} minute read</i>
+          </p>
+          <p>${description}</p>
+          ${html}
+        `,
+          }}
+        />
       </div>
-      <div
-        className="project"
-        dangerouslySetInnerHTML={{
-          __html: `
-        <h1>${title}</h1>
-        <p>
-          <i>${timeToRead} minute read</i>
-        </p>
-        <p>${description}</p>
-        ${html}
-      `,
-        }}
-      ></div>
     </>
   );
 };

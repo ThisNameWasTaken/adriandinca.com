@@ -26,20 +26,26 @@ $background-height: 40vh;
 }
 
 .project {
-  @include mdc-elevation(4);
-  max-width: 800px;
-  width: 100%;
-  margin: auto;
-  background: #fff;
-  border-radius: 4px;
-  padding: 64px;
-  margin-top: 80px;
+  padding: 17vh 1rem 1rem;
 
-  & > p {
-    @include mdc-typography('body1');
-  }
+  &__page {
+    @include mdc-elevation(4);
+    max-width: 800px;
+    width: 100%;
+    margin: auto;
+    background: #fff;
+    border-radius: 4px;
+    margin-top: 80px;
+    padding: 2rem;
 
-  & > h1 {
-    @include mdc-typography('headline4');
+    min-height: 100vh;
+
+    & > p {
+      @include mdc-typography('body1');
+    }
+
+    & > h1 {
+      @include mdc-typography('headline4');
+    }
   }
 }
