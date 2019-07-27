@@ -80,10 +80,10 @@ exports.createPages = async ({ graphql, actions }) => {
     result.data.allMarkdownRemark.nodes.map(async node => {
       const imageResult = await graphql(
         `
-          query imageQuery($imagePath: String!) {
+          query imageQuery($imagePath: String!, $maxWidth: Int, $quality: Int) {
             file(relativePath: { eq: $imagePath }) {
               childImageSharp {
-                fluid(maxWidth: 665) {
+                fluid(maxWidth: $maxWidth, quality: $quality) {
                   srcSetWebp
                   base64
                   aspectRatio
@@ -96,7 +96,11 @@ exports.createPages = async ({ graphql, actions }) => {
             }
           }
         `,
-        { imagePath: node.frontmatter.backgroundImage }
+        {
+          imagePath: node.frontmatter.backgroundImage,
+          maxWidth: 1920,
+          quality: 100,
+        }
       );
 
       if (imageResult.errors) {
