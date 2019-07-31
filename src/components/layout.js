@@ -52,11 +52,11 @@ const Layout = ({ children, location }) => {
 
     const isGoingBackwards =
       prevLocation &&
-      (parseInt(prevLocation.key) || 0) < (parseInt(location.key) || 0);
+      (parseInt(prevLocation.key) || 0) > (parseInt(location.key) || 0);
 
     isGoingBackwards
-      ? routeTransitions.moveToLeft()
-      : routeTransitions.moveToRight();
+      ? routeTransitions.moveToRight()
+      : routeTransitions.moveToLeft();
   }, [location]);
 
   const onEnter = enteringElement => {
