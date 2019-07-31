@@ -1,5 +1,5 @@
 $page-column-gap: 0 !default;
-$resume-background-height: 260px;
+$resume-background-height: 33vh;
 
 @import '../components/theme.scss';
 @import '@material/typography/mdc-typography';
@@ -11,12 +11,14 @@ $resume-background-height: 260px;
   top: 0;
   display: block;
   width: 100%;
-  height: $mdc-top-app-bar-row-height + $resume-background-height;
-  @media screen and (max-width: $mdc-top-app-bar-mobile-breakpoint) {
-    height: $mdc-top-app-bar-mobile-row-height + $resume-background-height;
-  }
+  height: calc(#{$mdc-top-app-bar-row-height} + #{$resume-background-height});
   background: lighten($mdc-theme-primary, 27);
   z-index: -9999;
+
+  @media screen and (max-width: $mdc-top-app-bar-mobile-breakpoint) {
+    height: calc(#{$mdc-top-app-bar-mobile-row-height} + #{$resume-background-height});
+  }
+  
   &__inner {
     position: relative;
     width: 100%;
@@ -29,25 +31,29 @@ $resume-background-height: 260px;
   @media screen and (min-width: 1040px) {
     bottom: unset;
     right: unset;
-    top: $resume-background-height + 32px;
+    top: calc(#{$resume-background-height} + 32px);
     left: calc(50% + 440px);
   }
 }
 
 .resume {
-  @media screen and (max-width: 799.99999px) {
-    position: absolute;
-    top: 32px;
-    left: 0;
-  }
-  @media screen and (max-width: $mdc-top-app-bar-mobile-breakpoint) {
-    top: 24px;
-  }
   $padding: 16px;
   padding: 0 $padding;
   display: block;
-  margin: 80px auto 0px auto;
+  margin: calc(#{$resume-background-height} - 180px) auto 0px auto;
   width: 800px + 2 * $padding;
+
+  @media screen and (max-width: 799.99999px) {
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin: calc(#{$resume-background-height} - 18vw - #{$mdc-top-app-bar-row-height}) auto 0px auto;
+  }
+  
+  @media screen and (max-width: $mdc-top-app-bar-mobile-breakpoint) {
+    top: 0;
+    margin: calc(#{$resume-background-height} - 20vw - #{$mdc-top-app-bar-mobile-row-height}) auto 0px auto;
+  }
 }
 
 .page {
