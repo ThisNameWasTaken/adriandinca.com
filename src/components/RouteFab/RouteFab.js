@@ -7,6 +7,15 @@ import Tooltip from '../material/Tooltip';
 import './RouteFab.scss';
 import routeTransitions from '../RouteTransitions';
 
+const projectFab = {
+  id: 'visit-website-fab',
+  icon: (
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M0 0h24v24H0z" fill="none"/><path d="M19 4H5c-1.11 0-2 .9-2 2v12c0 1.1.89 2 2 2h4v-2H5V8h14v10h-4v2h4c1.1 0 2-.9 2-2V6c0-1.1-.89-2-2-2zm-7 6l-4 4h3v6h2v-6h3l-4-4z"/></svg>
+  ),
+  label: 'visit website',
+  tooltip: 'visit website',
+};
+
 const fabs = [
   {
     id: 'download-resume-fab',
@@ -26,6 +35,36 @@ const fabs = [
     label: 'download resume',
     tooltip: 'Download PDF',
     pathname: '/resume',
+  },
+  {
+    ...projectFab,
+    href: 'https://marketplace.visualstudio.com/items?itemName=ThisNameWasTaken.one-moon',
+    pathname: '/projects/one-moon',
+  },
+  {
+    ...projectFab,
+    href: 'https://thisnamewastaken.github.io/foose-shoes',
+    pathname: '/projects/foose-shoes',
+  },
+  {
+    ...projectFab,
+    href: 'https://www.npmjs.com/package/ejs-plain-loader',
+    pathname: '/projects/ejs-plain-loader',
+  },
+  {
+    ...projectFab,
+    href: 'https://thisnamewastaken.github.io/Jokr/',
+    pathname: '/projects/jokr',
+  },
+  {
+    ...projectFab,
+    href: 'https://thisnamewastaken.github.io/mws-restaurant-stage-1',
+    pathname: '/projects/restaurant-reviews',
+  },
+  {
+    ...projectFab,
+    href: 'https://thisnamewastaken.github.io/drone-zone',
+    pathname: '/projects/drone-zone',
   },
 ];
 
