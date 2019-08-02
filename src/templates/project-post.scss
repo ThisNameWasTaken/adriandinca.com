@@ -17,7 +17,9 @@ $project-background-height: 33vh;
   display: flex;
 
   @media screen and (max-width: $mdc-top-app-bar-mobile-breakpoint) {
-    height: calc(#{$mdc-top-app-bar-mobile-row-height} + #{$project-background-height});
+    height: calc(
+      #{$mdc-top-app-bar-mobile-row-height} + #{$project-background-height}
+    );
   }
 
   & > .gatsby-image-wrapper {
@@ -38,8 +40,40 @@ $project-background-height: 33vh;
     margin-top: 80px;
     padding: 2rem;
 
+    & > table {
+      width: 100%;
+      text-align: left;
+      border-collapse: collapse;
+
+      & > thead > tr > td,
+      & > thead > tr > th,
+      & > tbody > tr > td,
+      & > tfoot > tr > td {
+        padding: 0.5rem 1rem;
+      }
+      & > thead > tr:nth-child(even),
+      & > tbody > tr:nth-child(odd),
+      & > tfoot > tr:nth-child(odd) {
+        background: darken(#fff, 4);
+      }
+      & > thead > tr:hover,
+      & > thead > tr:hover,
+      & > tbody > tr:hover,
+      & > tfoot > tr:hover {
+        background: rgba($mdc-theme-primary, 0.12);
+      }
+    }
+
     & > p {
       @include mdc-typography('body1');
+    }
+
+    & > h2 {
+      @include mdc-typography('headline5');
+    }
+
+    & > h3 {
+      @include mdc-typography('headline6');
     }
 
     & > h1 {
