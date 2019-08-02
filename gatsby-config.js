@@ -54,7 +54,19 @@ module.exports = {
       resolve: `gatsby-transformer-remark`,
       options: {
         // Plugins configs
-        plugins: [],
+        plugins: [
+          {
+            resolve: `gatsby-remark-relative-images`,
+          },
+          {
+            resolve: `gatsby-remark-images`,
+            options: {
+              maxWidth: 736,
+              quality: 80,
+              withWebp: true,
+            },
+          },
+        ],
       },
     },
     {
