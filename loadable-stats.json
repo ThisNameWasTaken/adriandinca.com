@@ -1,0 +1,66 @@
+{
+  "errors": [],
+  "warnings": [
+    "./.cache/static-entry.js\nModule not found: Error: Can't resolve '../src/html' in 'D:\\visual studio\\Web Projects\\gatsby-may\\.cache'\n @ ./.cache/static-entry.js"
+  ],
+  "version": "4.28.4",
+  "hash": "9ff8e1249b985955a78f",
+  "publicPath": "/",
+  "outputPath": "D:\\\\visual studio\\\\Web Projects\\\\gatsby-may\\\\public",
+  "assetsByChunkName": {
+    "main": [
+      "render-page.js",
+      "render-page.js.map"
+    ]
+  },
+  "assets": [
+    {
+      "name": "render-page.js",
+      "size": 887466,
+      "chunks": [
+        "main"
+      ],
+      "chunkNames": [
+        "main"
+      ]
+    },
+    {
+      "name": "render-page.js.map",
+      "size": 896716,
+      "chunks": [
+        "main"
+      ],
+      "chunkNames": [
+        "main"
+      ]
+    }
+  ],
+  "filteredAssets": 0,
+  "entrypoints": {
+    "main": {
+      "chunks": [
+        "main"
+      ],
+      "assets": [
+        "render-page.js",
+        "render-page.js.map"
+      ],
+      "children": {},
+      "childAssets": {}
+    }
+  },
+  "namedChunkGroups": {
+    "main": {
+      "chunks": [
+        "main"
+      ],
+      "assets": [
+        "render-page.js",
+        "render-page.js.map"
+      ],
+      "children": {},
+      "childAssets": {}
+    }
+  },
+  "children": []
+}

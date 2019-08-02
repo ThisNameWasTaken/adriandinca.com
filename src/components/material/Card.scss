@@ -1,9 +1,0 @@
-@import '../theme.scss';
-@import '@material/react-card/index.scss';
-
-.mdc-card__primary-action {
-  &,
-  &:focus {
-    outline: none;
-  }
-}
