@@ -14,6 +14,7 @@ import Phone from '../images/icons/baseline-phone-24px.svg';
 import Email from '../images/icons/baseline-email-24px.svg';
 import LinkedIn from '../images/icons/linkedin-in-brands.svg';
 import Github from '../images/icons/github-brands.svg';
+import Language from '../images/icons/baseline-language-24px.svg';
 
 const Page2 = lazy(() => import('../partials/resume/page-2'));
 const Page3 = lazy(() => import('../partials/resume/page-3'));
@@ -167,6 +168,12 @@ const Resume = () => {
                         <span>https://github.com/thisNameWasTaken/</span>
                       </a>
                     </li>
+                    <li>
+                      <a href="https://adriandinca.com">
+                        <Language aria-hidden="true" />
+                        <span>https://adriandinca.com</span>
+                      </a>
+                    </li>
                   </ul>
 
                   <GenericInfo
@@ -181,89 +188,84 @@ const Resume = () => {
 
               <div className="page__columns">
                 <div className="page__column page__column--left">
-                  <h2 className="page__headline-2">
-                    Open Source Projects & Contributions
-                  </h2>
-                </div>
-                <div className="page__column page__column--right">
-                  <h3 className="page__headline-3">EJS plain loader</h3>
-                  <h4 className="page__subtitle-3">November 2018 - Present</h4>
-                  <Body2>
-                    Created a Webpack plugin for loading EJS templates. It also
-                    enables imports of CommonJS modules, JSON files and any file
-                    formats which can be converted to a .txt (html, css, csv,
-                    etc).
-                  </Body2>
-
-                  <h3 className="page__headline-3">RellaxJS</h3>
-                  <h4 className="page__subtitle-3">
-                    March 2019{' '}
-                    <a href="https://github.com/dixonandmoe/rellax/pull/160">
-                      #160
-                    </a>
-                  </h4>
-                  <Body2>
-                    Made a pull request to close issue{' '}
-                    <a href="https://github.com/dixonandmoe/rellax/issues/159">
-                      #159
-                    </a>{' '}
-                    which enabled sharing nodes and node lists. The{' '}
-                    <span id="pr">PR</span> increased performance on large DOM
-                    trees by avoiding redundant DOM queries.
-                  </Body2>
-
-                  <Tooltip htmlFor="pr">Pull Request</Tooltip>
-
-                  <h3 className="page__headline-3">PurgeCSS</h3>
-                  <h4 className="page__subtitle-3">
-                    January 2019{' '}
-                    <a href="https://github.com/FullHuman/purgecss/pull/167">
-                      #167
-                    </a>
-                  </h4>
-                  <Body2>
-                    Fixed{' '}
-                    <a href="https://github.com/FullHuman/purgecss/issues/166">
-                      a self discovered bug
-                    </a>{' '}
-                    which would remove all but the first keyframe when using
-                    animations with multiple keyframes.
-                  </Body2>
-
-                  <h3 className="page__headline-3">EJS</h3>
-                  <h4 className="page__subtitle-3">
-                    November 2018{' '}
-                    <a href="https://github.com/mde/ejs/pull/411">#441</a>
-                  </h4>
-                  <Body2>
-                    Exposed the template class in order for it to be extended or
-                    overridden by other npm modules.
-                  </Body2>
-                </div>
-              </div>
-
-              <div className="page__columns">
-                <div className="page__column page__column--left">
                   <h2 className="page__headline-2">Education and Training</h2>
                 </div>
                 <div className="page__column page__column--right">
                   <h3 className="page__headline-3">OSF Academy for students</h3>
                   <h4 className="page__subtitle-3">
-                    February 2018 - March 2018{' '}
-                    <a href="https://www.osf-global.com/">OSF</a>
+                    February 2019 - March 2019{' '}
+                    <a href="https://www.osf-global.com/">
+                      OSF Global Services
+                    </a>
                   </h4>
                   <Body2>
                     Built the frontend of an{' '}
                     <a href="https://thisnamewastaken.github.io/foose-shoes/">
                       e-commerce website
                     </a>{' '}
-                    for selling shoes. Implemented custom GulpJS setup which
-                    handled sass and ES2018 transpiling, image optimization,
-                    dynamic imports, and dead code removal. Improved performance
-                    by inlining critical styles, using code splitting and lazy
+                    for selling shoes. Implemented custom GulpJS setup to handle
+                    sass, ES2019 transpiling, image optimization, dynamic
+                    imports and dead code removal. Improved performance by
+                    inlining critical styles, using code splitting and lazy
                     loading images via intersection observers. The gulp script
                     parses the html and ensures that only needed files are
                     included in the final build.
+                  </Body2>
+                  <Body2>
+                    At the end of the program, my mentor, Volodymyr Lysenko,
+                    recommended me for a frontend developer job at OSF.
+                  </Body2>
+
+                  <h3 className="page__headline-3">
+                    Mobile Web Specialist Google Developers Certification
+                  </h3>
+                  <h4 className="page__subtitle-3">
+                    September 2018{' '}
+                    <a href="https://www.linkedin.com/company/googledevelopers/about/">
+                      Google Developers
+                    </a>
+                  </h4>
+                  <Body2>
+                    <a href="https://www.credential.net/hoaryqia">Passed</a>{' '}
+                    Google's{' '}
+                    <a href="https://developers.google.com/training/certification/mobile-web-specialist/">
+                      mobile web specialist exam
+                    </a>
+                    , a four and a half hours test, consisting in fixing layout,
+                    performance and accessibility issues and common mistakes.
+                  </Body2>
+
+                  <h3 className="page__headline-3">
+                    Mobile Web Specialist Nanodegree Program
+                  </h3>
+                  <h4 className="page__subtitle-3">
+                    March 2018 - July 2018{' '}
+                    <a href="https://eu.udacity.com/">Udacity</a>
+                  </h4>
+                  <Body2>
+                    Worked on <a href="#">a progressive web app</a> (PWA) for
+                    reviewing restaurants. Fixed layout and responsiveness
+                    issues. Improved load times on 3G by 80%. Fixed
+                    accessibility issues. Added offline support and push
+                    notifications.
+                  </Body2>
+
+                  <h3 className="page__headline-3">
+                    Google Developer Challenge Scholarship
+                  </h3>
+                  <h4 className="page__subtitle-3">
+                    November 2017 - February 2018{' '}
+                    <a href="https://eu.udacity.com/">Udacity</a>
+                  </h4>
+                  <Body2>
+                    Turned a website into a PWA, increased its user engagement
+                    by adding features such as background sync and push
+                    notifications. Guided other students through solving their
+                    issues. Got accepted into the next stage. Built{' '}
+                    <a href="https://thisnamewastaken.github.io/Jokr/">
+                      my first PWA
+                    </a>{' '}
+                    to test my knowledge.
                   </Body2>
                 </div>
               </div>

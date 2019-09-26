@@ -16,9 +16,11 @@ $resume-background-height: 33vh;
   z-index: -9999;
 
   @media screen and (max-width: $mdc-top-app-bar-mobile-breakpoint) {
-    height: calc(#{$mdc-top-app-bar-mobile-row-height} + #{$resume-background-height});
+    height: calc(
+      #{$mdc-top-app-bar-mobile-row-height} + #{$resume-background-height}
+    );
   }
-  
+
   &__inner {
     position: relative;
     width: 100%;
@@ -47,12 +49,18 @@ $resume-background-height: 33vh;
     position: absolute;
     top: 0;
     left: 0;
-    margin: calc(#{$resume-background-height} - 18vw - #{$mdc-top-app-bar-row-height}) auto 0px auto;
+    margin: calc(
+        #{$resume-background-height} - 18vw - #{$mdc-top-app-bar-row-height}
+      )
+      auto 0px auto;
   }
-  
+
   @media screen and (max-width: $mdc-top-app-bar-mobile-breakpoint) {
     top: 0;
-    margin: calc(#{$resume-background-height} - 20vw - #{$mdc-top-app-bar-mobile-row-height}) auto 0px auto;
+    margin: calc(
+        #{$resume-background-height} - 20vw - #{$mdc-top-app-bar-mobile-row-height}
+      )
+      auto 0px auto;
   }
 }
 
@@ -223,6 +231,7 @@ a {
 #generic-info {
   padding: 0;
   margin: 0;
+  margin-top: 0.5rem;
   list-style-type: none;
   color: #656565;
   font-weight: 700;
