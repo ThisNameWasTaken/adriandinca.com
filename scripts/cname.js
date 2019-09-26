@@ -14,7 +14,12 @@ const readFile = promisify(_readFile);
   }
 
   const CNAME = homepage.split('://')[1];
-  await writeFile('public/CNAME', CNAME);
+  await writeFile(
+    'public/CNAME',
+    CNAME.startsWith('www.')
+      ? `${CNAME}\n${CNAME.replace('www.', '')}`
+      : `www.${CNAME}\n${CNAME}`
+  );
 
   console.log(`Created CNAME ${CNAME}`);
 })();
