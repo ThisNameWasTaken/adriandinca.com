@@ -62,7 +62,7 @@
   "scripts": {
     "prebuild": "npm run cleanup",
     "build": "gatsby build",
-    "postbuild": "npm-run-all purgecss cname",
+    "postbuild": "npm-run-all cname",
     "cname": "node scripts/cname",
     "cleanup": "node scripts/cleanup",
     "deploy": "gh-pages -d public -m \"chore: Deploy to gh pages\"",
