@@ -1,10 +1,10 @@
 {
   "errors": [],
   "warnings": [
-    "./.cache/static-entry.js\nModule not found: Error: Can't resolve '../src/html' in 'D:\\Web-Projects\\adriandinca.com\\.cache'\n @ ./.cache/static-entry.js"
+    "./.cache/develop-static-entry.js\nModule not found: Error: Can't resolve '../src/html' in 'D:\\Web-Projects\\adriandinca.com\\.cache'\n @ ./.cache/develop-static-entry.js"
   ],
   "version": "4.28.4",
-  "hash": "b876e5b80a3390850248",
+  "hash": "e82807d87e90390462aa",
   "publicPath": "/",
   "outputPath": "D:\\\\Web-Projects\\\\adriandinca.com\\\\public",
   "assetsByChunkName": {
@@ -16,7 +16,7 @@
   "assets": [
     {
       "name": "render-page.js",
-      "size": 880280,
+      "size": 1300995,
       "chunks": [
         "main"
       ],
@@ -26,7 +26,7 @@
     },
     {
       "name": "render-page.js.map",
-      "size": 894865,
+      "size": 1429724,
       "chunks": [
         "main"
       ],
