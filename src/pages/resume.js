@@ -103,6 +103,12 @@ const Resume = () => {
       <SEO
         title="Resume"
         keywords={[
+          'Adrian Dinca',
+          'Adrian Florin Dinca',
+          'Adrian',
+          'Dinca',
+          'Florin',
+          'Adrian-Florin',
           'Mobile',
           'Web',
           'Specialist',
@@ -115,10 +121,6 @@ const Resume = () => {
           'App',
           'Freelancer',
           'Resume',
-          'Adrian',
-          'Dinca',
-          'Florin',
-          'Adrian-Florin',
         ]}
       />
       <div className="resume-background" />
