@@ -1,0 +1,9 @@
+@import '../theme.scss';
+@import '@material/react-icon-button/index.scss';
+
+.mdc-icon-button--primary {
+  &,
+  &.mdc-card__action--icon:not(:disabled) {
+    @include mdc-icon-button-ink-color(rgba($mdc-theme-primary, 0.7));
+  }
+}

@@ -5,7 +5,7 @@ import { MDCIconButtonToggleFoundation } from '@material/icon-button/foundation'
 
 import { Link } from 'gatsby';
 
-import '@material/react-icon-button/index.scss';
+import './IconButton.scss';
 
 const ARIA_PRESSED = 'aria-pressed';
 
