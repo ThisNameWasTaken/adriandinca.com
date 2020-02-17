@@ -4,11 +4,16 @@ import Card, {
   CardMedia,
   CardActions,
   CardActionButtons,
+  CardActionIcons,
 } from './material/Card';
 import { Headline4, Body1 } from './material/Typography';
 import Button from './material/Button';
 import Image from './image';
 import { ChipSet, Chip } from './material/Chip';
+import IconButton from './material/IconButton';
+
+import GithubIcon from '../images/icons/github-brands.svg';
+import Tooltip from './material/Tooltip';
 
 const ProjectCard = ({
   headline,
@@ -40,9 +45,20 @@ const ProjectCard = ({
     <CardActions>
       <CardActionButtons>
         <Button href={demoButton.href}>{demoButton.label}</Button>
-        <Button href={sourceButton.href}>{sourceButton.label}</Button>
+        <Button href={href}>Read</Button>
       </CardActionButtons>
+      <CardActionIcons>
+        <IconButton
+          id={`${href}`}
+          className="mdc-icon-button--primary"
+          href={sourceButton.href}
+        >
+          <GithubIcon />
+        </IconButton>
+      </CardActionIcons>
     </CardActions>
+
+    <Tooltip htmlFor={href}>View Source</Tooltip>
   </Card>
 );
 
