@@ -4,7 +4,7 @@
     "./.cache/static-entry.js\nModule not found: Error: Can't resolve '../src/html' in 'D:\\Web-Projects\\adriandinca.com\\.cache'\n @ ./.cache/static-entry.js"
   ],
   "version": "4.28.4",
-  "hash": "66049f208f23ccbff3f9",
+  "hash": "e56db47e8916bcc3bbed",
   "publicPath": "/",
   "outputPath": "D:\\\\Web-Projects\\\\adriandinca.com\\\\public",
   "assetsByChunkName": {
@@ -16,7 +16,7 @@
   "assets": [
     {
       "name": "render-page.js",
-      "size": 881556,
+      "size": 883155,
       "chunks": [
         "main"
       ],
@@ -26,7 +26,7 @@
     },
     {
       "name": "render-page.js.map",
-      "size": 895876,
+      "size": 897768,
       "chunks": [
         "main"
       ],
