@@ -9,15 +9,32 @@ const Page2 = () => (
         <div className="page__columns">
           <div className="page__column page__column--no-top-border page__column--left" />
           <div className="page__column page__column--no-top-border page__column--right">
-            <h3 className="page__headline-3">Bachelor Degree</h3>
+            <Body2>
+              Turned a website into a PWA, increased its user engagement by
+              adding features such as background sync and push notifications.
+              Guided other students through solving their issues. Got accepted
+              into the next stage. Built{' '}
+              <a href="https://thisnamewastaken.github.io/Jokr/">
+                my first PWA
+              </a>{' '}
+              to test my knowledge.
+            </Body2>
+
+            <h3 className="page__headline-3">
+              Bachelor's Degree in Computer Science
+            </h3>
             <h4 className="page__subtitle-3">
-              October 2017 - PRESENT{' '}
+              October 2017 - July 2020{' '}
               <a href="https://unibuc.ro/?lang=en">University of Bucharest</a>
             </h4>
-            <Body2>
-              Student in the computer science department at the University of
-              Bucharest.
-            </Body2>
+
+            <h3 className="page__headline-3">
+              Master's Degree in Software engineering
+            </h3>
+            <h4 className="page__subtitle-3">
+              October 2020 - Present{' '}
+              <a href="https://unibuc.ro/?lang=en">University of Bucharest</a>
+            </h4>
 
             <h3 className="page__headline-3">High School</h3>
             <h4 className="page__subtitle-3">
@@ -25,8 +42,7 @@ const Page2 = () => (
               <a href="http://zinca-golescu.ro/">CNL "Zinca Golescu"</a>
             </h4>
             <Body2>
-              Studied mathematics and computer science at CNL "Zinca Golescu" in
-              Pitești. Created a{' '}
+              Created a{' '}
               <a href="https://frostybytes.000webhostapp.com">website</a> while
               learning the basics of HTML, CSS, JavaScript, PHP and SQL.
             </Body2>
@@ -97,13 +113,8 @@ const Page2 = () => (
             <h2 className="page__headline-2">Hackathons</h2>
           </div>
           <div className="page__column page__column--right">
-            <h3 className="page__headline-3">MS.Hack</h3>
-            <h4 className="page__subtitle-3">May 2019</h4>
-            <Body2>
-              Won the 2<sup>nd</sup> place with a team of 3 people by building a
-              PWA using Microsoft's Azure Cognitive Services. The app was aimed
-              at visually impaired people and it's main goal was to help them
-            </Body2>
+            <h3 className="page__headline-3">Smarthack</h3>
+            <h4 className="page__subtitle-3">October 2019</h4>
           </div>
         </div>
       </div>

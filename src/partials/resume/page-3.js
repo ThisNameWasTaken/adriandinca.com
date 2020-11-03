@@ -9,6 +9,22 @@ const Page3 = () => (
           <div className="page__column page__column--no-top-border page__column--left "></div>
           <div className="page__column page__column--no-top-border page__column--right">
             <Body2>
+              Won the 1<sup>st</sup> from Adobe by building a website which
+              would allow to dynamically change your current website by adding a
+              script tag to it (similar to Google analytics). The website would
+              also warn against accessibility issues such as poor contrast
+              between the text and the background, missing labels etc. Also if
+              an image was missing the "alt" attribute, we would generate an
+              image caption using a self-made python based rest api powered by
+              TensorFlow.
+            </Body2>
+
+            <h3 className="page__headline-3">MS.Hack</h3>
+            <h4 className="page__subtitle-3">May 2019</h4>
+            <Body2>
+              Won the 2<sup>nd</sup> place with a team of 3 people by building a
+              PWA usingMicrosoft's Azure Cognitive Services. The app was aimed
+              at visually impaired people and it's main goal was to help them
               avoid nearby obstacles and point out certain objects based on
               their needs (fatigue, coldness, thirst, etc) using a smartphone.
             </Body2>

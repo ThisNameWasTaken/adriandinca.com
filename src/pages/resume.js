@@ -193,6 +193,21 @@ const Resume = () => {
                   <h2 className="page__headline-2">Education and Training</h2>
                 </div>
                 <div className="page__column page__column--right">
+                  <h3 className="page__headline-3">
+                    Finastra JavaScript Developer
+                  </h3>
+                  <h4 className="page__subtitle-3">
+                    October 2019 - Present{' '}
+                    <a href="https://www.finastra.com/">Finastra</a>
+                  </h4>
+                  <Body2>
+                    Actively maintaining the frontend of two desktop banking
+                    apps. Fixed performance issues on several components.
+                    Deployed new features and new screens. Did knowledge
+                    transfer to a team from Paris for the first project I was
+                    working on.
+                  </Body2>
+
                   <h3 className="page__headline-3">OSF Academy for students</h3>
                   <h4 className="page__subtitle-3">
                     February 2019 - March 2019{' '}
@@ -259,16 +274,6 @@ const Resume = () => {
                     November 2017 - February 2018{' '}
                     <a href="https://eu.udacity.com/">Udacity</a>
                   </h4>
-                  <Body2>
-                    Turned a website into a PWA, increased its user engagement
-                    by adding features such as background sync and push
-                    notifications. Guided other students through solving their
-                    issues. Got accepted into the next stage. Built{' '}
-                    <a href="https://thisnamewastaken.github.io/Jokr/">
-                      my first PWA
-                    </a>{' '}
-                    to test my knowledge.
-                  </Body2>
                 </div>
               </div>
             </div>
